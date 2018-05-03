@@ -8,6 +8,9 @@
 	#else {#showme {$MODAL> $MODE} {0}};
 };
 
+#macro {²} {
+	#if {"$MODAL" == "off"} {modal};
+};
 
 #var {MODAL} {off};
 #alias {modal} {
