@@ -1,5 +1,8 @@
 # TinTin-MUME
-A collection of TinTin++ scripts for [MUME](http://mume.org "MUME Home Page")
+A collection of TinTin++ scripts for [MUME](http://mume.org "MUME Home Page"),
+forked from <https://github.com/nstockton/tintin-mume>.
+
+**Work in Progress.**
 
 Since speed is important to play mume, these scripts implement
 a modal system reminiscent of vim:
