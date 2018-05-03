@@ -1,0 +1,103 @@
+#sub {^a bent bone key$} {%0 - stonedoor, silver bracer}
+#sub {^a bent brass key$} {%0 - Smugglers south of Warrens}
+#sub {^a big metal key$} {%0 - oakendoor, Rohir tower}
+#sub {^a big stonekey$} {%0 - stonedoor, BBT}
+#sub {^a black and silver key$} {%0 - slab, Old Wight}
+#sub {^a black bone key$} {%0 - door, Nagrorh}
+#sub {^a black key$} {%0 - portcullis, LB fort}
+#sub {^a black metal key$} {%0 - rock, ABR}
+#sub {^a black stone key$} {%0 - panels at great wheels}
+#sub {^a blood-stained key$} {%0 - rack, OOC}
+#sub {^a bloody key$} {%0 - door/gorydoor, Mezagor}
+#sub {^a blue steel-key$} {%0 - minedoor, Dunland mines}
+#sub {^a brass key$} {%0 - metaldoor, bandit leader}
+#sub {^a bright steel key$} {%0 - grille behind panels (wheels)}
+#sub {^a burnished iron key$} {%0 - chest, Illusionist + stonedoor, trolls}
+#sub {^a castle key$} {%0 - irondoor, Malardils castle}
+#sub {^a chained silver key$} {%0 - joist, A Master treasury}
+#sub {^a copper key$} {%0 - grate, pipeweed smugglers}
+#sub {^a crooked iron key$} {%0 - Mine near Dragon}
+#sub {^a crude bronze key$} {%0 - Metaldoor, Filthy}
+#sub {^a crude iron key$} {%0 - proud man, prison, ZOC}
+#sub {^a crude metal key$} {%0 - Brolg}
+#sub {^a darkly stained metal key$} {%0 - irondoor, Guardian}
+#sub {^a decayed ironkey$} {%0 - sconce, BW treasury}
+#sub {^a decayed iron key$} {%0 - sconce treasure room at BW}
+#sub {^a dirty key$} {%0 - trapdoor, bandit leader}
+#sub {^a dirty stone key$} {%0 - floor/ceiling, 2h-axe Eregion}
+#sub {^a Fornost city key$} {%0 - Fornost Gates (RENTABLE)}
+#sub {^a fragile stone key$} {%0 - stonedoor, Unqalome}
+#sub {^a glass key$} {%0 - flagstone, DK}
+#sub {^a granite key inlaid with wood$} {%0 - chest, Eregion 2 statues}
+#sub {^a great bone key$} {%0 - trapdoor, Balrog rings key}
+#sub {^a green iron key$} {%0 - prisondoor, NOC vellum place}
+#sub {^a green key$} {%0 - halldoor, Eregion}
+#sub {^a heavy iron key$} {%0 - door, Drain pipe}
+#sub {^a heavy steel key$} {%0 - stonedoor/rockface, OOC}
+#sub {^a huge iron key$} {%0 - steeldoor/leaddoor, Shaghosh}
+#sub {^a jade-encrusted key$} {%0 - archeddoor under hatch, Lorien (USE DECAY)}
+#sub {^a Jail key$} {%0 - jaildoor, Bree (RENTABLE)}
+#sub {^a jewel-encrusted key$} {%0 - jewelleddoor, Balrog rings key}
+#sub {^a key attached to a vine-rope$} {%0 - Ingrove gate key}
+#sub {^a large flint key$} {%0 - exit from aisle in Moria}
+#sub {^a large key$} {%0 - wall, Old Wight}
+#sub {^a long, rusty key$} {%0 - An Old Cottage on the Forest Glade, Mirkwood}
+#sub {^a metal and stone key$} {%0 - cinderblock + tapestry, Eregion}
+#sub {^a metal key$} {%0 - oakendoor, Necro}
+#sub {^a mithril key$} {%0 - mithrildoor, Balrog rings (TIME/ZONE DECAY)}
+#sub {^an ancient dwarven key$} {%0 - flagstone, circlet chest (USE DECAY)}
+#sub {^an ancient key$} {%0 - stoneslab, lww smugglers}
+#sub {^an ancient silver key$} {%0 - OiE Book}
+#sub {^an ebony key$} {%0 - 1 of 2 doors up from knight in rdell}
+#sub {^an engraved silver ring$} {%0 - crypt near WC}
+#sub {^an engraved stone key$} {%0 - irondoor to overseer}
+#sub {^an icy key$} {%0 - all doors, Balrog treasury (TIME/ZONE DECAY)}
+#sub {^an intricate steel key$} {%0 - Umuk's chest (bda) (TIME/ZONE DECAY)}
+#sub {^an iron key$} {%0 - rockface (not the one at ooc)}
+#sub {^an old bronze key$} {%0 - Wolfgate, irondoors, NOC}
+#sub {^an old iron key$} {%0 - rockdoor, GC}
+#sub {^an old key$} {%0 - chest, lord's treasury}
+#sub {^an old metallic key$} {%0 - BM mines chest}
+#sub {^an old ornate key$} {%0 - sarcophagus, Dunland vellum}
+#sub {^an unadorned steel key$} {%0 - Grotbrug}
+#sub {^a polished copper key$} {%0 - door + irondoor, DT}
+#sub {^a rigid metal key$} {%0 - trapdoor, GH Old Ruins}
+#sub {^a rusted iron key$} {%0 - orcs dungeon, Dunland}
+#sub {^a rusted key$} {%0 - Cryptdoor, Old Wight}
+#sub {^a shining key$} {%0 - archeddoors, Muranog's treasury}
+#sub {^a shop key$} {%0 - shops, Tharbad}
+#sub {^a silvery key$} {%0 - door, GC room}
+#sub {^a simple metal key$} {%0 - cover, BM mines}
+#sub {^a skull key$} {%0 - burialtrap, near Hillmen}
+#sub {^a slender, wooden key$} {%0 - tree hideout, south of Tharbad}
+#sub {^a slightly bent iron key$} {%0 - jade bracelet chest}
+#sub {^a slimy iron key$} {%0 - vaultdoor, Icedoor}
+#sub {^a slimy metal key$} {%0 - 3 irondoors in Shaghosh area}
+#sub {^a small brass key$} {%0 - brassdoor, thorns/hedge tower}
+#sub {^a small copper key$} {%0 - granite, Unqalome}
+#sub {^a small iron key$} {%0 - chest at overseer}
+#sub {^a small key carved from ebony$} {%0 - board + grating at Necro}
+#sub {^a small key of elven make$} {%0 - ELF CAMP SOUTH OF RD}
+#sub {^a small rusted iron key$} {%0 - metaldoor, Dunland Orcs}
+#sub {^a small silver key$} {%0 - either MA upgrade or blackdoor at Sage}
+#sub {^a small steel key$} {%0 - slab, Unqalome}
+#sub {^a small stone key$} {%0 - stonelatch, Bulag's treasury}
+#sub {^a small twisted root$} {%0 - wall, Ferny}
+#sub {^a square stone key$} {%0 - force, Amon Othar}
+#sub {^a steel key$} {%0 - door, Tharbad chief}
+#sub {^a stone key$} {%0 - pillars, mattock armoury}
+#sub {^a tarnished metal key$} {%0 - doors in VT}
+#sub {^a tarnished silver key$} {%0 - Battle-standard quest from Brolg}
+#sub {^a tinted brass key$} {%0 - door, gilded ghost}
+#sub {^a tiny bronze key$} {%0 - Marbledoor, outcast}
+#sub {^a tiny copper key$} {%0 - WAREHOUSE, Tharbad}
+#sub {^a tiny silver key$} {%0 - 1 of 2 doors up from knight in Rdell}
+#sub {^a tiny silvery key$} {%0 - branchtop, Lorien}
+#sub {^a tiny stone key$} {%0 - stonedoor + prisondoor Barbaras}
+#sub {^a tiny stonekey$} {%0 - stonedoor+prisondoor, Barbaras}
+#sub {^a twisted iron key$} {%0 - irondoor, entrance to BW (Rentable/USE DECAY)}
+#sub {^a twisted root$} {%0 - wall, Ferny}
+#sub {^a very rusty key$} {%0 - gate, nobleman east of Tharbad}
+#sub {^a wooden key$} {%0 - secret, treevillage (Rentable)}
+#sub {^The key of metal has a small loop at its top, which makes it easier to wear on a keyring. Some ridges have been cut into its base.$} {%0 - oakendoor at Necro}
+#sub {^You notice 'My Cottage' has been inscribed on the key.$} {%0 - Tharbad Chief}

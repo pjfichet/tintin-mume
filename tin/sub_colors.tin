@@ -1,0 +1,155 @@
+#nop highlights
+
+#nop 0 - Black    5 - Magenta	;
+#nop 1 - Red      6 - Cyan	 	;
+#nop 2 - Green    7 - White	 	;
+#nop 3 - Yellow   8 - Skip	 	;
+#nop 4 - Blue     9 - Default	;
+
+#nop substitution
+#substitute {^NARRATE:%1:NARRATE$} {<039>%1<099>}
+#substitute {^PRAY:%1:PRAY$} {<039>%1<099>}
+#substitute {^TELL:%1:TELL$} {<169>%1<099>}
+#substitute {^SAY:%1:SAY$} {<169>%1<099>}
+#substitute {^EMOTE:%1:EMOTE$} {<169>%1<099>}
+#substitute {^NAME:%1:NAME$} {<029>%1<099>}
+
+#nop Map
+#highlight {^A feeling of peace envelops you as you enter the enchanted forest.$} {light green}
+#highlight {^The white ship docks at the pier and a gangway is lowered.$} {light green}
+#highlight {^The ship is now docked at a pier in Avallone.$} {light green}
+#highlight {^The ferry is docked here, ready to be boarded.$} {light green}
+#highlight {^The ferry has arrived at the quay and you can now board.$} {light green}
+#highlight {^The trees confuse you, making you wander around in circles.$} {light red}
+
+
+#nop ride
+#highlight {^ZBLAM} {light red}
+#highlight {^ACK!} {light red}
+#nop highlight {^You dismount from} {light red}
+#nop highlight {^You pick up} {light green}
+#nop highlight {^You stop riding} {light green}
+#nop sub {^ZBLAM! A {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf} {(\((\w+)\) )?}doesn't want you riding {him|her|it} anymore.$} {<119>ZBLAM!<099>}
+
+
+#nop level
+#highlight {^You gain a level!$} {light green}
+
+
+#nop food
+#nop highlight {^You {begin to feel|are} hungry.$} {light blue}
+#nop highlight {^You {begin to feel|are} thirsty.$} {light blue}
+
+
+#nop track
+#highlight {^Aha, you have found your victim!$} {light green}
+
+
+#nop reveal
+#nop highlight {^You feel a hidden presence.$} {light red}
+#nop highlight {^You have found} {light red}
+#nop sub {^%* makes a discreet gesture, pointing at {a|an} %*'{(s)?} hiding place.$} {<119>%1 points at %2'%3 hiding place.<099>}
+#nop highlight {has arrived from} {light blue}
+#nop sub {^%* has arrived from {(the )?}{north|south|west|east|above}{( riding %*)?}.$} {<109>%1 <149>comes<109> from %2%3%4<099>}
+#nop sub {^%* leaves {north|south|west|east|up|down}{( riding %*)?}.$} {<109>%1 <149>leaves<109> %2%3<099>}
+#nop highlight {^%* has suddenly arrived.} {light blue}
+
+
+#nop flee
+#gag {^You flee head over heels.$}
+#gag {^You seek to escape...$}
+#sub {^PANIC! You {couldn't escape|can't quit the fight}!$} {<119>Panic!<099>}
+
+#highlight {^You flee %*.} {bold yellow}
+#highlight {^Exits:} {bold yellow}
+#highlight {^You failed to escape the fight!$} {light red}
+
+
+#nop combat various
+#highlight {begins some strange incantations...$} {light red}
+#highlight {%* nocks a missile in %*.} {bold black}
+#nop highlight {quickly approaches} {light red}
+#nop highlight {^%* joins your fight.$} {light blue}
+#nop highlight {^%* joins %*'s fight.$} {light blue}
+#nop highlight {^%* is mortally wounded and will die soon if not aided.$} {light green}
+#nop highlight {^%* is incapacitated and will slowly die, if not aided.$} {light green}
+#nop highlight {^%* is stunned and will probably die soon.$} {light green}
+
+
+#nop combat warrior
+#highlight {^Your bash at %* sends {him|her|it} sprawling.$} {light green}
+#highlight {^Heroically you come to %*'s rescue!$} {light green}
+#highlight {^%* sends you sprawling with a powerful bash.$} {light red}
+#nop highlight {^%* seems to have recovered {his|her|its} senses.$} {light red}
+#nop highlight {^As %* avoids your bash, you topple over and lose your balance.$} {light red}
+#nop highlight {^You are rescued by %*, you are confused!$} {light green}
+#nop highlight {^%* sends %* sprawling with a powerful bash.$} {light green}
+#nop sub {^%* heroically rescue %*.$} {<109>%1 <129>rescue<109> %2.<099>}
+
+#nop stab
+#highlight {^%* makes a strange sound{( but is suddenly very silent)?}, as you place %* in {his|her|its} back.$} {light green};
+#highlight {^Suddenly %* stabs you in the back.$} {light red}
+#highlight {^Oops, your victim caught you by surprise!$} {light red}
+#highlight {^Oops, your victim seems to have sensed a danger!$} {light red}
+#highlight {^For a successful backstab you need to be wielding a suitable weapon.$} {light red}
+
+#nop failed spells
+#highlight {^Aye! You cannot concentrate any more...$} {light red}
+#nop highlight {^Alas, not enough mana flows through you...$} {light red}
+#nop highlight {^{(You mispronounced the magical words... )?}{(You have a sudden lapse of memory... )?}Your spell backfired!{( You feel exhausted.| You feel your life draining away.| You feel drained.)?}$} {light red}
+#nop highlight {^You failed to control %*.$} {light red}
+#nop highlight {^You fail to call upon the lightning from the sky!$} {light red}
+
+#nop passive spells
+#highlight {^You shiver and feel a watchful eye on you... Someone is searching you!$} {light red}
+#highlight {^You feel your awareness improve.$} {magenta}
+#highlight {^Your scratches and bruises disappear.$} {magenta}
+#highlight {^You can feel the broken bones within you heal and reshape themselves.$} {magenta}
+#highlight {^A warm feeling runs through your body, you feel better.$} {magenta}
+#highlight {^You begin to see scars fade away and a feeling of health comes over you.$} {magenta}
+#highlight {^Your body tingles for a moment, you feel better.$} {magenta}
+#highlight {^Your vision is troubled and you feel disoriented.$} {light red}
+#highlight {^You slowly regain your bearings as your head clears.$} {light green}
+
+#nop active spells
+#highlight {^%* seems to be blinded!$} {magenta}
+#highlight {^%* shivers in pain before being able to draw a ragged breath.$} {magenta}
+#highlight {^As you call upon Elbereth, %* shivers in pain.$} {magenta}
+#highlight {^As you call on ancient powers, %* twists in great pain.$} {magenta}
+#highlight {^You heal %*.$} {magenta}
+#highlight {^You raise your hand and an icy wind starts to blow through the room.$} {magenta}
+#highlight {^%* is dissolved by your goodness.$} {magenta}
+#highlight {^The %* is filled with a bright light.$} {magenta}
+#highlight {^The lightning bolt hits %* with full impact.$} {magenta}
+#highlight {^With a crack of thunder, you call down lightning on %*.$} {magenta}
+#highlight {^As you call down lightning, %* is scorched to death.$} {magenta}
+#highlight {^The impact of your lightning bolt kills %*.$} {magenta}
+
+#nop third person spells
+#highlight {^%* lies down and falls asleep.$} {magenta}
+#nop highlight {^%* casts 'Elbereth Gilthoniel' and makes %* shiver in pain.} {magenta}
+#nop highlight {^%* heals %*.$} {magenta}
+
+#nop white stag
+#sub {^{The white stag appears from the trees to the} {north|east|south|west}.$}
+	{The <179>white stag<099> appears from the trees to the %2.}
+#sub {^{The white stag comes leaping from the} {north|east|south|west}.$}
+	{The <179>white stag<099> comes leaping from the %2.}
+#sub {^A majestic, white stag stands here, eyeing the surroundings carefully.$}
+	{A majestic, <179>white stag<099> stands here, eyeing the surroundings carefully.}
+#sub {^{The white stag disappears among the trees to the} {north|east|south|west}.$}
+	{%1 <179>%2<099>.}
+#sub {^{The white stag jumps out of a bush to the} {north|east|south|west}.$}
+	{%1 <179>%2<099>.}
+#sub {^{The white stag jumps over a bush and vanishes into the forest to the} {north|east|south|west}.$}
+	{%1 <179>%2<099>}
+#sub {^{The white stag leaves} {north|east|south|west}.$}
+	{%1 <179>%2<099>}
+#sub {^{The white stag makes a great leap} {north|east|south|west}ward.$}
+	{%1 <179>%2ward<099>.}
+
+#nop not done
+#nop highlight {^Ok, you'll try to move silently for a while.$};
+#nop highlight {^You stop sneaking.$};
+
+

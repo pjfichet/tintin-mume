@@ -1,14 +1,29 @@
-#action {^%w {picks up|grabs on to|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s (reins|fur) and starts|\, and stops} riding {him|her|it}.$} {
-	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
-		#if {"%2" == "dismounts from"} {#send {lead}};
-		#else {#send {ride}}
-	}
+#nop grouping
+
+#alias {ridelead} {
+	#if { "%0" == "" } {#send {lead}};
+	#else {lead %0; lab %0 h};
 }
-#action {^%w reaches up and tries to climb the ladder.$} {
-	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
-		#send {climb latter}
-	}
+#alias {ridezblam} {
+	#if { "%0" == "" } {stand; lead h; ride};
+	#else {stand; lead %1; ride};
 }
+
+#action {^Lead what?$} {ridelead pack};
+
+#action {^%w {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
+	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
+		#if { "$ride_back" == "on"} {
+			#if {"%2" == "dismounts from"} {#send {dismount}};
+			#elseif {"%2" == "picks up"} {#send {ride behind $leader}};
+		};
+		#else {
+			#if {"%2" == "dismounts from"} {#send {lead}};
+			#elseif {"%2" == "picks up"} {#send {ride}};
+		};
+	};
+}
+
 #action {^ZBLAM! A {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf} {(\((\w+)\) )?}doesn't want you riding {him|her|it} anymore.$} {
 	#if {"$auto_ride" == "on"} {
 		#send {stand};
@@ -24,15 +39,22 @@
 		}
 	}
 }
+
+#action {^%w reaches up and tries to climb the ladder.$} {
+	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
+		#send {climb ladder};
+	};
+}
 #action {^%w panics, and attempts to flee.$} {
 	#if {"%1" == "$leader"} {#bell}
 }
-#action {^{\w+ transfers group leadership to you\.|You leave the group\.|Group disbanded\.|What group\?\!|You are no longer a member of the group\!|You can\'t group with yourself\.}$} {#var {leader} {none}}
+#action {^{\w+ transfers group leadership to you\.|You leave the group\.|Group disbanded\.|What group\?\!|You are no longer a member of the group\!|You can\'t group with yourself\.}$} {leader none}
 #action {^%w disbands {his|her} group.$} {
-	#if {"%1" == "$leader"} {#var {leader} {none}}
+	#if {"%1" == "$leader"} {leader none}
 }
-#action {^You are now a member of %w's group.$} {#var {leader} {%1}}
-#action {^You transfer group leadership to %w.$} {#var {leader} {%1}}
+#action {^You now follow %*.$} {leader %1}
+#action {^You are now a member of %w's group.$} {leader %1}
+#action {^You transfer group leadership to %w.$} {leader %1}
 #action {^     %w (Head of group)$} {#var {leader} {%1}}
 #action {^%w {(\(\w+\) )?}raises {his|her} {hand|paw}.$} {
 	#if {"$auto_group" == "on"} {#send {group %1}}
@@ -41,39 +63,60 @@
 	#if {"$auto_group" == "on"} {#send {tell %1 You are in another group already.  If you wish to join, please 'group self' and 'raise' again.}}
 }
 
-#alias {lp} {#send {protect $leader}}
-#alias {lw} {#send {whois $leader}}
-#alias {lr} {#send {rescue $leader}}
-#alias {lf} {#send {follow $leader}}
-#alias {lt} {#send {tell $leader %0}}
-#alias {fs} {#send {follow self}}
 #alias {leader} {
-	#if {"%1" == "clear"} {
+	#if {"%0" == "none"} {
 		#var {leader} {none};
-		#echo {Leader cleared}
+		#echo {Leader cleared.};
+		#class {class_leader} {kill};
+		autoride off;
 	};
-	#elseif {"%1" != ""} {
-		#var {leader} {%1};
-		#echo {Leader set to $leader}
+	#elseif {"%0" != ""} {
+		#var {leader} {%0};
+		#echo {Leader set to $leader\.};
+		autoride on;
+		#class {class_leader} {open};
+			#nop highlight {$leader} {bold blue};
+			#highlight {^$leader flee %*.} {bold red};
+			#highlight {^%* sends $leader sprawling with a powerful bash.$} {bold red};
+			#highlight {^$leader leaves %*.} {bold yellow};
+			#highlight {^$leader dismounts} {bold green};
+			#highlight {^$leader picks up} {bold green};
+		#class {class_leader} {close};
 	};
 	#else {
-		#if {"$leader" == "none"} {#echo Leader undefined};
-		#else {#echo Your leader is $leader}
+		#if {"$leader" == "none"} {#echo Leader undefined.};
+		#else {#echo Your leader is $leader\.};
 	}
 }
 #alias {autoride} {
 	#if {("%1" == "on") || ("%1" == "off")} {#var {auto_ride} {%1}};
 	#elseif {"$auto_ride" == "off"} {#var {auto_ride} {on}};
 	#else {#var {auto_ride} {off}};
-	#echo {Auto Ride $auto_ride}
+	#echo {Auto ride $auto_ride\.}
+}
+#alias {backride} {
+	autoride on;
+	#if {("%1" == "on") || ("%1" == "off")} {#var {ride_back} {%1}};
+	#elseif {"$ride_back" == "off"} {
+		#var {ride_back} {on}
+		#echo {Backride on. Ride behind $leader};
+		ride behind $leader;
+	};
+	#else {
+		#var {ride_back} {off};
+		#echo {Backride off. Dismount};
+		dismount;
+	};
 }
 #alias {autogroup} {
 	#if {("%1" == "on") || ("%1" == "off")} {#var {auto_group} {%1}};
 	#elseif {"$auto_group" == "off"} {#var {auto_group} {on}};
 	#else {#var {auto_group} {off}};
-	#echo {Auto Group $auto_group}
+	#echo {Auto group $auto_group\.}
 }
 
 #var {auto_group} {off}
-#var {auto_ride} {on}
+#var {auto_ride} {off}
+#var {ride_back} {off}
 #var {leader} {none}
+

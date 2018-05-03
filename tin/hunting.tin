@@ -1,79 +1,114 @@
-#alias {rr} {#send {get all.arrow all.corpse\nget all.arrow\nput all.arrow quiver}}
-
-#alias {rq} {#send {reveal quick}}
-#alias {rt} {#send {reveal thorough}}
-
-#alias {sq} {#send {search quick}}
-#alias {st} {#send {search thorough}}
-
-#alias {bs.} {doTarget backstab}
-#alias {j} {doTarget backstab}
-#alias {c.} {doTarget consider}
-#alias {e.} {doTarget examine}
-#alias {s.} {doTarget shoot}
-#alias {t.} {doTarget track}
-#alias {w.} {doTarget where}
-#alias {k.} {doTarget kill}
-#alias {kk} {doTarget kill}
-#alias {b.} {doTarget bash}
-#alias {bb} {doTarget bash}
-#alias {bf} {doTarget bash;#send flee}
-#alias {kf} {doTarget kill;#send flee}
-#alias {sf} {doTarget shoot;#send flee}
-
-#alias {kb} {#send {kill *bear*}}
-#alias {ke} {#send {kill *elf*}}
-#alias {khe} {#send {kill *half-elf*}}
-#alias {kd} {#send {kill *dwarf*}}
-#alias {kh} {#send {kill *hobbit*}}
-#alias {km} {#send {kill *man*}}
-#alias {ko} {#send {kill *orc*}}
-#alias {kt} {#send {kill *troll*}}
-
-#alias {ttf} {#send {label t};tt t}
-#alias {tta} {tt AGAIN}
-#alias {ttc} {tt CLEAR}
-#alias {ttt} {tt t}
-#alias {ttb} {tt *bear*}
-#alias {ttd} {tt *dwarf*}
-#alias {tte} {tt *elf*}
-#alias {tthe} {tt *half-elf*}
-#alias {tth} {tt *hobbit*}
-#alias {ttm} {tt *man*}
-#alias {tto} {tt *orc*}
-#alias {ttr} {tt *troll*}
-
-#alias {doTarget} {
-	#if {"%0" == ""} {#echo {No action given to do to target.}};
-	#elseif {"$targeting" != ""} {#send {%0 $targeting}};
-	#else {#echo {Target undefined.}}
+#alias {setweapon} {
+	#var {wwimpy} {%1};
+	#var {waggro} {%2};
+	#var {weapon} {$wwimpy};
+	#echo {Weapons set to $wwimpy (wimpy) and $waggro (aggro).};
+	#cr;
+}
+#alias {chaweapon} {
+	#if { "$weapon" == "$waggro"} {
+		#var {weapon} {$wwimpy};
+		#send {sheathe};
+		#send {wield $wwimpy};
+	};
+	#else {
+		#var {weapon} {$waggro};
+		#send {draw};
+		#nop send {wield $waggro};
+	};
 }
 
-#alias {tt} {
-	#if {"%1" == "CLEAR"} {
-		#var {targeting} {CLEAR};
-		#echo {Target cleared.}
+
+#var mood {W}
+#alias {mood} {
+	#if { "%0" != ""} {
+		#var {wimpy} {%0};
+		#nop echo {Change wimpy $wimpy\.};
+		#send {change wimpy $wimpy};
 	};
-	#elseif {"%1" == "AGAIN"} {
-		#if {"$targeting" != "CLEAR"} {
-			#echo {Targeting $targeting again!};
-			#send {label $targeting t}
+	#else {
+		#if { "$mood" == "W"} {
+			#echo {Change mood aggressive: $wimpy\.};
+			change mood aggressive;
+			#var mood {A};
 		};
-		#else {
-			#echo {Target is undefined! Can not target again.}
-		}
+		#elseif { "$mood" == "A"} {
+			#echo {Change mood wimpy: $wimpy\.};
+			change mood wimpy;
+			#var mood {W};
+		};
 	};
-	#elseif {"%1" == "t"} {
-		#echo {Target now t!};
-		#var {targeting} {t}
-	};
-	#elseif {"%1" != ""} {
-		#echo {Target now %1.};
-		#send {label %1 t};
-		#var {targeting} {%1}
-	};
-	#elseif {"$targeting" != "CLEAR"} {#echo {Targeting ${targeting}!}};
-	#else {#echo {Target undefined.}}
 }
 
-#var {targeting} {CLEAR}
+
+#alias {trtarget} {
+	if { "%0" != ""} {target %0};
+	#send {track ${TARGET}};
+}
+
+
+#var {TARGET} {animal}
+#var {NTARGET} {1}
+#action {^{A|An} %1 has arrived from the %*.$} {#var {arrived} {%1}}
+#action {^You have found {a|an} %1!$} {
+	#var {found} {%1};
+	#if {"$found" == "mean brigand"} {#var {found} {brigand}};
+}
+#action {^You have revealed {a|an} %1!$} {
+	#var {found} {%1};
+	#if {"$found" == "mean brigand"} {#var {found} {brigand}};
+}
+#action {^%* makes a discreet gesture, pointing at {a|an} %*'{(s)?} hiding place.$} {
+	#var {found} {%1};
+	#if {"$found" == "mean brigand"} {#var {found} {brigand}};
+}
+
+#action {%* (l) is dead! R.I.P.$} {#var TARGET {animal}; rtarget};
+
+#alias kill {
+	#nop hit the target;
+	#if { "%0" != ""} {target %0};
+	#echo {kill ${NTARGET}\.${TARGET}};
+	#send {kill ${NTARGET}\.${TARGET}};
+};
+#alias stab {
+	#nop backstab the target;
+	#if { "%0" != ""} {target %0};
+	#echo {backstab ${NTARGET}\.${TARGET}};
+	#send {backstab ${NTARGET}\.${TARGET}};
+};
+#alias xtarget {
+	#nop exam the target;
+	#if {"%0" != ""} {exam %0};
+	#else {exam ${NTARGET}\.${TARGET}};
+}
+
+
+#alias target {
+	#if { "%0" != ""} {
+		#var {TARGET} {%0};
+	};
+	#else {
+		#var {TARGET} {animal};
+	};
+	rtarget;
+};
+	
+
+#alias itarget {
+	#nop increase the target number;
+	#math {NTARGET} {$NTARGET + 1};
+	#echo {Target ${NTARGET}\.${TARGET}\.};
+};
+
+#alias rtarget {
+	#nop reset the target number to 1;
+	#var {NTARGET} {1};
+	#showme {Target ${NTARGET}\.$TARGET\.};
+};
+
+#alias settarget {
+	#var {NTARGET} {%1};
+	#showme {Target ${NTARGET}\.$TARGET\.};
+}
+

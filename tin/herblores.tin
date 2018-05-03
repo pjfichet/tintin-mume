@@ -1,0 +1,53 @@
+#nop herblores
+
+#alias {echolore} {
+	#format {keyword} {%-20s} {%1};
+	#echo {$keyword %2};
+}
+
+#alias {helplore} {
+	#if {"%1" == ""} {
+		#echo kit, leafcake, bannock, travelling, walking, seeing, shadow
+	};
+	#elseif {"%1" == "kits"} {
+		echolore {Sabb} {eregion dunland camp spring-summer}
+		echolore {niuldor} {}
+		echolore {scarred man} {at ma}
+		echolore {gh herbalist} {ask elf gift, ring or belt}
+		echolore {bm weaponsmith} {shining}
+		echolore {thrakghash} {w noc}
+		echolore {zaugurz scout}
+	};
+	#elseif {"%1" ==  "leafcake"} {
+		echolore {coneflower} {a purple flower with a fluffy red center};
+		echolore {honey-wax} {a mashed honey-wax mixture};
+		echolore {sage} {grey-green leaves};
+		echolore {thyme} {scented crushed leaves};
+	};
+	#elseif {"%1" == "bannock"} {
+		echolore {3 eggs};
+		echolore {flour} {a sack of flour};
+		echolore {honey-wax} {a mashed honey-wax mixture};
+	};
+	#elseif {"%1" == "travelling"} {
+		echolore {tarragon} {a handful of narrow leaves};
+		echolore {ginseng} {a man-like root};
+		echolore {clover} {a handful of clover};
+	};
+	#elseif {"%1" == "walking"} {
+		echolore {clover} {a handful of clover};
+		echolore {juniper} {juniper berries};
+		echolore {marjoram} {marjoram leaves};
+		echolore {cloves} {};
+	};
+	#elseif {"%1" == "seeing"} {
+		echolore {cinnamon} {a bag of cinnamon};
+		echolore {resemary} {rosemary leaves};
+		echolore {phosphorescent moss} {phosphorescent moss};
+	};
+	#elseif {"%1" == "shadow"} {
+		echolore {cinnamon} {bag of cinnamon};
+		echolore {resemary} {resemary leaves};
+		echolore {rib-bone} {rib-bone of a skeleton};
+	};	
+};

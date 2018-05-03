@@ -1,0 +1,224 @@
+#nop aliases
+
+#nop directions
+#alias {h} {showsend w};
+#alias {j} {showsend s};
+#alias {k} {showsend n};
+#alias {l} {showsend e};
+#alias {u} {showsend u};
+#alias {n} {showsend d};
+
+#nop quick
+#alias {a} {showsend assist}
+#alias {i} {castqbolt %0};
+#alias {I} {castkbolt %0};
+#alias {J} {sneak};
+#alias {m} {mood %0};
+#alias {M} {chaweapon};
+#alias {f} {showsend flee};
+#alias {q} {go %0};
+#alias {K} {kill %0};
+#alias {y} {togglelight};
+#alias {z} {stab};
+#alias {g} {kill %0};
+
+#nop alertness
+#alias {Ap} {showsend change alertness paranoid};
+#alias {An} {showsend change alertness normal};
+
+#nop care
+#alias {ba} {showsend bandage};
+#alias {bc} {showsend butcher corpse};
+#alias {br} {showsend rest};
+#alias {bs} {showsend sleep};
+#alias {bt} {#showme {wake\; stand}; wake; stand};
+#alias {bu} {showsend burn corpse};
+
+#nop cast
+#alias {ca} {showsend cast n 'armour'};
+#alias {cb} {showsend cast n 'bless' %0};
+#alias {cf} {castfood %0};
+#alias {ci} {showsend cast 'lightning bolt' %0};
+#alias {cl} {showsend cast n 'cure light' %0};
+#alias {cn} {showsend change spellcasting normally; #var {spell_speed} {N}}
+#alias {cq} {showsend change spellcasting quick; #var {spell_speed} {Q}}
+#alias {cr} {showsend cast n 'create light' lantern};
+#alias {ck} {keys};
+#alias {ch} {casthere %0};
+#alias {ct} {castport %0};
+#alias {cw} {showsend cast n 'create water' %0};
+#alias {c1} {castport 1};
+#alias {c2} {castport 2};
+#alias {c3} {castport 3};
+#alias {c4} {castport 4};
+#alias {c5} {castport 5};
+#alias {c6} {castport 6};
+#alias {c7} {castport 7};
+#alias {c8} {castport 8};
+#alias {c9} {castport 9};
+
+#nop door drink
+#alias {dah} {door bar w}; #alias {daj} {door bar s}; #alias {dak} {door bar n};
+#alias {dal} {door bar e}; #alias {dau} {door bar u}; #alias {dan} {door bar d};
+#alias {dbh} {door bash w}; #alias {dbj} {door bash s}; #alias {dbk} {door bash n};
+#alias {dbl} {door bash e}; #alias {dbu} {door bash u}; #alias {dbn} {door bash d};
+#alias {dch} {door close w}; #alias {dcj} {door close s}; #alias {dck} {door close n};
+#alias {dcl} {door close e}; #alias {dcu} {door close u}; #alias {dcn} {door close d};
+#alias {dgh} {door knock w}; #alias {dgj} {door knock s}; #alias {dgk} {door knock n};
+#alias {dgl} {door knock e}; #alias {dgu} {door knock u}; #alias {dgn} {door knock d};
+#alias {dkh} {door block w}; #alias {dkj} {door block s}; #alias {dkk} {door block n};
+#alias {dkl} {door block e}; #alias {dku} {door block u}; #alias {dkn} {door block d};
+#alias {dlh} {door lock w}; #alias {dlj} {door lock s}; #alias {dlk} {door lock n};
+#alias {dll} {door lock e}; #alias {dlu} {door lock u}; #alias {dln} {door lock d};
+#alias {dnh} {door unbar w}; #alias {dnj} {door unbar s}; #alias {dnk} {door unbar n};
+#alias {dnl} {door unbar e}; #alias {dnu} {door unbar u}; #alias {dnn} {door unbar d};
+#alias {doh} {door open w}; #alias {doj} {door open s}; #alias {dok} {door open n};
+#alias {dol} {door open e}; #alias {dou} {door open u}; #alias {don} {door open d};
+#alias {dph} {door pick w}; #alias {dpj} {door pick s}; #alias {dpk} {door pick n};
+#alias {dpl} {door pick e}; #alias {dpu} {door pick u}; #alias {dpn} {door pick d};
+#alias {drh} {door break w}; #alias {drj} {door break s}; #alias {drk} {door break n};
+#alias {drl} {door break e}; #alias {dru} {door break u}; #alias {drn} {door break d};
+#alias {duh} {door unlock w}; #alias {duj} {door unlock s}; #alias {duk} {door unlock n};
+#alias {dul} {door unlock e}; #alias {duu} {door unlock u}; #alias {dun} {door unlock d};
+#alias {dh} {#showme {pick chest\; open chest\; look in chest}; pick chest; open chest; look in chest};
+#alias {dw} {drink water};
+
+#nop escape
+#alias {eh} {showsend escape w};
+#alias {ej} {showsend escape s};
+#alias {ek} {showsend escape n};
+#alias {el} {showsend escape e};
+#alias {eu} {showsend escape u};
+#alias {en} {showsend escape d};
+#alias {es} {esmile};
+
+#nop get
+#alias {Ga} {showsend get all corpse};
+#alias {Gc} {showsend get all.coins all.corpse};
+#alias {Gl} {lightor; showsend look in corpse; lightoff};
+#alias {G1} {lightor; showsend look in 1.corpse; lightoff};
+#alias {G2} {lightor; showsend look in 2.corpse; lightoff};
+#alias {G3} {lightor; showsend look in 3.corpse; lightoff};
+#alias {G4} {lightor; showsend look in 4.corpse; lightoff};
+#alias {G5} {lightor; showsend look in 5.corpse; lightoff};
+#alias {G6} {lightor; showsend look in 6.corpse; lightoff};
+#alias {G7} {lightor; showsend look in 7.corpse; lightoff};
+#alias {G8} {lightor; showsend look in 8.corpse; lightoff};
+#alias {G9} {lightor; showsend look in 9.corpse; lightoff};
+
+#nop hide
+#alias {H} {hide};
+#alias {Hq} {lightor; hide quick};
+#alias {Ht} {lightor; hide thorough};
+
+#nop leader, look
+#alias {Lb} {backride on};
+#alias {Lc} {showsend cast 'cure light' $leader};
+#alias {Lf} {showsend follow %1};
+#alias {Ln} {leader none};
+#alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
+#alias {Lr} {#echo {rescue $leader}; #send {rescue $leader}};
+#alias {Ls} {#echo {follow self}; ln; #send {follow self}};
+#alias {Lt} {#echo {tell $leader %0}; #send {tell $leader %0}};
+#alias {Lw} {showsend wake $leader};
+#alias {Lx} {lightor; showsend examine $leader; lightoff};
+#alias {LL} {lightor; look; exit; lightoff};
+
+#nop path
+#alias {p} {pathShow %0; modal};
+#alias {pd} {pathDeathShow};
+#alias {pf} {rlabel search %1};
+#alias {pg} {getlabel};
+#alias {pk} {pathMark};
+#alias {pm} {pathMarkShow};
+#alias {pr} {pathRun %0};
+#alias {ps} {pathShow %0};
+
+#nop track ride
+#alias {r} {lighton; showsend track %0; modal};
+#alias {ra} {aba};
+#alias {rb} {ride behind $leader; rideback on};
+#alias {rh} {lighton; showsend track horse; tm};
+#alias {ri} {showsend ride %0};
+#alias {rl} {ridelead %0};
+#alias {rm} {lighton; showsend track man*; tm};
+#alias {ro} {lighton; showsend track orc*; to};
+#alias {rr} {lightor; showsend track %0; lightoff};
+#alias {rt} {lighton; showsend track troll*; tt};
+#alias {rv} {lightor; tracktarget};
+#alias {rw} {lighton; showsend track woman*; tw};
+#alias {rz} {ridezblam};
+
+#nop score search scout
+#alias {sa} {showsend look around};
+#alias {sc} {showsend score; stat};
+#alias {sd} {showsend scout d};
+#alias {sf} {showsend flush quick};
+#alias {sh} {showsend scout w};
+#alias {sj} {showsend scout s};
+#alias {sk} {showsend scout n};
+#alias {sl} {showsend scout e};
+#alias {sq} {showsend reveal quick};
+#alias {sr} {showsend seek rivendell};
+#alias {st} {showsend reveal thorough};
+#alias {su} {showsend scout u};
+#alias {sn} {showsend scout d};
+
+#alias {Sh} {showsend search w};
+#alias {Sj} {showsend search s};
+#alias {Sk} {showsend search n};
+#alias {Sl} {showsend search e};
+#alias {Su} {showsend search u};
+#alias {Sn} {showsend search d};
+
+#nop target time
+#alias {t} {target %0; modal};
+#alias {ta} {target animal};
+#alias {td} {target dunlending};
+#alias {ti} {itarget};
+#alias {tm} {target man*};
+#alias {to} {target orc*};
+#alias {tp} {target plant};
+#alias {tr} {rtarget};
+#alias {ts} {_time_short};
+#alias {tt} {target troll*};
+#alias {tw} {target woman*};
+#alias {tx} {showsend exam $NTARGET\.$TARGET; cons $NTARGET\.$TARGET};
+#alias {tz} {target zaugurz*};
+#alias {t1} {#var {NTARGET} {1}};
+#alias {t2} {#var {NTARGET} {2}};
+#alias {t3} {#var {NTARGET} {3}};
+#alias {t4} {#var {NTARGET} {4}};
+#alias {t5} {#var {NTARGET} {5}};
+#alias {t6} {#var {NTARGET} {6}};
+#alias {t7} {#var {NTARGET} {7}};
+#alias {t8} {#var {NTARGET} {8}};
+#alias {t9} {#var {NTARGET} {9}};
+
+#nop kill
+#alias {v} {kill %0; modal};
+#alias {va} {showsend kill animal};
+#alias {vd} {showsend kill dunlending};
+#alias {vf} {showsend kill $found};
+#alias {vi} {itarget; kill};
+#alias {vr} {rtarget; kill};
+#alias {vl} {lab l; target l};
+#alias {vm} {showsend kill man*};
+#alias {vo} {showsend kill orc*};
+#alias {vp} {showsend kill plant};
+#alias {vt} {showsend kill troll*};
+#alias {vv} {showsend kill $arrived};
+#alias {vw} {showsend kill woman*};
+#alias {vz} {showsend kill zaugurz*};
+
+#alias {w} {modal};
+#nop {wr: track %0, wt: target %0, wv: kill %0};
+
+#nop xp counter, exam
+#alias {xa} {reportall};
+#alias {xp} {xpGet};
+#alias {xn} {reporttnl};
+#alias {xs} {reportscore};
+#alias {xt} {tpGet};
+#alias {xx} {xtarget; exit};
+

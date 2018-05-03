@@ -1,0 +1,61 @@
+#var {GoBy} {path}
+#alias {go} {
+	#if {"$GoBy" == "path"} {gopath %0};
+	#elseif {"$GoBy" == "track"} {gotrack};
+	#elseif {"$GoBy" == "follow"} {gofollow};
+	#elseif {"$GoBy" == "back"} {goback};
+	#var {GoBy} {path};
+};
+
+#alias {gopath} {
+	pathStep %0;
+};
+
+#alias {gotrack} {
+	#showme {$GoTrack};
+	#send {$GoTrack};
+};
+
+#var {GoFollow} {none}
+#alias {gofollow} {
+	#showme {$GoFollow\; kill $TARGET};
+	#send {$GoFollow}; k;
+}
+
+#var lastFled {none}
+#alias {goback} {
+	#if {("$lastFled" != "none") && (&reverseDirections[$lastFled])} {
+		#send {$reverseDirections[$lastFled]};
+		#echo {<139>$reverseDirections[$lastFled]<079>};
+		#var lastFled {none};
+		#if {"$fleeback" == "kill"} {#delay {.3} {kill}};
+		#if {"$fleeback" == "assist"} {#delay {.3} {assist}};
+	};
+	#var {fleeback} {none};
+}
+
+#var {fleeback} {none};
+#alias {fleereenter} {#var {fleeback} {back}; flee;}
+#alias {fleekill} {#var {fleeback} {kill}; flee;}
+#alias {fleeassist} {#var {fleeback} {assist}; flee;}
+#alias {fleerrun} {#var {fleeback} {run}; flee;}
+
+#action {^You see some {apparent|clear|faint|plain|vague}{(, bloody)?} tracks of %* leading {north|east|south|west|up|down}, done less than %d {hour|hours} ago.$} {
+	#var {GoTrack} {%5};
+	#var {GoBy} {track};
+};
+
+#action {^*%+{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* leaves {north|south|east|west|up|down|above|below}{(?: riding .+)?}.$} {
+	#var {GoFollow} {%4};
+	#var {GoBy} {follow};
+};
+
+#action {^You flee {north|south|east|west|up|down}.$} {
+	#var lastFled {%1};
+	#var GoBy {back};
+	#delay {7} {#var {GoBy} {path}};
+	#echo {<139>You flee %1!<079>};
+	#if {"$fleeback" == "run"} {#var {fleeback} {none}; pr};
+	#elseif {"$fleeback" != "none"} {#delay {.3} {v}};
+	#line gag;
+};

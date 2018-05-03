@@ -1,0 +1,50 @@
+#nop warrior.tt
+
+#var {protect} {};
+#alias {rescue} {
+	#if { "%0" == ""} {#send {rescue $protect}};
+	#else {#send {rescue %0}};
+}
+
+#action {^You will now try to protect %*.$} {
+	#var {protect} {%1};
+	eprotect;
+	#class {class_protect} {kill};
+	#class {class_protect} {open};
+		#highlight {^%* {(barely |lightly |strongly )?}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} $protect{('s)?} {(right |left )?}%*{( hard| very hard)?}{( and tickles it| and shatters it)?}.$} {bold red};
+		#highlight {^%* sends $protect sprawling with a powerful bash.$} {bold red};
+		#highlight {^$protect swiftly dodges %*'{(s)?} attempt to {charge|crushe|slashe|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} {him|her}.$} {bold red};
+	#class {class_protect} {close};
+};
+
+#action {^Very well, you concentrate on your own health.$} {#class {class_protect} {kill}};
+
+
+#alias {b} {bash %0};
+#alias {bb} {bash 2.%0};
+#alias {bbb} {bash 3.%0};
+#alias {bbbb} {bash 4.%0};
+#alias {bd} {bash dis %0};
+#alias {bdd} {bash dis 2.%0};
+#alias {bddd} {bash dis 3.%0};
+#alias {bdddd} {bash dis 4.%0};
+#alias {kb} {
+	#if { "%0" != ""} {target %0};
+	#echo {bash ${NTARGET}\.${TARGET}};
+	#send {bash ${NTARGET}\.${TARGET}};
+}
+#alias {kbb} {#send {bash 2.$TARGET}};
+#alias {kbbb} {#send {bash 3.$TARGET}};
+#alias {kbbbb} {#send {bash 4.$TARGET}};
+
+#alias {kbd} {
+	#if { "%0" != ""} {target %0};
+	#echo {bash dis ${NTARGET}\.${TARGET}};
+	#send {bash dis ${NTARGET}\.${TARGET}};
+};
+#alias {kbdd} {#send {bash dis 2.$TARGET}};
+#alias {kbddd} {#send {bash dis 3.$TARGET}};
+#alias {kbdddd} {#send {bash dis 4.$TARGET}};
+#alias {kbn} {itarget; kb}
+#alias {kbdn} {itarget; kbd}
+#alias {kbf} {kb $found}

@@ -1,0 +1,44 @@
+#nop scout.tt
+
+#var {lightsource} {lantern}
+#alias setlight {
+	#var {lightsource} {%0};
+	#echo {Lightsource set to $lightsource\.};
+};
+
+#var {islight} {1}
+#alias {lighton} {
+	#if {$islight == 0} {
+		#if { "$lightsource" == "lantern" } {showsend light lantern};
+		#else {showsend uncover $lightsource};
+		#var {islight} {1};
+	};
+};
+
+#alias lightoff {
+	#if {$islight == 1} {
+		#if {"$lightsource" == "lantern"} {showsend snuff lantern};
+		#else {showsend cover $lightsource};
+		#var {islight} {0};
+	};
+};
+
+#alias lightor {
+	#if {"$promptlight" == "o"} {lighton};
+};
+
+#alias togglelight {
+	#if {$islight == 0} {lighton};
+	#else {lightoff};
+};
+
+#action {^Your light has gone out.$} {#var {islight} {0}}
+
+#action {^You attempt to hide yourself.$} {
+	#action {^Ok.$} {
+		#var {islight} {0};
+		#unaction {^Ok.$};
+	};
+	#delay {7} {#unaction {^Ok.$}};
+};
+

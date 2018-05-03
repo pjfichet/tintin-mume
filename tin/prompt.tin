@@ -1,0 +1,72 @@
+#nop Only show the prompt during combat
+
+#prompt {^PROMPT:%1>:PROMPT$} {<069>${mood}${spell_speed}${islight} %1><099> $NTARGET\.$TARGET}
+
+#action {^PROMPT:{(?:[@*!\)o])?}{(?:[~\(\[+.%fO~UW:=<])?}{(?:[*'"~=-]{1,2})?}{(?: [RrSsCcW]{1,4})?}{(?: HP:\w+)?}{(?: Mana:\w+)?}{(?: Move:\w+)?}{(?: Mount:\w+)?}{(?: [^:]+:\w+)?}{(?: [^:]+:\w+)?}%*>:PROMPT$}
+{
+
+	#var {promptlight} {%1};
+	#var {promptterrain} {%2};
+	#var {promptweather} {%3};
+	#var {promptmovement} {%4};
+	#var {prompthp} {%5};
+	#var {promptmana} {%6};
+	#var {promptmove} {%7};
+	#var {promptmount} {%8};
+	#var {promptopponent} {%9};
+	#var {promptbuffer} {%10};
+	#var {promptrest} {%11};
+	
+	#if {$SHOW_PROMPT == 1} {
+		#nop showme {<069>%1%2%3%4%5%6%7%8%9%10><099>};
+		#showme {<069>${promptlight}${promptterrain}${promptweather} ${promptmovement}${prompthp}${promptmana}${promptmove}${promptmount} ${promptopponent} ${promptbuffer}${promptrest}<099>};
+		#var {SHOW_PROMPT} {0};
+	};
+
+
+	#regexp {$prompthp} { HP:{\w+}}
+		{
+			#if {"&1" == "Healhy"} {#var {hp} {<029>###<099>}};
+			#elseif {"&1" == "Fine"} {#var {hp} {<029>## <099>}};
+			#elseif {"&1" == "Hurt"} {#var {hp} {<029>#  <099>}};
+			#elseif {"&1" == "Wounded"} {#var {hp} {<019>###<099>}};
+			#elseif {"&1" == "Bad"} {#var {hp} {<019>## <099>}};
+			#elseif {"&1" == "Awful"} {#var {hp} {<019>#  <099>}};
+			#elseif {"&1" == "Dying"} {#var {hp} {<019>...<099>}};
+		}
+		{
+			#var {hp} {<029>###<099>}
+		};
+
+	#regexp {$promptopponent} { {\w+}:{\w+}}
+		{
+			#if {"&2" == "Healhy"} {#var {opponent} {<029>###<099>}};
+			#elseif {"&2" == "Fine"} {#var {opponent} {<029>## <099>}};
+			#elseif {"&2" == "Hurt"} {#var {opponent} {<029>#  <099>}};
+			#elseif {"&2" == "Wounded"} {#var {opponent} {<019>###<099>}};
+			#elseif {"&2" == "Bad"} {#var {opponent} {<019>## <099>}};
+			#elseif {"&2" == "Awful"} {#var {opponent} {<019>#  <099>}};
+			#elseif {"&2" == "Dying"} {#var {opponent} {<019>...<099>}};
+		}
+		{
+			#var {opponent} {<029>###<099>}
+		};	
+	#nop regexp {$promptmana} { Mana:{\w+}} {#var {mana} {&1}} {#var {mana} {full}};
+	#nop regexp {$promptmove} { Move:{\w+}} {#var {mv} {&1}} {#var {mv} {full}};
+
+	#var {shortprompt} {$hp $opponent};
+};
+	
+
+#alias {showprompt} {
+	#var {SHOW_PROMPT} {1};
+}
+
+
+
+#action {^%* makes a strange sound{(?: but is suddenly very silent)?}, as you place %* in {his|her|its} back.$} {showprompt};
+#action {^Suddenly %* stabs you in the back.$} {showprompt};
+#action {^The lightning bolt hits %* with full impact.$} {showprompt};
+#sub {^You {(barely |lightly |strongly )?}{charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( hard| very hard)?}{( and tickle it| and shatter it)?}.$} {$shortprompt <049>%0<099>};
+#sub {^%* {(barely |lightly |strongly )?}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( hard| very hard)?}{( and tickles it| and shatters it)?}.$} {$shortprompt <019>%0<099>};
+

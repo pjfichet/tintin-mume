@@ -1,0 +1,76 @@
+#nop locate and teleport
+#var {keylabel} {};
+#alias {castlife} {
+	cast 'locate life' %1;
+	#if {"%2" != ""} {
+		#var {keylabel} {%2 %3 %4 %5 %6 %7};
+	};
+}
+#alias {casthere} {
+	#if {"%0" != ""} {#var {keylabel} {%0}};
+	#else {#var {keylabel} {$NAME}};
+	cast 'locate life' $NAME;
+}
+#alias {castport} {
+	#if {"%0" == ""} {cast 'teleport' $vkeys[1][key]};
+	#else {cast 'teleport' $vkeys[%0][key]};
+}
+
+
+#action {^%*- %*{Very near|Near|Far|Very far}%s key: '%w'$} {
+	#math {ikeys} {$ikeys + 1};
+	#format {vkeys[$ikeys][mob]} {%-25s} {%1};
+	#if {"$keylabel" != ""} {
+		#format {vkeys[$ikeys][mob]} {%-25s} {$keylabel};
+		#var {keylabel} {};
+	};
+	#format {vkeys[$ikeys][room]} {%-13s} {%2};
+	#format {vkeys[$ikeys][dist]} {%-9s} {%3};
+	#var {vkeys[$ikeys][key]} {%5};
+	showkey $ikeys;
+	#line gag;
+}
+
+#nop show key
+#alias {showkey} {
+	#format {i} {%+3s} {%1};
+	#echo {$i: $vkeys[%1][mob] $vkeys[%1][room] $vkeys[%1][dist] $vkeys[%1][key]};
+};
+
+#nop list keys
+#alias {keys} {
+	#foreach {$vkeys[]} {i} {
+		showkey $i;
+	};
+};
+
+#nop label keys
+#alias {keyl} {
+	#format {vkeys[%1][mob]} {%-25s} {%2 %3 %4 %5 %6 %7};
+	showkey %1;
+};
+
+#nop clear key list
+#alias {keyc} {
+	#showme {List of keys cleared.};
+	#var {ikeys} {10};
+	#unvar {vkeys};
+};
+
+#nop delete some keys
+#alias {keyd} {
+	#if {"%2" != ""} {
+		#math {i} {%1};
+		#math {j} {%2};
+		#echo {Deleting keys $i to $j\.};
+		#while {$i <= $j} {
+			#echo {del $i};
+			#unvar {vkeys[$i]};
+			#math {i} {$i + 1};
+		};
+	};
+	#else {
+		#echo {Deleting key %1.};
+		#unvar {vkeys[%1]};
+	};
+};

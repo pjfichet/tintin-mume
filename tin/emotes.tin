@@ -1,0 +1,9 @@
+#nop emotes
+
+#alias {em} {#send {emote %0}};
+#alias {eemote} {
+	#var {emote} {%0};
+	#showme {<169>$NAME $emote<079>};
+	#send {emote $emote};
+};
+

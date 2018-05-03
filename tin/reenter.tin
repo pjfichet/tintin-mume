@@ -1,19 +1,32 @@
 #gag {^You flee head over heels.$}
 #gag {^You seek to escape...$}
 
-#sub {^PANIC! You {couldn't escape|can't quit the fight}!$} {Panic!}
+#sub {^PANIC! You {couldn't escape|can't quit the fight}!$} {<119>Panic!<099>}
 
 #var lastFled {none}
 
 #action {^You flee {north|south|east|west|up|down}.$} {
 	#var lastFled {%1};
-	#echo {%1!};
-	#line gag
+	#var GoBy {back};
+	#echo {$shortprompt <139>You flee %1!<099>};
+	#if {"$fleeback" == "run"} {#var {fleeback} {none}; pr};
+	#elseif {"$fleeback" != "none"} {#delay {.3} {v}};
+	#line gag;
 }
 
-#alias {v} {
+#alias {goback} {
 	#if {("$lastFled" != "none") && (&reverseDirections[$lastFled])} {
 		#send {$reverseDirections[$lastFled]};
-		#var lastFled {none}
-	}
+		#echo {<139>$reverseDirections[$lastFled]<099>};
+		#var lastFled {none};
+		#if {"$fleeback" == "kill"} {#delay {.3} {kill}};
+		#if {"$fleeback" == "assist"} {#delay {.3} {assist}};
+	};
+	#var {fleeback} {none};
 }
+
+#var {fleeback} {none};
+#alias {fv} {#var {fleeback} {back}; flee;}
+#alias {fk} {#var {fleeback} {kill}; flee;}
+#alias {fa} {#var {fleeback} {assist}; flee;}
+#alias {fr} {#var {fleeback} {run}; flee;}

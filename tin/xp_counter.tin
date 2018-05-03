@@ -5,14 +5,16 @@
 	#var {old_tp} {0}
 }
 
-#alias {xp} {
-	#echo {Gained XP: $gained_xp    TP: $gained_tp};
-	#echo {Session XP: $session_xp    TP: $session_tp};
-	#echo {Needed XP: $needed_xp    TP: $needed_tp}
+#alias {xpShow} {
+	#echo {Gained XP: $gained_xp Needed XP: $needed_xp Session XP: $session_xp};
 }
 
-#action {^You receive your share of experience.$} {#send {info XPCOUNTER: %x %t %X %T.}}
-#action {^XPCOUNTER: %d %d %d %d.$} {
+#alias {tpShow} {
+	#echo {Gained TP: $gained_tp Needed TP: $needed_tp Session TP: $session_tp};
+}
+
+#action {^You receive your share of experience.$} {#send {info XPCOUNTER: %x %t %X %T xp.}}
+#action {^XPCOUNTER: %d %d %d %d %w.$} {
 	#if {$old_xp} {#math {gained_xp} {%1 - $old_xp}};
 	#if {$old_tp} {#math {gained_tp} {%2 - $old_tp}};
 	#math {session_xp} {$session_xp + $gained_xp};
@@ -21,9 +23,19 @@
 	#var {old_tp} {%2};
 	#var {needed_xp} {%3};
 	#var {needed_tp} {%4};
-	xp;
+	#if {"%5" == "xp"} {xpShow};
+	#if {"%5" == "tp"} {tpShow};
+	#if {"%5" == "xptp"} {xpShow; tpShow};
 	#line gag
 }
+
+#alias {tpGet} {
+	#send {info XPCOUNTER: %x %t %X %T tp.};
+}
+#alias {xpGet} {
+	#send {info XPCOUNTER: %x %t %X %T xp.};
+}
+
 
 #var {gained_xp} {0}
 #var {gained_tp} {0}

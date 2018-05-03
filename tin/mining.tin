@@ -1,0 +1,49 @@
+#showme {mining.tt}
+
+#var {domine} {0};
+#alias {mineloop} {
+	#math {domine} { 1 - $domine};
+	#if { $domine == 1} {
+		#send {wield pick};
+		domine;
+	};
+}
+
+#var {minesleep} {9};
+#alias {minesleep} {
+	#var {minesleep} {%1};
+	#echo {Sleep for $minesleep seconds.};
+}
+#alias {domine} {
+	#if { $sackfull == 1} {
+		#showme {give sack mule};
+		#send {give sack h};
+		#var {sackfull} {0};
+	};
+	#if { $domine == 1} {
+		#send {mine};
+		#send {put all.ore sack};
+	};
+	#if { $domine == 1} {
+		#send {sleep};
+		#delay {$minesleep} {
+			#send {wake};
+			#send {stand};
+			#send {info %j/%J};
+			domine;
+		};
+	};
+	#else {
+		#echo {Stop mining.}
+		#send {wield sword};
+	};
+}
+
+#nop action {^After some digging, you produce %*.$} {
+	#send {put all.ore sack};
+
+}
+#var {sackfull} {0};
+#action {^{A|An} %* won't fit in a large sack.$} {
+	#var {sackfull} {1};
+};

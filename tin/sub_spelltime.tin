@@ -5,7 +5,7 @@
 #alias {spellTimerStatus} {
 	#if {&spellTimers[%0]} {
 		#format {tmpSpellTimerEpoch} {%T};
-		#echo {%n up for %m minutes, %m seconds.} {%0} {($tmpSpellTimerEpoch-$spellTimers[%0]) / 60} {($tmpSpellTimerEpoch-$spellTimers[%0]) % 60};
+		#echo {- %n up for %m minutes, %m seconds.} {%0} {($tmpSpellTimerEpoch-$spellTimers[%0]) / 60} {($tmpSpellTimerEpoch-$spellTimers[%0]) % 60};
 		#unvar {tmpSpellTimerEpoch}
 	};
 	#else {

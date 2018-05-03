@@ -1,0 +1,8 @@
+#action {^CHARNAME: %1.$} {
+	#unaction {^CHARNAME: %%1.$};
+	#format {logfile} {log/%1/%t.log} {%Y-%m-%d};
+	#log {append} {$logfile};
+	#system {ln -fs $logfile last.log};
+	#unvar {logfile};
+	#line gag;
+}

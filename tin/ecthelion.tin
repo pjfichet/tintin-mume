@@ -1,0 +1,23 @@
+#nop ecthelion
+
+#var {dark[1]} {breastplate}
+#var {dark[2]} {helm}
+#var {dark[3]} {shield}
+
+#var {darki} {1}
+#action {Thank you for bringing it to me} {
+	#delay {4} {#echo {give $dark[$darki] ecthelion}; #send {give $dark[$darki] ecthelion}};
+}
+
+
+#action {^Ecthelion gives you %*$} {
+	#delay {2} {#echo {give $dark[$darki] ecthelion}; #send {give $dark[$darki] ecthelion}};
+}
+
+#action {^You don't have %*$} {
+	#math {darki} {$darki + 1};
+	#if {$darki==4} {#var {darki} {1}};
+	#echo {Dark number set to $darki, dark item set to $dark[$darki]};
+	#echo {give $dark[$darki] ecthelion};
+	#send {give $dark[$darki] ecthelion};
+}

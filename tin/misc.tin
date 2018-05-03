@@ -1,21 +1,51 @@
-#action {^{Nah\.\.\. You feel too relaxed to do that\.|Maybe you should get on your feet first\?|Not from your present position\!}$} {#send {stand}}
-#action {^You have been idle, and are pulled into a void.$} {#send {wake\nstand\nlead\ntrain all}}
-#action {^ACK! %1 didn't follow you, you lost {him|her|it}.$} {#bell}
-#action {^{You can\'t do this sitting\!|You can\'t concentrate enough while resting\.}$} {#send {stand}}
-#action {^Prompt set to None.$} {#send {change prompt points}}
-#action {^You can only gain one level at a time... Reduced experience.$} {#bell}
-#action {^Text will be word-wrapped.$} {#send {change wordwrap off}}
+#alias showsend {
+	#send {%0};
+	#showme {%0};
+};
+#alias {date} {
+	#system {date};
+}
 
-#alias {cpouch} {#send {remove cloak\nremove fur\nget cloak pouch\nwear cloak\nput cloak pouch\nput fur pouch}}
-#alias {fpack} {#send {remove cloak\nremove fur\nget fur pack\nwear fur\nput cloak pack\nput fur pack}}
-#alias {ws} {#send {wake\nstand}}
-#alias {cpack} {#send {remove cloak\nremove fur\nget cloak pack\nwear cloak\nput cloak pack\nput fur pack}}
-#alias {bpouch} {#send {remove boots\nget boots pouch\nwear boots\nput boots pouch}}
+#alias {rent} {
+	info;
+	tpGet;
+	xpGet;
+	#if { "%0" == "" } {
+		train all;
+		#action {^None of your skills needed refreshing.$} {#send {rent}};
+		#action {^No more skills need refreshing.$} {#send {rent}};
+	};
+	#else {
+		#send {rent %0};
+	};
+}
 
-#python
+#alias {chest} {
+		open chest;
+		look in chest;
+		#if {"%0" != ""} {get %0 chest};
+};
 
-from pyLib import hatch
+#alias burnweb {
+	rem dagger;
+	rem lantern;
+	pour lantern web;
+	burn web;
+	wear lantern belt;
+	wield dagger;
+}
 
-#gts
 
-#alias {hatchdirs} {#python hatch.send_dirs("%0")}
+#alias {mkcolordefault} {
+	change colour \
+	emote bold cyan, tell bold cyan, social bold cyan, say bold cyan, \
+	pray bold magenta, shout bold magenta, song bold magenta, yell bold magenta, \
+	magic magenta, achievement magenta, \
+	weather cyan, \
+	avoid-damage bold blue, miss bold blue, damage red, hit blue, \
+	header green, exit bold yellow, \
+	hit bold black, \
+	movement-in bold yellow, movement-out bold yellow;
+}
+
+

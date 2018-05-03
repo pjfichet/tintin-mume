@@ -1,117 +1,116 @@
-#message {ACTIONS} {OFF}
-#message {ALIASES} {OFF}
-#message {CLASSES} {OFF}
-#message {CONFIGURATIONS} {OFF}
-#message {DELAYS} {OFF}
-#message {EVENTS} {OFF}
-#message {FUNCTIONS} {OFF}
-#message {GAGS} {OFF}
-#message {HIGHLIGHTS} {OFF}
-#message {HISTORIES} {OFF}
-#message {MACROS} {OFF}
-#message {PATHS} {OFF}
-#message {PATHDIRS} {OFF}
-#message {PROMPTS} {OFF}
-#message {SUBSTITUTIONS} {OFF}
-#message {TABS} {OFF}
-#message {TICKERS} {OFF}
-#message {VARIABLES} {OFF}
+#message	{ACTIONS} {OFF}
+#message	{ALIASES} {OFF}
+#message	{CLASSES} {OFF}
+#message	{CONFIGURATIONS} {OFF}
+#message	{DELAYS} {OFF}
+#message	{EVENTS} {OFF}
+#message	{FUNCTIONS} {OFF}
+#message	{GAGS} {OFF}
+#message	{HIGHLIGHTS} {OFF}
+#message	{HISTORIES} {OFF}
+#message	{MACROS} {OFF}
+#message	{PATHS} {OFF}
+#message	{PATHDIRS} {OFF}
+#message	{PROMPTS} {OFF}
+#message	{SUBSTITUTIONS} {OFF}
+#message	{TABS} {OFF}
+#message	{TICKERS} {OFF}
+#message	{VARIABLES} {OFF}
 
-#CONFIG           {256 COLORS}  {OFF}
-#CONFIG           {AUTO TAB}  {5000}
-#CONFIG           {BUFFER SIZE}  {20000}
-#CONFIG           {CHARSET}  {ASCII}
-#CONFIG {COLOR PATCH} {OFF}
-#config {CONVERT META} {OFF}
-#config {DEBUG TELNET} {OFF}
-#CONFIG {MCCP} {OFF}
-#CONFIG {LOG LEVEL} {HIGH}
-#CONFIG           {COMMAND COLOR}  {}
-#CONFIG           {COMMAND ECHO}  {OFF}
-#CONFIG           {CONNECT RETRY}  {15}
-#CONFIG           {HISTORY SIZE}  {1000}
-#CONFIG           {LOG}  {RAW}
-#CONFIG           {PACKET PATCH}  {0.00}
-#CONFIG           {REPEAT CHAR}  {!}
-#CONFIG           {REPEAT ENTER}  {OFF}
-#CONFIG           {SCROLL LOCK}  {ON}
-#CONFIG           {SPEEDWALK}  {OFF}
-#CONFIG           {TINTIN CHAR}  {#}
-#CONFIG           {VERBATIM}  {OFF}
-#CONFIG           {VERBATIM CHAR}  {\}
-#CONFIG           {VERBOSE}  {OFF}
-#CONFIG           {WORDWRAP}  {ON}
-#PATHDIR          {n}  {s}  {1}
-#PATHDIR          {e}  {w}  {2}
-#PATHDIR          {s}  {n}  {4}
-#PATHDIR          {w}  {e}  {8}
-#PATHDIR          {u}  {d}  {16}
-#PATHDIR          {d}  {u}  {32}
+#config		{256 COLORS}  {OFF}
+#config		{AUTO TAB}  {5000}
+#config		{BUFFER SIZE}  {20000}
+#config		{CHARSET}  {UTF-8}
+#config		{COLOR PATCH} {OFF}
+#config		{CONVERT META} {OFF}
+#config		{DEBUG TELNET} {OFF}
+#config		{MCCP} {OFF}
+#config		{LOG LEVEL} {HIGH}
+#config		{COMMAND COLOR}  {}
+#config		{COMMAND ECHO}  {ON}
+#config		{CONNECT RETRY}  {15}
+#config		{HISTORY SIZE}  {1000}
+#config		{LOG}  {RAW}
+#config		{PACKET PATCH}  {0.00}
+#config		{REPEAT CHAR}  {!}
+#config		{REPEAT ENTER}  {OFF}
+#config		{SCROLL LOCK}  {ON}
+#config		{SPEEDWALK}  {OFF}
+#config		{TINTIN CHAR}  {#}
+#config		{VERBATIM}  {OFF}
+#config		{VERBATIM CHAR}  {\}
+#config		{VERBOSE}  {OFF}
+#config		{WORDWRAP}  {ON}
+#pathdir	{n}  {s}  {1}
+#pathdir	{e}  {w}  {2}
+#pathdir	{s}  {n}  {4}
+#pathdir	{w}  {e}  {8}
+#pathdir	{u}  {d}  {16}
+#pathdir	{d}  {u}  {32}
+
+#split
 
 #nop The Mume mapper proxy
-#read scripts/mapperproxy.tin
-
-#nop Scripting languages
-#read scripts/python.tin
+#read tin/mapperproxy.tin
 
 #nop Substitutions
-#read scripts/herb_subs.tin
-#read scripts/key_subs.tin
-#read scripts/lockpick_subs.tin
-#read scripts/mob_subs.tin
+#read tin/sub_herb.tin
+#read tin/sub_key.tin
+#read tin/sub_lockpick.tin
+#read tin/sub_mob.tin
+#read tin/sub_spell.tin
+#read tin/sub_spelltime.tin
+#read tin/sub_color.tin
 
-#nop Native TinTin language scripts
-#read scripts/auto_log.tin
-#read scripts/doors.tin
-#read scripts/hunting.tin
-#read scripts/grouping.tin
-#read scripts/misc.tin
-#read scripts/path_walker.tin
-#read scripts/reenter.tin
-#read scripts/report.tin
-#read scripts/spell_timers.tin
-#read scripts/spell_translate.tin
-#read scripts/time.tin
-#read scripts/utils.tin
-#read scripts/xp_counter.tin
+#nop Scripts
+#read tin/log.tin
+#read tin/misc.tin
+#read tin/emotes.tin
+#read tin/hunting.tin
+#read tin/grouping.tin
+#read tin/doors.tin
+#read tin/light.tin
+#read tin/xp_counter.tin
+#read tin/path.tin
+#read tin/go.tin
+#read tin/time.tin
+#read tin/prompt.tin
+#read tin/alias.tin
+#read tin/macros.tin
 
-#nop Scripts that require Python
-#read scripts/communication.tin
-#read scripts/secrets.tin
-#read scripts/sounds.tin
 
 #event {PROGRAM START} {
-	#session {mume} {127.0.0.1} {4000}
+	#nop session {mume} {193.134.218.98} {4242};
+	#session {mume} {127.0.0.1} {4000};
+	$NAME;
+	$PASS;
 }
 
 #event {SESSION DISCONNECTED} {
 	#if {"%0" == "mume"} {
 		#gts;
 		#mapper exit();
-		#python sound.unload();
-		#python exit();
-		#delay {0.5} {#end}
+		#delay {1} {#end};
 	}
 }
 
 #action {^If you have never played MUME before, type NEW to create a new character,$} {
-	#python sound.load();
-	xpReset
+	xpReset;
 }
 
 #action {^{Reconnecting|Welcome to the land of Middle-earth\. May your visit here be\.\.\. interesting}.$} {
 	#send {\xFF\xFD\x01};
-	#split {0} {-1};
 	#send {change spam off};
 	#send {change brief on};
 	#send {change compact on};
 	#send {change wordwrap off};
 	#send {info CHARNAME: %M.};
 	#send {time};
-	#send {info XPCOUNTER: %x %t %X %T.}
+	#send {info XPCOUNTER: %x %t %X %T xptp.};
+	#send {change wimpy $wimpy};
+	#send {info STARTING};
 }
 
-#prompt {^PROMPT:%1:PROMPT$} {%1} {0}
+#nop Deal with blank lines
+#gag {^{(?:[\s]*)}$};
 
-#nop Gag blank lines.
-#gag {^{(?:[\s]*)}$}

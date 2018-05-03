@@ -1,0 +1,32 @@
+#nop {common spells};
+
+#alias {castfood} {
+	#action {^{A magic mushroom|Something} suddenly appears.$} {
+		eat mushroom;
+		#unaction {^{A magic mushroom|Something} suddenly appears.$};
+	};
+	showsend cast 'create food';
+}
+#alias {castqbolt} {
+	#if { "%0" != ""} {target %0};
+	showsend cast quick 'lightning bolt' ${NTARGET}\.${TARGET};
+};
+#alias {castkbolt} {
+	#if { "%0" != "" } {target %0};
+	showsend cast 'lightning bolt'  ${NTARGET}\.${TARGET};
+}
+#alias {castklightning} {
+	#if { "%0" != ""} {target %0};
+	showsend cast 'call lightning' ${NTARGET}\.${TARGET};
+};
+
+
+#nop alias {wl} {weather local};
+#nop alias {wg} {weather global};
+#nop alias {wf} {weather fog};
+#nop alias {castcloudm} {cast 'control weather' clouds more}
+#nop alias {castcloudl} {cast 'control weather' clouds less}
+#nop alias {casttempm} {cast 'control weather' temperature higher}
+#nop alias {casttempl} {cast 'control weather' temperature lower}
+#nop alias {castfogm} {cast 'control weather' fog increase}
+#nop alias {castfogl} {cast 'control weather' fog decrease}

@@ -1,134 +1,191 @@
 # TinTin-MUME
 A collection of TinTin++ scripts for [MUME](http://mume.org "MUME Home Page")
 
-## Installation
-These scripts require Python (either version 2 or 3), and the latest beta version of TinTin. You can download the current TinTin Beta version from [here](http://tintin.sf.net/download/tintin-beta.tar.gz "TinTin Beta Version Direct Link").
+Since speed is important to play mume, these scripts implement
+a modal system reminiscent of vim:
+- In `quick` mode, it is not needed to hit `enter`, each key press
+  executes an action directly. This is the mainly used mode.
+- In `writing` mode, one must hit enter to execute the action. This
+  mode should be used sporadically, to set up variables, write emotes,
+  etc.
+- The macro `w` is used to switch from the `quick` mode to the
+  `writing` mode and versa.
+- As in vim, the letters h,j,k,l define directions. u and n, are
+  directions up and down.
+- A targetting system is implemented: t[a|d|p|o|m|t|w|z] to target
+  animal, dunlending, plant, orc\*, man\*, troll\*, woman\*, zaugurz\*.
+  Or `t mytarget` in writing mode.
 
-## Usage
-Here is a brief alias reference for the scripts, until more detailed information can be written.
-### Communication
-```
-Rep - Sends a tell to the last person that told you something.
-pl - Review prays.
-nl - Review narrates.
-sl - Review says.
-tl - Review tells.
-if a number is passed to one of the communication review aliases, the script will display that many lines of output (up to 100) from the bottom of the communication file. If a string is passed to one of the aliases, the script displays up to 100 lines of text from the end of the file that match the string. If no argument is supplied, the script defaults to printing the last 20 lines from the communication log.
-```
-### Doors
-```
-db - bash last seen door.
-dc - close last seen door.
-do - open last seen door.
-dp - pick last seen door.
-du - unlock last seen door.
-autoopen [on|off) - If turned *on*, will automatically open doors that you run into. If no argument is supplied, will toggle auto-open from the last known state.
-```
-### Grouping
-```
-lf - follow leader
-lp - protect leader
-lr - rescue leader
-lt [string] - tell leader string
-lw - whois leader
-fs - follow self
-leader [clear|name] - Manually sets your leader to the given name. If 'clear' is supplied instead of a name, the current leader is forgotten. If no argument is supplied, will print the current leader (if any).
-autoride [on|off] - If turned *on*, will automatically ride and lead your mount when your leader rides/leads, and will automatically stand, lead, and ride your mount when you 'ZBLAM'. If no argument is supplied, will toggle auto-ride from the last known state.
-autogroup [on|off] - If turned *on*, will automatically 'group' players when they raise their hand. Make sure to turn it *off* when everyone has been grouped. If no argument is supplied, will toggle auto-group from the last known state.
-```
-### Hunting
-```
-rr - (for manual recovery and looting of arrows) get all.arrow all.corpse, get all.arrow, put all.arrow quiver
-rq - reveal quick
-rt - reveal thorough
-sq - search quick
-st - search thorough
-b. or bb - bash target
-bf - bash target, flee
-bs. or j - backstab target
-c. - consider target
-e. - examine target
-s. - shoot target
-sf - shoot target, flee
-t. - track target
-w. - where target
-k. or kk - kill target
-kf - kill target, flee
-kb - kill *bear*
-ke - kill *elf*
-khe - kill *half-elf*
-kd - kill *dwarf*
-kh - kill *hobbit*
-km - kill *man*
-ko - kill *orc*
-kt - kill *troll*
-ttf - (target fighting) target the player or mob who you are currently fighting
-tta - (target again) If you previously targeted a brigand and he dies, the tta alias will label the next brigand in the room 't'.
-ttc - clears your target
-ttt - target the previously marked opponent that has the label 't'
-ttb - target *bear*
-ttd - target *dwarf*
-tte - target *elf*
-tthe - target *half-elf*
-tth - target *hobbit*
-ttm - target *man*
-tto - target *orc*
-ttr - target *troll*
-```
-### Mapper
-```
-rinfo [label|vnum] - Returns information about a room. If no room label or vnum is given, will return information about the current room.
-rlabel [add|delete|info] [label] [vnum] - Adds, deletes, or returns information for a room label. A vnum argument is only needed when adding a label.
-run [c|label|vnum] [arguments] - Determines the most optimal route to the given room, and starts walking you there. If 'c' is given instead of a valid room label or vnum, your last destination will be used. Arguments are optional, and should be separated by a '|' character. If the argument is the word 'no' and a terrain, an extra movement cost of 10 will be added to all rooms with that terrain when calculating the path. Example: 'run seekspot1 noroad|nobrush' to run to the room labeled 'seekspot1' while avoiding brush and roads.
-stop - Cancels the auto-walking of the 'run' command.
-savemap - saves the loaded map file to disk.
-sync [label|vnum] - Manually sync the map to the given room label or vnum. if no label or vnum is given, the 'sync' command will set the mapper's synced state to unsynced, and send a 'look' command to the game.
-```
-### Path Walker
-```
-p [direction] - If you are are on a road, will start following the road in the given direction using the '=' signs around road exits in the exits line. The script will stop walking if there are more then 1 possible roads out of the room, not including the direction you came from (I.E. a junction).
-pp - If you are currently following a road, will stop following it.
-```
-### Reenter
-```
-v - If you successfully fled out of a room, this command will move your character back in the room. Useful for switching tanks when XPing. The command will only work once between successful flees to prevent you from going in the target room's direction twice.
-```
-### Report
-```
-tnl - Displays how many XP and TP points you need to level.
-rpscore - Reports your current HP, Mana, and Movement points to the room, including the percentages.
-rptnl - Reports how many XP and TP points you need to level to the room.
-rpf - (Report full) same as rpscore, rptnl
-```
-### Secret Exits
-```
-dadd [secret name] [direction] - Add a secret exit to the current room in the secrets database.  For example: 'dadd colvert e'. Short forms of directions [e|ea|eas] will automatically be converted to their long form 'east'.
-ddel [room name|all] [direction|all] - Deletes 1 or more secret exits from the room. Like the 'dadd' command, direction names are automatically converted to their long forn. The word 'all' is a wild card. If there are no more secret exits for the current room after the deletion, the room is automatically removed from the database. Examples: 'ddel wall e' (delete the secret named 'wall' that's to the 'east', but leave the wall that's too the north), 'ddel all e' (delete all secret exits in the room that are located to the east), 'ddel stonedoor all' (Delete all secrets named 'stonedoor' from the room, no matter what direction they are located), 'ddel all all' (delete all the secrets from the room, and remove the room entry from the database).
-dinfo [string] - Displays all the secrets (if any) for a room or rooms. If the user provides a string to be searched for, a case-insensitive, fuzzy search is performed for all room names in the database matching string. Otherwise, a case-sensitive, exact search is performed for the last captured room name from the mud.
-ddo - Open all secret exits in the current room.
-```
-### Sounds
-```
-playsound [file|directory] - Play a sound file from the 'sounds' directory. If a file name is given, it will be played in the background. If a directory name is given instead, a random file will be played from that directory. Examples: 'playsound tells.wav' (play the file located at 'sounds/tells.wav'), 'playsound combat' (play a random sound file from 'sounds/combat/')
-stopsound [file] - Stop playing 1 or more sounds. If a filename is given, only that sound will be stopped. If no arguments are given, all currently playing sounds will be stopped.
-mutesound - Toggles the muting of sounds.
-vol [up|down] - increases or decreases the volume of all sounds.
-```
-### Time
-```
-ti - Displays information about the current game time.
-nti - Narrates information about the current game time.
-sti - Says information about the current game time.
-```
-### XP Counter
-```
-xp - Shows the XP counter.
-```
-### Miscellaneous
-```
-bpouch - (substitute the boots that you are currently wearing with the boots in your pouch.) remove boots, get boots pouch, wear boots, put boots pouch
-cpouch - (substitute the fur or cloak that you are currently wearing with the cloak in your pouch.) remove cloak, remove fur, get cloak pouch, wear cloak, put cloak pouch, put fur pouch
-cpack - (substitute the fur or cloak that you are currently wearing with the cloak in your pack.) remove cloak, remove fur, get cloak pack, wear cloak, put cloak pack, put fur pack
-fpack - (substitute the fur or cloak that you are currently wearing with the fur in your pack.) remove cloak, remove fur, get fur pack, wear fur, put cloak pack, put fur pack
-ws - wake, stand
-```
+== Installation ==
+
+You will need tintin++: <https://tintin.sourceforge.net>.
+
+The scripts are supposed to be used with the Mume-mapperproxy by
+Nstockton: <https://github.com/nstockton/mume-mapperproxy>.
+The makefile can install it with the command `make mapperproxy`
+
+=== Usage ===
+
+This directory contains a sample character file that you should
+edit to add your character name, password, default wimpy, and
+to configure the scripts to load. Once done, you can play with:
+    tt++ my_char.tt
+
+== Aliases ==
+
+The following aliases are available both in `quick` and `writing`
+modes.
+
+=== Directions ===
+h: west
+j: south
+k: north
+l: east
+u: up
+n: down
+
+=== Quick ===
+a: assist
+i: cast quick bolt on target
+I: cast bolt on target
+J: sneak
+m: change mood
+M: change weapon
+f: flee
+q: go
+K: kill target
+y: toggle light
+z: stab
+g: kill target
+
+=== Alertness ===
+Ap: change alertness paranoid
+An: change alertness normal
+
+=== care ===
+ba: bandage
+bc: butcher corpse
+br: rest
+bs: sleep
+bt: wake; stand
+bu: burn corpse
+
+=== cast ===
+ca: armour
+cb: bless
+cf: create food
+ci: lightning bolt
+cl: cure light
+cn: change spellcasting normally
+cq: change spellcasting quick
+cr: create light $sourcelight
+ck: list keys to teleport
+ct: teleport
+cw: create water
+c[1-9]: teleport to key number n
+
+=== doors and drink ===
+da[h|j|k|l|u|n]: bar door $direction
+db[h|j|k|l|u|n]: bash door $direction
+dc[h|j|k|l|u|n]: close door $direction
+dn[h|j|k|l|u|n]: knock door $direction
+dk[h|j|k|l|u|n]: block door $direction
+dl[h|j|k|l|u|n]: lock door $direction
+dn[h|j|k|l|u|n]: unbar door $direction
+do[h|j|k|l|u|n]: open door $direction
+dp[h|j|k|l|u|n]: pick door $direction
+dr[h|j|k|l|u|n]: break door $direction
+du[h|j|k|l|u|n]: unlock door $direction
+dh: pick chest; open chest; look in chest
+dw: drink water
+
+=== escape ===
+e[h|j|k|l|u|n]: escape direction
+
+=== Get ===
+Ga: get all corpse
+Gc: get all.coins all.corpse
+Gl: look in corpse
+G[1-9]: look in number.corpse
+
+=== Hide ===
+H: hide
+Hq: hide quick
+Ht: hide thorough
+
+=== Leader and look ===
+Lb: toggle backride on
+Lc: cast 'cure light' $leader
+Lf: follow
+Ln: leader none
+Lp: protect leader
+Lr: rescue leader
+Ls: follow self
+Lt: tell leader
+Lw: wake leader
+Lx: examine leader
+LL: look, exit
+
+=== path ===
+p: show the path
+pd: show the path to death mark
+pg: get the label of the current room
+pk: mark the current room
+pm: show the path to the last marked room
+pr: rund to dest
+ps: show the path
+
+=== Track, Ride ===
+ra: aba
+rb: ride behind $leader
+ri: ride
+rl: lead mount
+rz: stand; lead; ride
+
+r: track
+rh: track horse
+r[o|m|t|w|]: track orc\*, man\*, troll\*
+rr: track
+rv: track $target
+
+==== score, search, scout ===
+sc: score, stat
+sa: look around
+sf: flush quick
+sq: reveal quick
+st: reveal thorough
+sr: seek rivendell
+s[h|j|k|l|u|d]: scout $direction
+S[h|j|k|l||u|d]: search direction
+
+=== target, time ===
+t: target %1
+t[a|d|p}]: target animal, dunlending, plant
+t[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
+tx: exam $target, cons $target
+ti: increase the target number
+tr: reset the target number to 1
+t[1-9]: set the target number 
+ts: time short
+
+=== kill ===
+v: kill %1
+v[a|d|p]: kill animal, dunlending, plant
+v[m|o|t|w|z]: kill man\*, orc\*, troll\*, woman\*, zaugurz\*
+vf: kill $found
+vv: kill $arrived
+vl: label opponent l, target l
+vi: increase target number, kill $target
+vr: reset target number, kill $target
+
+=== modal ===
+w: toggle modal on|off
+
+==== xp, exam ===
+xa: report all information
+xp: show xp
+xn: report tnl
+xs: report score
+xt: show tp
+xx: exam target, exit
+

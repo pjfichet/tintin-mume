@@ -1,8 +1,0 @@
-#run {python} {python -B}
-
-from pyLib.tintin import TinTin
-
-#read scripts/scripting.tin
-#read scripts/utils.tin
-
-#gts
