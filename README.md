@@ -188,7 +188,6 @@ beckons you to follow.
 
 When a leader is set up, `autoride` is toggled on and you will mount
 and lead automatically. To toggle it off, enter  `autoride`.
-
 Similarly to `autoride`, you can use `backride` to automatically ride
 behind your leader.
 
@@ -223,7 +222,7 @@ Once you have set up a path, you can walk one step toward your
 destination with `pg`, run toward that direction with `pr`, or show
 the whole path with `ps`.
 
-`pk` puts a mark on a roo. `pm` shows the path to that room and
+`pk` puts a mark on a room. `pm` shows the path to that room and
 sets your default destination to that mark.
 
 A mark is automaticaly put on the room you die on, so you can find
@@ -253,7 +252,7 @@ rz: stand; lead; ride
 
 ### Track ###
 
-In _quick_ mode, you will usually track you current target with `wv`
+In _quick_ mode, you will usually track you current target with `rv`
 (see the targetting system below), or simply `track` with `rr`. To
 track a specific target you can use `t target` in the _writing_ mode..
 In _quick_ mode, you can use `wt target`.
