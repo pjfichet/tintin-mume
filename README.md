@@ -21,10 +21,10 @@ a modal system reminiscent of vim:
 
 ## Installation ##
 
-You will need tintin++: <https://tintin.sourceforge.net>.
+You will need tintin++: <http://tintin.sourceforge.net>.
 
 The scripts are supposed to be used with the Mume-mapperproxy by
-Nstockton: <https://github.com/nstockton/mume-mapperproxy>.
+Nstockton: <https://github.com/nstockton/mapperproxy-mume>.
 The makefile can install it with the command `make mapperproxy`
 
 ### Usage ###
@@ -32,7 +32,10 @@ The makefile can install it with the command `make mapperproxy`
 This directory contains a sample character file that you should
 edit to add your character name, password, default wimpy, and
 to configure the scripts to load. Once done, you can play with:
+
+```sh
     tt++ my_char.tt
+```
 
 ## Aliases ##
 
@@ -199,7 +202,7 @@ r[o|m|t|w|]: track orc\*, man\*, troll\*
 rv: track $target
 ```
 
-#### score, search, scout ###
+#### Score, search, scout ###
 
 ```
 sc: score, stat
@@ -208,8 +211,8 @@ sf: flush quick
 sq: reveal quick
 st: reveal thorough
 sr: seek rivendell
-s[h|j|k|l|u|d]: scout $direction
-S[h|j|k|l||u|d]: search direction
+s[h|j|k|l|u|d]: scout direction
+S[h|j|k|l|u|d]: search direction
 ```
 
 ### Target, time ###
