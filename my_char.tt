@@ -1,0 +1,33 @@
+#nop Sample character file
+#nop remove #nop to uncomment.
+
+#var {NAME} {my_login}
+#var {PASS} {my_pasword}
+#var {WIMPY} {40}
+
+#nop main file
+#read tin/main.tin
+
+#nop for clerics
+#nop read cleric.tin
+
+#nop for scouts
+#nop read light.tin
+
+#nop for mages
+#nop read mage.tin
+#nop read locate.tin
+
+#nop for warriors
+#nop read warrior.tin
+
+#nop the following is executed at startup
+#action {^STARTING$} {
+	setweapon elven nimble;
+	setlight lantern;
+	lightoff;
+	modal;
+	#line gag;
+};
+
+
