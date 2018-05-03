@@ -41,7 +41,7 @@
 }
 
 
-#alias {trtarget} {
+#alias {tracktarget} {
 	if { "%0" != ""} {target %0};
 	#send {track ${TARGET}};
 }
@@ -80,7 +80,10 @@
 #alias xtarget {
 	#nop exam the target;
 	#if {"%0" != ""} {exam %0};
-	#else {exam ${NTARGET}\.${TARGET}};
+	#else {
+		exam ${NTARGET}\.${TARGET};
+		cons ${NTARGET}\.${TARGET};
+	};
 }
 
 
@@ -97,7 +100,12 @@
 
 #alias itarget {
 	#nop increase the target number;
-	#math {NTARGET} {$NTARGET + 1};
+	#if { "%0" != ""} {
+		#var {NTARGET} {%0};
+	};
+	#else {
+		#math {NTARGET} {$NTARGET + 1};
+	};
 	#echo {Target ${NTARGET}\.${TARGET}\.};
 };
 

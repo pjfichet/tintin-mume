@@ -8,7 +8,7 @@
 };
 
 #alias {gopath} {
-	pathStep %0;
+	pathstep %0;
 };
 
 #alias {gotrack} {

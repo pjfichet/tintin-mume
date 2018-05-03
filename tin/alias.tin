@@ -16,11 +16,10 @@
 #alias {m} {mood %0};
 #alias {M} {chaweapon};
 #alias {f} {showsend flee};
-#alias {q} {go %0};
-#alias {K} {kill %0};
+#alias {q} {kill %0};
 #alias {y} {togglelight};
 #alias {z} {stab};
-#alias {g} {kill %0};
+#alias {g} {go};
 
 #nop alertness
 #alias {Ap} {showsend change alertness paranoid};
@@ -107,7 +106,6 @@
 #alias {G9} {lightor; showsend look in 9.corpse; lightoff};
 
 #nop hide
-#alias {H} {hide};
 #alias {Hq} {lightor; hide quick};
 #alias {Ht} {lightor; hide thorough};
 
@@ -118,36 +116,37 @@
 #alias {Ln} {leader none};
 #alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
 #alias {Lr} {#echo {rescue $leader}; #send {rescue $leader}};
-#alias {Ls} {#echo {follow self}; ln; #send {follow self}};
+#alias {Ls} {#echo {follow self}; Ln; #send {follow self}};
 #alias {Lt} {#echo {tell $leader %0}; #send {tell $leader %0}};
 #alias {Lw} {showsend wake $leader};
 #alias {Lx} {lightor; showsend examine $leader; lightoff};
 #alias {LL} {lightor; look; exit; lightoff};
 
 #nop path
-#alias {p} {pathShow %0; modal};
-#alias {pd} {pathDeathShow};
+#alias {pd} {pathdeathshow};
 #alias {pf} {rlabel search %1};
-#alias {pg} {getlabel};
-#alias {pk} {pathMark};
-#alias {pm} {pathMarkShow};
-#alias {pr} {pathRun %0};
-#alias {ps} {pathShow %0};
+#alias {pg} {pathstep};
+#alias {pk} {pathmark};
+#alias {pl} {getlabel};
+#alias {pm} {pathmarkshow};
+#alias {pr} {pathrun %0};
+#alias {ps} {pathshow %0; modal};
 
 #nop track ride
-#alias {r} {lighton; showsend track %0; modal};
 #alias {ra} {aba};
-#alias {rb} {ride behind $leader; rideback on};
+#alias {rb} {ride behind $leader; backride on};
 #alias {rh} {lighton; showsend track horse; tm};
 #alias {ri} {showsend ride %0};
 #alias {rl} {ridelead %0};
+#alias {rz} {ridezblam};
+
+#alias {r} {lighton; showsend track %0; modal};
 #alias {rm} {lighton; showsend track man*; tm};
 #alias {ro} {lighton; showsend track orc*; to};
 #alias {rr} {lightor; showsend track %0; lightoff};
 #alias {rt} {lighton; showsend track troll*; tt};
-#alias {rv} {lightor; tracktarget};
+#alias {rv} {lighton; tracktarget %0};
 #alias {rw} {lighton; showsend track woman*; tw};
-#alias {rz} {ridezblam};
 
 #nop score search scout
 #alias {sa} {showsend look around};
@@ -183,20 +182,19 @@
 #alias {ts} {_time_short};
 #alias {tt} {target troll*};
 #alias {tw} {target woman*};
-#alias {tx} {showsend exam $NTARGET\.$TARGET; cons $NTARGET\.$TARGET};
+#alias {tx} {xtarget};
 #alias {tz} {target zaugurz*};
-#alias {t1} {#var {NTARGET} {1}};
-#alias {t2} {#var {NTARGET} {2}};
-#alias {t3} {#var {NTARGET} {3}};
-#alias {t4} {#var {NTARGET} {4}};
-#alias {t5} {#var {NTARGET} {5}};
-#alias {t6} {#var {NTARGET} {6}};
-#alias {t7} {#var {NTARGET} {7}};
-#alias {t8} {#var {NTARGET} {8}};
-#alias {t9} {#var {NTARGET} {9}};
+#alias {t1} {itarget 1};
+#alias {t2} {itarget 2};
+#alias {t3} {itarget 3};
+#alias {t4} {itarget 4};
+#alias {t5} {itarget 5};
+#alias {t6} {itarget 6};
+#alias {t7} {itarget 7};
+#alias {t8} {itarget 8};
+#alias {t9} {itarget 9};
 
 #nop kill
-#alias {v} {kill %0; modal};
 #alias {va} {showsend kill animal};
 #alias {vd} {showsend kill dunlending};
 #alias {vf} {showsend kill $found};
@@ -220,5 +218,5 @@
 #alias {xn} {reporttnl};
 #alias {xs} {reportscore};
 #alias {xt} {tpGet};
-#alias {xx} {xtarget; exit};
+#alias {xx} {xtarget};
 

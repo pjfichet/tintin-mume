@@ -1,45 +1,45 @@
-#var {pathMark} {}
-#var {pathDoMark} {0}
-#var {pathDoDeath} {0}
+#var {path_mark} {}
+#var {path_domark} {0}
+#var {path_dodeath} {0}
 
 #action {^Vnum: %1.$} {
-	#if { $pathDoMark == 1 } {
-		#if { "$pathMark" != ""} {#echo {Old mark was $pathMark\.}};
-		#var {pathMark} {%1};
+	#if { $path_domark == 1 } {
+		#if { "$path_mark" != ""} {#echo {Old mark was $path_mark\.}};
+		#var {path_mark} {%1};
 		#line gag;
-		#echo {Mark put on room $pathMark\.};
+		#echo {Mark put on room $path_mark\.};
 	};
-	#elseif { $pathDoDeath == 1 } {
-		#var {pathDeath} {%1};
+	#elseif { $path_dodeath == 1 } {
+		#var {path_death} {%1};
 		#line gag;
-		#echo {Death on room $pathDeath\.};
+		#echo {Death on room $path_death\.};
 	};
-	#var pathDoMark {0};
-	#var pathDoDeath {0};
+	#var path_domark {0};
+	#var path_dodeath {0};
 };
 
-#alias {pathMark} {#var pathDoMark {1}; vnum}
-#alias {pathMarkShow} {pathShow $mark}
+#alias {pathmark} {#var path_domark {1}; vnum}
+#alias {pathmarkshow} {pathshow $path_mark}
 
 
-#action {^You are dead! Sorry...$} {#var {pathDoDeath} {1}; vnum}
-#alias {pathDeathShow} {pathShow $death}
+#action {^You are dead! Sorry...$} {#var {path_dodeath} {1}; vnum}
+#alias {pathdeathshow} {pathshow $path_death}
 
 
 
-#alias pathShow {
-	#if { "%0" != "" } {#var {dest} {%0}};
-	#echo {Path to $dest\:};
-	#send {path $dest};
+#alias pathshow {
+	#if { "%0" != "" } {#var {path_dest} {%0}};
+	#echo {Path to $path_dest\:};
+	#send {path $path_dest};
 }
-#alias pathRun {
-	#if { "%0" != "" } {#var {dest} {%0}};
-	#echo {Running to $dest\.};
-	#send {run $dest};
+#alias pathrun {
+	#if { "%0" != "" } {#var {path_dest} {%0}};
+	#echo {Running to $path_dest\.};
+	#send {run $path_dest};
 }
-#alias pathStep {
-	#if { "%0" != "" } {#var {dest} {%0}};
-	#send {step $dest};
+#alias pathstep {
+	#if { "%0" != "" } {#var {path_dest} {%0}};
+	#send {step $path_dest};
 }
 
 

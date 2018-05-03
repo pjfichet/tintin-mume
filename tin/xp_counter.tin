@@ -36,6 +36,26 @@
 	#send {info XPCOUNTER: %x %t %X %T xp.};
 }
 
+#alias {reportall} {
+	tpGet;
+	xpGet;
+	say Gained XP: $gained_xp Needed XP: $needed_xp Session XP: $session_xp;
+	say Gained TP: $gained_tp Needed TP: $needed_tp Session TP: $session_tp;
+}
+
+#alias {reporttnl} {
+	xpGet;
+	say I need $needed_xp xp.
+}
+
+#alias {reportscore} {
+	#if {"$prompthp" == ""} {#var {prompthp} {full}};
+	#if {"$promptmana" == ""} {#var {promptmana} {full}};
+	#if {"$promptmove" == ""} {#var {promptmove} {full}};
+	#showme {hp: $prompthp, mana: $promptmana, move: $promptmove\.};
+	say hp: $prompthp, mana: $promptmana, move: $promptmove\.;
+}
+
 
 #var {gained_xp} {0}
 #var {gained_tp} {0}

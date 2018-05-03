@@ -1,15 +1,19 @@
 #nop grouping
 
 #alias {ridelead} {
+	#action {^Lead what?$} {
+		#send {lead pack};
+		#send {lab pack h};
+		#unaction {^Lead what?$};
+	};
 	#if { "%0" == "" } {#send {lead}};
-	#else {lead %0; lab %0 h};
+	#else {#send {lead %0}; lab %0 h};
 }
 #alias {ridezblam} {
-	#if { "%0" == "" } {stand; lead h; ride};
-	#else {stand; lead %1; ride};
+	#if { "%0" == "" } {stand; #send {lead h}; ride};
+	#else {#send {stand}; #send {lead %1}; #send {ride}};
 }
 
-#action {^Lead what?$} {ridelead pack};
 
 #action {^%w {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
 	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {

@@ -173,13 +173,14 @@ LL: look; exit
 ### Path ###
 
 ```
-p: show the path
+ps: set and show the path to %1
 pd: show the path to death mark
-pg: get the label of the current room
+pf: search for label %1
+pl: get the label of the current room
 pk: mark the current room
 pm: show the path to the last marked room
-pr: rund to dest
-ps: show the path
+pr: rund to recorded destination
+pg: go one step toward recorded destination
 ```
 
 ### Ride ###
