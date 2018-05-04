@@ -24,13 +24,13 @@
 #sub {^A low, many-branched shrub covers the ground here.$} {%0 - [Thyme, 125/400]}
 #sub {^A low shrub with bright green, oblong leaves is growing here.$} {%0 - [Blueberries, loads: 10/10]}
 #sub {^A man's-waist high evergreen shrub grows here, with bright green branches.$} {%0 - [Coriander, loads: 2/1000]}
-#sub {^A(?:n enhanced)? herbal kit contains a bright red mushroom\, a hemlock plant\, a sticky mass of stems\, leaves and sap\, a foul\-smelling root\, some orange\-red flowers and some white\, egg\-shaped berries\.$} {Scaly}
-#sub {^A(?:n enhanced)? herbal kit contains a handful of blackcurrant berries\, two piles of grey\-green leaves\, some long\, slender green leaves and some yellow petals\.$} {Healing}
-#sub {^A(?:n enhanced)? herbal kit contains a handful of narrow leaves\, a handful of clover and a man-like root\.$} {Travelling}
-#sub {^A(?:n enhanced)? herbal kit contains a handful of narrow leaves\, a short\, moist tail\, some short\, black fur and a vial of preserved blood\.$} {Orkish draught}
-#sub {^A(?:n enhanced)? herbal kit contains some short\, black fur\, a short\, moist tail and a small fluid\-sack\.$} {Venom}
-#sub {^A(?:n enhanced)? herbal kit contains three eggs\, a mashed honey\-wax mixture and a sack of flour\.$} {Baker}
-#sub {^A(?:n enhanced)? herbal kit contains two piles of blackberries\, some grey petals\, some long\, slender green leaves and some white petals\.$} {Antidote}
+#sub {^A{(n enhanced)?} herbal kit contains a bright red mushroom, a hemlock plant, a sticky mass of stems, leaves and sap, a foul-smelling root, some orange-red flowers and some white, egg-shaped berries.$} {%0 (Scaly)}
+#sub {^A{(n enhanced)?} herbal kit contains a handful of blackcurrant berries, two piles of grey-green leaves, some long, slender green leaves and some yellow petals.$} {%0 (Healing)}
+#sub {^A{(n enhanced)?} herbal kit contains a handful of narrow leaves, a handful of clover and a man-like root.$} {%0 (Travelling)}
+#sub {^A{(n enhanced)?} herbal kit contains a handful of narrow leaves, a short, moist tail, some short, black fur and a vial of preserved blood.$} {%0 (Orkish draught)}
+#sub {^A{(n enhanced)?} herbal kit contains some short, black fur, a short, moist tail and a small fluid-sack.$} {%0 (Venom)}
+#sub {^A{(n enhanced)?} herbal kit contains three eggs, a mashed honey-wax mixture and a sack of flour.$} {%0 (Baker)}
+#sub {^A{(n enhanced)?} herbal kit contains two piles of blackberries, some grey petals, some long, slender green leaves and some white petals.$} {%0 (Antidote)}
 #sub {^an inscribed wooden box$} {%0 - [makes plants grow]}
 #sub {^An orchid of light violet petals blossoms nearby.$} {%0 - [Orchid, 2/60]}
 #sub {^A patch of moss grows here on a wet, flat stone.$} {%0 - [Phosporescent moss, 15/500, nosell]}
@@ -55,7 +55,8 @@
 #sub {^A tall plant grows here, with grey-green leaves and grey flowers.$} {%0 - [Figwort (Turtlehead), 250/1750]}
 #sub {^A tall plant with a perfectly smooth stem gracefully marks the landscape.$} {%0 - [Hemlock, 20/1000]}
 #sub {^A tall shrub with strong-smelling foliage is growing here.$} {%0 - [elderberries, ?]}
-#sub {^(?:A tall silvery plant grows here\, surrounded by mist|A sad\-looking misty plant is lying on the ground\, its stem broken off)\.$} {%0 - [Hithlain, ?]}
+#sub {^A tall silvery plant grows here, surrounded by mist.$} {%0 [Hithlain, ?]
+#sub {^A sad-looking misty plant is lying on the ground, its stem broken off.$} {%0 - [Hithlain, ?]}
 #sub {^A tall, stately, dome-topped tree grows here.$} {%0 - [Conker, loads: 30/4, nosell]}
 #sub {^A thin, hairy plant, with small, oval leaves, grows here.$} {%0 - [Marjoram, 120/225]}
 #sub {^A waist-high evergreen shrub grows here, with thick, reaching branches.$} {%0 - [Sage (Salvei), loads: 2/100]}
