@@ -68,20 +68,20 @@ playstyle.
 
 ```
 a: assist
+q: kill $target
 i: cast quick 'lightning bolt' $target
 I: cast 'lightning bolt' $target
 J: sneak
 m: change mood
 M: change weapon
 f: flee
-q: go
+g: go
 K: kill target
 y: toggle light # set up you light source with `setlight`
 z: backstab $target
-g: kill $target
 ```
 
-The `q` alias (or `go` in _writing_ mode), is a special command which
+The `g` alias (or `go` in _writing_ mode), is a special command which
 behaves differently depending on the situation:
 - By default, it moves one step toward the pre-defined destination
   (see the path section below),
