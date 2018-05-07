@@ -10,28 +10,20 @@
 
 #nop quick
 #alias {a} {showsend assist}
+#alias {f} {showsend flee};
 #alias {i} {castqbolt %0};
 #alias {I} {castkbolt %0};
-#alias {J} {sneak};
+#alias {J} {go};
 #alias {m} {mood %0};
 #alias {M} {chaweapon};
-#alias {f} {showsend flee};
+#alias {N} {sneak};
 #alias {q} {kill %0};
 #alias {y} {togglelight};
 #alias {z} {stab};
-#alias {g} {go};
 
 #nop alertness
 #alias {Ap} {showsend change alertness paranoid};
 #alias {An} {showsend change alertness normal};
-
-#nop care
-#alias {ba} {showsend bandage};
-#alias {bc} {showsend butcher corpse};
-#alias {br} {showsend rest};
-#alias {bs} {showsend sleep};
-#alias {bt} {#showme {wake\; stand}; wake; stand};
-#alias {bu} {showsend burn corpse};
 
 #nop cast
 #alias {ca} {showsend cast n 'armour'};
@@ -92,18 +84,19 @@
 #alias {es} {esmile};
 
 #nop get
-#alias {Ga} {showsend get all corpse};
-#alias {Gc} {showsend get all.coins all.corpse};
-#alias {Gl} {lightor; showsend look in corpse; lightoff};
-#alias {G1} {lightor; showsend look in 1.corpse; lightoff};
-#alias {G2} {lightor; showsend look in 2.corpse; lightoff};
-#alias {G3} {lightor; showsend look in 3.corpse; lightoff};
-#alias {G4} {lightor; showsend look in 4.corpse; lightoff};
-#alias {G5} {lightor; showsend look in 5.corpse; lightoff};
-#alias {G6} {lightor; showsend look in 6.corpse; lightoff};
-#alias {G7} {lightor; showsend look in 7.corpse; lightoff};
-#alias {G8} {lightor; showsend look in 8.corpse; lightoff};
-#alias {G9} {lightor; showsend look in 9.corpse; lightoff};
+#alias {ga} {showsend get all corpse};
+#alias {gc} {showsend get all.coins all.corpse};
+#alias {gf} {lightor; showsend get all; lightoff};
+#alias {gl} {lightor; showsend look in corpse; lightoff};
+#alias {g1} {lightor; showsend look in 1.corpse; lightoff};
+#alias {g2} {lightor; showsend look in 2.corpse; lightoff};
+#alias {g3} {lightor; showsend look in 3.corpse; lightoff};
+#alias {g4} {lightor; showsend look in 4.corpse; lightoff};
+#alias {g5} {lightor; showsend look in 5.corpse; lightoff};
+#alias {g6} {lightor; showsend look in 6.corpse; lightoff};
+#alias {g7} {lightor; showsend look in 7.corpse; lightoff};
+#alias {g8} {lightor; showsend look in 8.corpse; lightoff};
+#alias {g9} {lightor; showsend look in 9.corpse; lightoff};
 
 #nop hide
 #alias {Hq} {lightor; hide quick};
@@ -132,21 +125,20 @@
 #alias {pr} {pathrun %0};
 #alias {ps} {pathshow %0};
 
-#nop track ride
+#nop ride rest
 #alias {ra} {aba};
-#alias {rb} {ride behind $leader; backride on};
-#alias {rh} {lighton; showsend track horse; tm};
+#alias {rk} {ride behind $leader; backride on};
 #alias {ri} {showsend ride %0};
 #alias {rl} {ridelead %0};
 #alias {rz} {ridezblam};
 
-#alias {r} {lighton; showsend track %0};
-#alias {rm} {lighton; showsend track man*; tm};
-#alias {ro} {lighton; showsend track orc*; to};
-#alias {rr} {lightor; showsend track %0; lightoff};
-#alias {rt} {lighton; showsend track troll*; tt};
-#alias {rv} {lighton; tracktarget %0};
-#alias {rw} {lighton; showsend track woman*; tw};
+#alias {rb} {showsend bandage};
+#alias {rc} {showsend butcher corpse};
+#alias {re} {showsend rest};
+#alias {rs} {showsend sleep};
+#alias {rt} {#showme {wake\; stand}; wake; stand};
+#alias {ru} {showsend burn corpse};
+
 
 #nop score search scout
 #alias {sa} {showsend look around};
@@ -170,44 +162,42 @@
 #alias {Su} {showsend search u};
 #alias {Sn} {showsend search d};
 
-#nop target time
-#alias {t} {target %0};
-#alias {ta} {target animal};
-#alias {td} {target dunlending};
-#alias {ti} {itarget};
-#alias {tm} {target man*};
-#alias {to} {target orc*};
-#alias {tp} {target plant};
-#alias {tr} {rtarget};
-#alias {ts} {_time_short};
-#alias {tt} {target troll*};
-#alias {tw} {target woman*};
-#alias {tx} {xtarget};
-#alias {tz} {target zaugurz*};
-#alias {t1} {itarget 1};
-#alias {t2} {itarget 2};
-#alias {t3} {itarget 3};
-#alias {t4} {itarget 4};
-#alias {t5} {itarget 5};
-#alias {t6} {itarget 6};
-#alias {t7} {itarget 7};
-#alias {t8} {itarget 8};
-#alias {t9} {itarget 9};
+#nop track, time
+#alias {t} {lighton; showsend track %0};
+#alias {th} {lighton; showsend track horse; tm};
+#alias {tm} {lighton; showsend track man*; tm};
+#alias {to} {lighton; showsend track orc*; to};
+#alias {tr} {lightor; showsend track %0; lightoff};
+#alias {tt} {lighton; showsend track troll*; tt};
+#alias {tv} {lighton; tracktarget %0};
+#alias {tw} {lighton; showsend track woman*; tw};
+#alias {ti} {_time_short};
 
-#nop kill
-#alias {va} {showsend kill animal};
-#alias {vd} {showsend kill dunlending};
-#alias {vf} {showsend kill $found};
-#alias {vi} {itarget; kill};
-#alias {vr} {rtarget; kill};
-#alias {vl} {lab l; target l};
-#alias {vm} {showsend kill man*};
-#alias {vo} {showsend kill orc*};
-#alias {vp} {showsend kill plant};
-#alias {vt} {showsend kill troll*};
-#alias {vv} {showsend kill $arrived};
-#alias {vw} {showsend kill woman*};
-#alias {vz} {showsend kill zaugurz*};
+#nop target
+#nop bandit, brigand, assassin
+#alias {v} {target %0};
+#alias {va} {target animal};
+#alias {vb} {target bandit};
+#alias {vd} {target dunlending};
+#alias {vi} {itarget};
+#alias {vm} {target man*};
+#alias {vo} {target orc*};
+#alias {vp} {target plant};
+#alias {vr} {rtarget};
+#alias {vs} {target shadow};
+#alias {vt} {target troll*};
+#alias {vw} {target woman*};
+#alias {vx} {xtarget};
+#alias {vz} {target zaugurz*};
+#alias {v1} {itarget 1};
+#alias {v2} {itarget 2};
+#alias {v3} {itarget 3};
+#alias {v4} {itarget 4};
+#alias {v5} {itarget 5};
+#alias {v6} {itarget 6};
+#alias {v7} {itarget 7};
+#alias {v8} {itarget 8};
+#alias {v9} {itarget 9};
 
 #alias {w} {modalon};
 #nop {wr: track %0, wt: target %0, wv: kill %0};

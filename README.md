@@ -68,20 +68,21 @@ playstyle.
 
 ```
 a: assist
-q: kill $target
-i: cast quick 'lightning bolt' $target
-I: cast 'lightning bolt' $target
-J: sneak
-m: change mood
-M: change weapon
 f: flee
 g: go
+i: cast quick 'lightning bolt' $target
+I: cast 'lightning bolt' $target
+J: go (see below)
 K: kill target
+m: change mood
+M: change weapon
+N: sneak
+q: kill $target
 y: toggle light # set up you light source with `setlight`
 z: backstab $target
 ```
 
-The `g` alias (or `go` in _writing_ mode), is a special command which
+The `J` alias (or `go` in _writing_ mode), is a special command which
 behaves differently depending on the situation:
 - By default, it moves one step toward the pre-defined destination
   (see the path section below),
@@ -94,17 +95,6 @@ behaves differently depending on the situation:
 ```
 Ap: change alertness paranoid
 An: change alertness normal
-```
-
-### Care ###
-
-```
-ba: bandage
-bc: butcher corpse
-br: rest
-bs: sleep
-bt: wake; stand
-bu: burn corpse
 ```
 
 ### Cast ###
@@ -167,10 +157,11 @@ e[h|j|k|l|u|n]: escape direction
 ### Get ###
 
 ```
-Ga: get all corpse
-Gc: get all.coins all.corpse
-Gl: look in corpse
-G[1-9]: look in number.corpse
+ga: get all corpse
+gc: get all.coins all.corpse
+gf: get all (from floor)
+gl: look in corpse
+g[1-9]: look in number.corpse
 ```
 
 ### Hide ###
@@ -244,25 +235,21 @@ pg: go one step toward recorded destination
 
 ```
 ra: aba
-rb: ride behind $leader (set backride on)
+rk: ride behind $leader (set backride on)
 ri: ride
 rl: lead mount
 rz: stand; lead; ride
 ```
 
-### Track ###
-
-In _quick_ mode, you will usually track you current target with `rv`
-(see the targetting system below), or simply `track` with `rr`. To
-track a specific target you can use `t target` in the _writing_ mode..
-In _quick_ mode, you can use `wt target`.
+### Rest ###
 
 ```
-r: track
-rr: track
-rh: track horse
-r[o|m|t|w|]: track orc\*, man\*, troll\*
-rv: track $target
+rb: bandage
+rc: butcher corpse
+re: rest
+rs: sleep
+rt: wake; stand
+ru: burn corpse
 ```
 
 #### Score, search, scout ###
@@ -278,57 +265,53 @@ s[h|j|k|l|u|d]: scout direction
 S[h|j|k|l|u|d]: search direction
 ```
 
+### Time ###
+
+On login, you should have a look at a clock to synchronise with the
+game time. Then, you can use `ti` to print the time.
+
+```
+ti: time short
+```
+
+### Track ###
+
+In _quick_ mode, you will usually track you current target with `tv`
+(see the targetting system below), or simply `track` with `tr`. To
+track a specific target you can use `tr target` in the _writing_ mode..
+In _quick_ mode, you can use `:tr target`.
+
+```
+tr: track
+th: track horse
+t[o|m|t|w|]: track orc\*, man\*, troll\*
+tv: track $target
+```
+
 ### Target ###
 
-You can target something in _writing_ mode with `t something`. From
-the _quick_ mode, simply type `wt something`. Once your target is set,
+You can target something in _writing_ mode with `v something`. From
+the _quick_ mode, simply type `:v something`. Once your target is set,
 all offensive commands (spells, backstab, bash, hit, etc.), will
 target it.
 
 You can specify the target number with `t[1-9]`, increase that number
-with `ti` or reset it to 1 with `tr`.
+with `vi` or reset it to 1 with `vr`.
 
 ```
-t: target %1
-t[a|d|p}]: target animal, dunlending, plant
-t[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
-tx: exam $target, cons $target
-ti: increase the target number
-tr: reset the target number to 1
-t[1-9]: set the target number 
-```
-
-
-### Time ###
-
-On login, you should have a look at a clock to synchronise with the
-game time. Then, you can use `ts` to print the time.
-
-```
-ts: time short
-```
-
-### Kill ###
-
-Sometime, you have to quickly hit a new target. That's what the kill
-commands are for: they set up a target, and hit it. Use `wv target`
-from the _quick_ mode, or one of the following shortcuts.
-
-```
-v: kill %1
-v[a|d|p]: kill animal, dunlending, plant
-v[m|o|t|w|z]: kill man\*, orc\*, troll\*, woman\*, zaugurz\*
-vf: kill $found
-vv: kill $arrived
-vl: label opponent l, target l
-vi: increase target number, kill $target
-vr: reset target number, kill $target
+v: target %1
+v[a|b|d|p|s]: target animal, bandit, dunlending, plant, shadow
+v[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
+vx: exam $target, cons $target
+vi: increase the target number
+vr: reset the target number to 1
+v[1-9]: set the target number 
 ```
 
 ### Mode ###
 
 ```
-w: toggle _writing_ mode on or off
+:: toggle _writing_ mode on or off
 ²: switch to _quick_ mode.
 ```
 

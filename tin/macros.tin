@@ -16,8 +16,10 @@
 #alias {modaloff} {
 	#class {class_modal} {kill};
 	#var {MODAL} {off};
+	#macro {:} {#cursor enter; modalon};
 	#showme {} {0};
 	#showme {Modal mode $MODAL\.};
+	mode;
 };
 
 #alias {modalon} {
@@ -25,19 +27,17 @@
 	mode;
 	#class {class_modal} {open};
 
-	#nop {Enter sends a carriage return and reset the mode};
 	#macro { } {mode; #cursor {clear line};};
 	#macro {} {mode; #cursor {clear line};};
+	#macro {:} {mode; #cursor {clear line}; modaloff};
 
 	#macro {a} {
 		#if {"$MODE" == "none"} {#send {assist}};
-		#elseif {"$MODE" == "b"} {ba};
 		#elseif {"$MODE" == "c"} {ca};
 		#elseif {"$MODE" == "d"} {mode da};
-		#elseif {"$MODE" == "G"} {Ga};
+		#elseif {"$MODE" == "g"} {ga};
 		#elseif {"$MODE" == "r"} {ra};
 		#elseif {"$MODE" == "s"} {sa};
-		#elseif {"$MODE" == "t"} {ta};
 		#elseif {"$MODE" == "v"} {va};
 		#elseif {"$MODE" == "x"} {xa};
 		#if {("$MODE" != "a") && ("$MODE" != "da")} {mode};
@@ -52,14 +52,15 @@
 		#elseif {"$MODE" == "d"} {mode db};
 		#elseif {"$MODE" == "L"} {Lb};
 		#elseif {"$MODE" == "r"} {rb};
+		#elseif {"$MODE" == "v"} {vb};
 		#if {("$MODE" != "b") && ("$MODE" != "db")} {mode};
 	};
 	#macro {c} {
 		#if {"$MODE" == "none"} {mode c};
-		#elseif {"$MODE" == "b"} {bc};
 		#elseif {"$MODE" == "d"} {mode dc};
-		#elseif {"$MODE" == "G"} {Gc};
+		#elseif {"$MODE" == "g"} {gc};
 		#elseif {"$MODE" == "L"} {Lc};
+		#elseif {"$MODE" == "r"} {rc};
 		#elseif {"$MODE" == "s"} {sc};
 		#if {("$MODE" != "c") && ("$MODE" != "dc")} {mode};
 	};
@@ -67,17 +68,18 @@
 		#if {"$MODE" == "none"} {mode d};
 		#elseif {"$MODE" == "p"} {pd};
 		#elseif {"$MODE" == "s"} {sd};
-		#elseif {"$MODE" == "t"} {td};
 		#elseif {"$MODE" == "v"} {vd};
 		#if {"$MODE" != "d"} {mode};
 	};
 	#macro {e} {
 		#if {"$MODE" == "none"} {mode e};
+		#if {"$MODE" == "r"} {re};
 		#if {"$MODE" != "e"} {mode};
 	};
 	#macro {f} {
 		#if {"$MODE" == "none"} {f};
 		#elseif {"$MODE" == "c"} {cf};
+		#elseif {"$MODE" == "g"} {gf};
 		#elseif {"$MODE" == "L"} {Lf};
 		#elseif {"$MODE" == "p"} {pf};
 		#elseif {"$MODE" == "s"} {sf};
@@ -85,14 +87,10 @@
 		#if {"$MODE" != "f"} {mode};
 	};
 	#macro {g} {
-		#if {"$MODE" == "none"} {g};
+		#if {"$MODE" == "none"} {mode g};
 		#elseif {"$MODE" == "p"} {pg};
 		#elseif {"$MODE" == "d"} {mode dg};
 		#if {("$MODE" != "g") && ("$MODE" != "dg")} {mode};
-	};
-	#macro {G} {
-		#if {"$MODE" == "none"} {mode G};
-		#if {"$MODE" != "G"} {mode};
 	};
 	#macro {h} {
 		#if {"$MODE" == "none"} {h};
@@ -170,6 +168,7 @@
 		#elseif {"$MODE" == "du"} {duk};
 		#elseif {"$MODE" == "e"} {ek};
 		#elseif {"$MODE" == "p"} {pk};
+		#elseif {"$MODE" == "r"} {rk};
 		#elseif {"$MODE" == "s"} {sk};
 		#elseif {"$MODE" == "S"} {Sk};
 		#if {("$MODE" != "k") && ("$MODE" != "dk")} {mode};
@@ -194,7 +193,7 @@
 		#elseif {"$MODE" == "dr"} {drl};
 		#elseif {"$MODE" == "du"} {dul};
 		#elseif {"$MODE" == "e"} {el};
-		#elseif {"$MODE" == "G"} {Gl};
+		#elseif {"$MODE" == "g"} {gl};
 		#elseif {"$MODE" == "p"} {pl};
 		#elseif {"$MODE" == "r"} {rl};
 		#elseif {"$MODE" == "s"} {sl};
@@ -210,7 +209,6 @@
 	#macro {m} {
 		#if {"$MODE" == "none"} {m};
 		#elseif {"$MODE" == "p"} {pm};
-		#elseif {"$MODE" == "r"} {rm};
 		#elseif {"$MODE" == "t"} {tm};
 		#elseif {"$MODE" == "v"} {vm};
 		#if {"$MODE" != "m"} {mode};
@@ -242,10 +240,13 @@
 		#elseif {"$MODE" == "x"} {xn};
 		#if {("$MODE" != "n") && ("$MODE" != "dn")} {mode};
 	};
+	#macro {N} {
+		#if {"$MODE" == "none"} {N};
+		#if {("$MODE" != "N")} {mode};
+	};
 	#macro {o} {
 		#if {"$MODE" == "none"} {o};
 		#elseif {"$MODE" == "d"} {mode do};
-		#elseif {"$MODE" == "r"} {ro};
 		#elseif {"$MODE" == "t"} {to};
 		#elseif {"$MODE" == "v"} {vo};
 		#if {("$MODE" != "o") && ("$MODE" != "do")} {mode};
@@ -255,7 +256,6 @@
 		#elseif {"$MODE" == "A"} {Ap};
 		#elseif {"$MODE" == "d"} {mode dp};
 		#elseif {"$MODE" == "L"} {Lp};
-		#elseif {"$MODE" == "t"} {tp};
 		#elseif {"$MODE" == "v"} {vp};
 		#elseif {"$MODE" == "x"} {xp};
 		#if {("$MODE" != "p") && ("$MODE" != "dp")} {mode};
@@ -269,12 +269,10 @@
 	};
 	#macro {r} {
 		#if {"$MODE" == "none"} {mode r};
-		#elseif {"$MODE" == "b"} {br};
 		#elseif {"$MODE" == "c"} {cr};
 		#elseif {"$MODE" == "d"} {mode dr};
 		#elseif {"$MODE" == "L"} {Lr};
 		#elseif {"$MODE" == "p"} {pr};
-		#elseif {"$MODE" == "r"} {rr; mode};
 		#elseif {"$MODE" == "s"} {sr};
 		#elseif {"$MODE" == "t"} {tr};
 		#elseif {"$MODE" == "v"} {vr};
@@ -282,11 +280,11 @@
 	};
 	#macro {s} {
 		#if {"$MODE" == "none"} {mode s};
-		#elseif {"$MODE" == "b"} {bs};
 		#elseif {"$MODE" == "e"} {es};
 		#elseif {"$MODE" == "L"} {Ls};
 		#elseif {"$MODE" == "p"} {ps};
-		#elseif {"$MODE" == "t"} {ts};
+		#elseif {"$MODE" == "r"} {rs};
+		#elseif {"$MODE" == "v"} {vs};
 		#elseif {"$MODE" == "x"} {xs};
 		#if {"$MODE" != "s"} {mode};
 	};
@@ -296,13 +294,12 @@
 	};
 	#macro {t} {
 		#if {"$MODE" == "none"} {mode t};
-		#elseif {"$MODE" == "b"} {bt};
 		#elseif {"$MODE" == "c"} {ct};
 		#elseif {"$MODE" == "H"} {Ht};
 		#elseif {"$MODE" == "L"} {Lt};
 		#elseif {"$MODE" == "r"} {rt};
 		#elseif {"$MODE" == "s"} {st};
-		#elseif {"$MODE" == "t"} {tt; mode};
+		#elseif {"$MODE" == "t"} {tt};
 		#elseif {"$MODE" == "v"} {vt};
 		#elseif {"$MODE" == "x"} {xt};
 		#if {"$MODE" != "t"} {mode};
@@ -334,11 +331,10 @@
 		#if {"$MODE" != "v"} {mode};
 	};
 	#macro {w} {
-		#if {"$MODE" == "none"} {modaloff};
+		#if {"$MODE" == "none"} {#nop {modaloff}};
 		#elseif {"$MODE" == "c"} {cw};
 		#elseif {"$MODE" == "d"} {dw};
 		#elseif {"$MODE" == "L"} {Lw};
-		#elseif {"$MODE" == "r"} {rw};
 		#elseif {"$MODE" == "t"} {tw};
 		#elseif {"$MODE" == "v"} {vw};
 		mode;
@@ -346,7 +342,7 @@
 	#macro {x} {
 		#if {"$MODE" == "none"} {mode x};
 		#elseif {"$MODE" == "L"} {Lx};
-		#elseif {"$MODE" == "t"} {tx};
+		#elseif {"$MODE" == "v"} {vx};
 		#elseif {"$MODE" == "x"} {xx};
 		#if {"$MODE" != "x"} {mode};
 	};
@@ -357,7 +353,6 @@
 	#macro {z} {
 		#if {"$MODE" == "none"} {z};
 		#elseif {"$MODE" == "r"} {rz};
-		#elseif {"$MODE" == "t"} {tz};
 		#elseif {"$MODE" == "v"} {vz};
 		#if {"$MODE" != "z"} {mode};
 	};
@@ -368,64 +363,64 @@
 	#macro {1} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 1};
-		#elseif {"$MODE" == "G"} {G1};
-		#elseif {"$MODE" == "t"} {t1};
+		#elseif {"$MODE" == "g"} {g1};
+		#elseif {"$MODE" == "v"} {v1};
 		mode;
 	};
 	#macro {2} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 2};
-		#elseif {"$MODE" == "G"} {G2};
-		#elseif {"$MODE" == "t"} {t2};
+		#elseif {"$MODE" == "g"} {g2};
+		#elseif {"$MODE" == "v"} {v2};
 		mode;
 	};
 	#macro {3} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 3};
-		#elseif {"$MODE" == "G"} {G3};
-		#elseif {"$MODE" == "t"} {t3};
+		#elseif {"$MODE" == "g"} {g3};
+		#elseif {"$MODE" == "v"} {v3};
 		mode;
 	};
 	#macro {4} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 4};
-		#elseif {"$MODE" == "G"} {G4};
-		#elseif {"$MODE" == "t"} {t4};
+		#elseif {"$MODE" == "g"} {g4};
+		#elseif {"$MODE" == "v"} {v4};
 		mode;
 	};
 	#macro {5} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 5};
-		#elseif {"$MODE" == "G"} {G5};
-		#elseif {"$MODE" == "t"} {t5};
+		#elseif {"$MODE" == "g"} {g5};
+		#elseif {"$MODE" == "v"} {v5};
 		mode;
 	};
 	#macro {6} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 6};
-		#elseif {"$MODE" == "G"} {G6};
-		#elseif {"$MODE" == "t"} {t6};
+		#elseif {"$MODE" == "g"} {g6};
+		#elseif {"$MODE" == "v"} {v6};
 		mode;
 	};
 	#macro {7} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 7};
-		#elseif {"$MODE" == "G"} {G7};
-		#elseif {"$MODE" == "t"} {t7};
+		#elseif {"$MODE" == "g"} {g7};
+		#elseif {"$MODE" == "v"} {v7};
 		mode;
 	};
 	#macro {8} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 8};
-		#elseif {"$MODE" == "G"} {G8};
-		#elseif {"$MODE" == "t"} {t8};
+		#elseif {"$MODE" == "g"} {g8};
+		#elseif {"$MODE" == "v"} {v8};
 		mode;
 	};
 	#macro {9} {
 		#if {"$MODE" == "none"} {};
 		#elseif {"$MODE" == "c"} {ct 9};
-		#elseif {"$MODE" == "G"} {G9};
-		#elseif {"$MODE" == "t"} {t9};
+		#elseif {"$MODE" == "g"} {g9};
+		#elseif {"$MODE" == "v"} {v9};
 		mode;
 	};
 
