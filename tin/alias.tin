@@ -130,7 +130,7 @@
 #alias {pl} {getlabel};
 #alias {pm} {pathmarkshow};
 #alias {pr} {pathrun %0};
-#alias {ps} {pathshow %0; modal};
+#alias {ps} {pathshow %0};
 
 #nop track ride
 #alias {ra} {aba};
@@ -140,7 +140,7 @@
 #alias {rl} {ridelead %0};
 #alias {rz} {ridezblam};
 
-#alias {r} {lighton; showsend track %0; modal};
+#alias {r} {lighton; showsend track %0};
 #alias {rm} {lighton; showsend track man*; tm};
 #alias {ro} {lighton; showsend track orc*; to};
 #alias {rr} {lightor; showsend track %0; lightoff};
@@ -171,7 +171,7 @@
 #alias {Sn} {showsend search d};
 
 #nop target time
-#alias {t} {target %0; modal};
+#alias {t} {target %0};
 #alias {ta} {target animal};
 #alias {td} {target dunlending};
 #alias {ti} {itarget};
@@ -209,7 +209,7 @@
 #alias {vw} {showsend kill woman*};
 #alias {vz} {showsend kill zaugurz*};
 
-#alias {w} {modal};
+#alias {w} {modalon};
 #nop {wr: track %0, wt: target %0, wv: kill %0};
 
 #nop xp counter, exam

@@ -26,7 +26,6 @@
 	setweapon elven nimble;
 	setlight lantern;
 	lightoff;
-	modal;
 	#line gag;
 };
 
