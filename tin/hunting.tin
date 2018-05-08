@@ -94,6 +94,7 @@
 	#else {
 		#var {TARGET} {animal};
 	};
+	targetnoswitch;
 	rtarget;
 };
 	
@@ -119,4 +120,37 @@
 	#var {NTARGET} {%1};
 	#showme {Target ${NTARGET}\.$TARGET\.};
 }
+
+#alias targetswitch {
+	#var NTARGET {1};
+	#var TARGET {%1};
+	#action {^Backstab whom?$} {
+		targetswitch %2 %3 %4 %5 %6 %7 %8 %9 %1;
+		#echo {They aren't here. Targetting %2.};
+		#line gag;
+	};
+	#action {^They aren't here.$} {
+		targetswitch %2 %3 %4 %5 %6 %7 %8 %9 %1;
+		#echo {They aren't here. Targetting %2.};
+		#line gag;
+	};
+	#action {^Nobody here by that name.$} {
+		targetswitch %2 %3 %4 %5 %6 %7 %8 %9 %1;
+		#echo {They aren't here. Targetting %2.};
+		#line gag;
+	};
+	#action {^You don't see any %* here.$} {
+		targetswitch %2 %3 %4 %5 %6 %7 %8 %9 %1;
+		#echo {They aren't here. Targetting %2.};
+		#line gag;
+	};
+};
+
+#alias targetnoswitch {
+	#unaction {^Backstab whom?$};
+	#unaction {^They aren't here.$};
+	#unaction {^Nobody here by that name.$};
+	#unaction {^You don't see any %* here.$};
+};
+
 

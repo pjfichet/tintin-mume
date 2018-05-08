@@ -300,7 +300,9 @@ with `vi` or reset it to 1 with `vr`.
 
 ```
 v: target %1
-v[a|b|d|p|s]: target animal, bandit, dunlending, plant, shadow
+vb: target assassin, brigand, bandit, smuggler, thief
+vs: target shade, haunt, wraith, shadow
+v[a|d|p|s]: target animal, dunlending, plant
 v[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
 vx: exam $target, cons $target
 vi: increase the target number

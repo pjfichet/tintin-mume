@@ -174,17 +174,17 @@
 #alias {ti} {_time_short};
 
 #nop target
-#nop bandit, brigand, assassin
 #alias {v} {target %0};
 #alias {va} {target animal};
-#alias {vb} {target bandit};
+#alias {vb} {targetswitch assassin brigand bandit smuggler thief};
 #alias {vd} {target dunlending};
 #alias {vi} {itarget};
+#alias {vk} {target skeleton};
 #alias {vm} {target man*};
 #alias {vo} {target orc*};
 #alias {vp} {target plant};
 #alias {vr} {rtarget};
-#alias {vs} {target shadow};
+#alias {vs} {targetswitch shade wraith haunt shadow};
 #alias {vt} {target troll*};
 #alias {vw} {target woman*};
 #alias {vx} {xtarget};
