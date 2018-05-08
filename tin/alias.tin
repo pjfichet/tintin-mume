@@ -179,12 +179,13 @@
 #alias {vb} {targetswitch assassin brigand bandit smuggler thief};
 #alias {vd} {target dunlending};
 #alias {vi} {itarget};
-#alias {vk} {target skeleton};
+#alias {vk} {targetswitch skeleton spirit soldier};
+#alias {vl} {lab ${NTARGET}\.${TARGET} l; target l};
 #alias {vm} {target man*};
 #alias {vo} {target orc*};
 #alias {vp} {target plant};
 #alias {vr} {rtarget};
-#alias {vs} {targetswitch shade wraith haunt shadow};
+#alias {vs} {target shadow};
 #alias {vt} {target troll*};
 #alias {vw} {target woman*};
 #alias {vx} {xtarget};
@@ -199,8 +200,7 @@
 #alias {v8} {itarget 8};
 #alias {v9} {itarget 9};
 
-#alias {w} {modalon};
-#nop {wr: track %0, wt: target %0, wv: kill %0};
+#alias {w} {modaloff};
 
 #nop xp counter, exam
 #alias {xa} {reportall};

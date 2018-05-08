@@ -8,15 +8,13 @@
 	#else {#showme {$MODAL> $MODE} {0}};
 };
 
-#macro {²} {
-	modalon;
-};
+#macro {²} {modalon};
+#macro {:} {#cursor enter; modalon};
 
 #var {MODAL} {off};
 #alias {modaloff} {
 	#class {class_modal} {kill};
 	#var {MODAL} {off};
-	#macro {:} {#cursor enter; modalon};
 	#showme {} {0};
 	#showme {Modal mode $MODAL\.};
 	mode;
@@ -29,7 +27,6 @@
 
 	#macro { } {mode; #cursor {clear line};};
 	#macro {} {mode; #cursor {clear line};};
-	#macro {:} {mode; #cursor {clear line}; modaloff};
 
 	#macro {a} {
 		#if {"$MODE" == "none"} {#send {assist}};
@@ -331,7 +328,7 @@
 		#if {"$MODE" != "v"} {mode};
 	};
 	#macro {w} {
-		#if {"$MODE" == "none"} {#nop {modaloff}};
+		#if {"$MODE" == "none"} {#cursor {clear line}; modaloff};
 		#elseif {"$MODE" == "c"} {cw};
 		#elseif {"$MODE" == "d"} {dw};
 		#elseif {"$MODE" == "L"} {Lw};

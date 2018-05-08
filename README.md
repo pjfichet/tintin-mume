@@ -284,7 +284,7 @@ In _quick_ mode, you can use `:tr target`.
 ```
 tr: track
 th: track horse
-t[o|m|t|w|]: track orc\*, man\*, troll\*
+t[m|o|t|w|z]: track man*, orc*, troll*, woman*, zaugurz*
 tv: track $target
 ```
 
@@ -301,9 +301,9 @@ with `vi` or reset it to 1 with `vr`.
 ```
 v: target %1
 vb: target assassin, brigand, bandit, smuggler, thief
-vs: target shade, haunt, wraith, shadow
-v[a|d|p|s]: target animal, dunlending, plant
-v[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
+v[a|d|p|s]: target animal, dunlending, plant, shadow
+v[m|o|t|w|z]: target man*, orc*, troll*, woman*, zaugurz*
+vl: label the target `l`, target `l`.
 vx: exam $target, cons $target
 vi: increase the target number
 vr: reset the target number to 1
