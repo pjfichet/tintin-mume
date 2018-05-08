@@ -11,13 +11,13 @@ a modal system reminiscent of vim:
 - In `writing` mode, one must hit enter to execute the action. This
   mode should be used occasionnaly, to set up variables, write emotes,
   etc.
-- The macro `w` is used to switch from the _quick_ mode to the
+- The macro `:` is used to switch from the _quick_ mode to the
   _writing_ mode and vice-versa.
 - As in vim, the letters `h`,`j`,`k`,`l` define directions. `u` and
   `n`, are directions up and down.
-- A targetting system is implemented: use `t[a|d|p|o|m|t|w|z]` to target
+- A targetting system is implemented: use `v[a|d|p|o|m|t|w|z]` to target
   animal, dunlending, plant, orc\*, man\*, troll\*, woman\*, zaugurz\*.
-  Or `t mytarget` in writing mode.
+  Or `v mytarget` in writing mode.
 
 ## Installation ##
 
