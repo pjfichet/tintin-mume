@@ -76,7 +76,7 @@
 #read tin/time.tin
 #read tin/prompt.tin
 #read tin/alias.tin
-#read tin/macros.tin
+#read tin/modal.tin
 
 
 #event {PROGRAM START} {
