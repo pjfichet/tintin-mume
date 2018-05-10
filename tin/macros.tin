@@ -9,7 +9,8 @@
 };
 
 #macro {²} {modalon};
-#macro {:} {#cursor enter; modalon};
+#macro {	} {#cursor enter; modalon};
+
 
 #var {MODAL} {off};
 #alias {modaloff} {
