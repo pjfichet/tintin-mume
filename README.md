@@ -11,8 +11,8 @@ a modal system reminiscent of vim:
 - In `writing` mode, one must hit enter to execute the action. This
   mode should be used occasionnaly, to set up variables, write emotes,
   etc.
-- The macro `:` is used to switch from the _quick_ mode to the
-  _writing_ mode and vice-versa.
+- The macro `w` toggle the _writing_ mode on, while `Tab` behaves like
+  the carriage returns __and__ toggles the _quick_ mode on.
 - As in vim, the letters `h`,`j`,`k`,`l` define directions. `u` and
   `n`, are directions up and down.
 - A targetting system is implemented: use `v[a|d|p|o|m|t|w|z]` to target
@@ -278,8 +278,8 @@ ti: time short
 
 In _quick_ mode, you will usually track you current target with `tv`
 (see the targetting system below), or simply `track` with `tr`. To
-track a specific target you can use `tr target` in the _writing_ mode..
-In _quick_ mode, you can use `:tr target`.
+track a specific target you can use `tr target` in the _writing_ mode.
+From the _quick_ mode, you can use `wtr target`.
 
 ```
 tr: track
@@ -291,7 +291,7 @@ tv: track $target
 ### Target ###
 
 You can target something in _writing_ mode with `v something`. From
-the _quick_ mode, simply type `:v something`. Once your target is set,
+the _quick_ mode, simply type `wv something`. Once your target is set,
 all offensive commands (spells, backstab, bash, hit, etc.), will
 target it.
 
@@ -314,7 +314,7 @@ v[1-9]: set the target number
 
 ```
 :: toggle _writing_ mode on or off
-²: switch to _quick_ mode.
+Tab: switch to _quick_ mode.
 ```
 
 #### Xp, exam ###
