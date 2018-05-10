@@ -26,7 +26,7 @@
 	mode;
 	#class {class_modal} {open};
 
-	#macro { } {mode; #cursor {clear line};};
+	#macro { } {modaloff; #cursor {clear line};};
 	#macro {} {mode; #cursor {clear line};};
 
 	#macro {a} {

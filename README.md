@@ -11,7 +11,7 @@ a modal system reminiscent of vim:
 - In `writing` mode, one must hit enter to execute the action. This
   mode should be used occasionnaly, to set up variables, write emotes,
   etc.
-- The macro `w` toggle the _writing_ mode on, while `Tab` behaves like
+- the bar `Space` toggles the _writing_ mode on, while `Tab` behaves like
   the carriage returns __and__ toggles the _quick_ mode on.
 - As in vim, the letters `h`,`j`,`k`,`l` define directions. `u` and
   `n`, are directions up and down.
@@ -313,7 +313,7 @@ v[1-9]: set the target number
 ### Mode ###
 
 ```
-:: toggle _writing_ mode on or off
+Space: switch to _writing_ mode.
 Tab: switch to _quick_ mode.
 ```
 
