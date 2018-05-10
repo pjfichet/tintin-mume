@@ -86,21 +86,21 @@
 #nop get
 #alias {ga} {showsend get all corpse};
 #alias {gc} {showsend get all.coins all.corpse};
-#alias {gf} {lightor; showsend get all; lightoff};
-#alias {gl} {lightor; showsend look in corpse; lightoff};
-#alias {g1} {lightor; showsend look in 1.corpse; lightoff};
-#alias {g2} {lightor; showsend look in 2.corpse; lightoff};
-#alias {g3} {lightor; showsend look in 3.corpse; lightoff};
-#alias {g4} {lightor; showsend look in 4.corpse; lightoff};
-#alias {g5} {lightor; showsend look in 5.corpse; lightoff};
-#alias {g6} {lightor; showsend look in 6.corpse; lightoff};
-#alias {g7} {lightor; showsend look in 7.corpse; lightoff};
-#alias {g8} {lightor; showsend look in 8.corpse; lightoff};
-#alias {g9} {lightor; showsend look in 9.corpse; lightoff};
+#alias {gf} {lightor_sneak; showsend get all; lightoff_sneak};
+#alias {gl} {lightor_sneak; showsend look in corpse; lightoff_sneak};
+#alias {g1} {lightor_sneak; showsend look in 1.corpse; lightoff_sneak};
+#alias {g2} {lightor_sneak; showsend look in 2.corpse; lightoff_sneak};
+#alias {g3} {lightor_sneak; showsend look in 3.corpse; lightoff_sneak};
+#alias {g4} {lightor_sneak; showsend look in 4.corpse; lightoff_sneak};
+#alias {g5} {lightor_sneak; showsend look in 5.corpse; lightoff_sneak};
+#alias {g6} {lightor_sneak; showsend look in 6.corpse; lightoff_sneak};
+#alias {g7} {lightor_sneak; showsend look in 7.corpse; lightoff_sneak};
+#alias {g8} {lightor_sneak; showsend look in 8.corpse; lightoff_sneak};
+#alias {g9} {lightor_sneak; showsend look in 9.corpse; lightoff_sneak};
 
 #nop hide
-#alias {Hq} {lightor; hide quick};
-#alias {Ht} {lightor; hide thorough};
+#alias {Hq} {lightor_sneak; hide quick};
+#alias {Ht} {lightor_sneak; hide thorough};
 
 #nop leader, look
 #alias {Lb} {backride on};
@@ -112,8 +112,8 @@
 #alias {Ls} {#echo {follow self}; Ln; #send {follow self}};
 #alias {Lt} {#echo {tell $leader %0}; #send {tell $leader %0}};
 #alias {Lw} {showsend wake $leader};
-#alias {Lx} {lightor; showsend examine $leader; lightoff};
-#alias {LL} {lightor; look; exit; lightoff};
+#alias {Lx} {lightor_sneak; showsend examine $leader; lightoff_sneak};
+#alias {LL} {lightor_sneak; look; exit; lightoff_sneak};
 
 #nop path
 #alias {pd} {pathdeathshow};
@@ -163,14 +163,14 @@
 #alias {Sn} {showsend search d};
 
 #nop track, time
-#alias {t} {lighton; showsend track %0};
-#alias {th} {lighton; showsend track horse; tm};
-#alias {tm} {lighton; showsend track man*; tm};
-#alias {to} {lighton; showsend track orc*; to};
-#alias {tr} {lightor; showsend track %0; lightoff};
-#alias {tt} {lighton; showsend track troll*; tt};
-#alias {tv} {lighton; tracktarget %0};
-#alias {tw} {lighton; showsend track woman*; tw};
+#alias {t} {lighton_sneak; showsend track %0};
+#alias {th} {lighton_sneak; showsend track horse; tm};
+#alias {tm} {lighton_sneak; showsend track man*; tm};
+#alias {to} {lighton_sneak; showsend track orc*; to};
+#alias {tr} {lightor_sneak; showsend track %0; lightoff_sneak};
+#alias {tt} {lighton_sneak; showsend track troll*; tt};
+#alias {tv} {lighton_sneak; tracktarget %0};
+#alias {tw} {lighton_sneak; showsend track woman*; tw};
 #alias {ti} {_time_short};
 
 #nop target

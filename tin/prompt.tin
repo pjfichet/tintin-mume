@@ -23,6 +23,7 @@
 		#var {SHOW_PROMPT} {0};
 	};
 
+    #regexp {$promptmove} {%*{s|S}%*} {#var {sneak} {true}} {#var {sneak} {false}};
 
 	#regexp {$prompthp} { HP:{\w+}}
 		{

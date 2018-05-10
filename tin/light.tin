@@ -1,5 +1,11 @@
 #nop scout.tt
 
+#var {auto_light} {0}
+#alias autolight {
+    #if {$auto_light == 0} {#var {auto_light} {1}};
+    #else {#var {auto_light} {0}};
+};
+
 #var {lightsource} {lantern}
 #alias setlight {
 	#var {lightsource} {%0};
@@ -8,7 +14,7 @@
 
 #var {islight} {1}
 #alias {lighton} {
-	#if {$islight == 0} {
+	#if { $islight == 0 } {
 		#if { "$lightsource" == "lantern" } {showsend light lantern};
 		#else {showsend uncover $lightsource};
 		#var {islight} {1};
@@ -16,7 +22,7 @@
 };
 
 #alias lightoff {
-	#if {$islight == 1} {
+	#if { $islight == 1 } {
 		#if {"$lightsource" == "lantern"} {showsend snuff lantern};
 		#else {showsend cover $lightsource};
 		#var {islight} {0};
@@ -24,15 +30,35 @@
 };
 
 #alias lightor {
-	#if {"$promptlight" == "o"} {lighton};
+	#if { ($auto_light == 1) && ("$promptlight" == "o") } {lighton};
 };
 
 #alias togglelight {
-	#if {$islight == 0} {lighton};
-	#else {lightoff};
+   #if {$islight == 0} {lighton};
+   #else {lightoff};
+};
+
+#alias lighton_sneak {
+    #if {"$sneak" == "true"} {lighton};
+};
+
+#alias lightoff_sneak {
+    #if {"$sneak" == "true"} {lightoff};
+};
+
+#alias lightor_sneak {
+    #if {"$sneak" == "true"} {lightor};
 };
 
 #action {^Your light has gone out.$} {#var {islight} {0}}
+
+#action {^The day has begun.$} {
+    #if {$auto_light == 1} {lightoff};
+};
+
+#action {^The night has begun.$} {
+    #if {$auto_light == 1} {lighton};
+};
 
 #action {^You attempt to hide yourself.$} {
 	#action {^Ok.$} {
