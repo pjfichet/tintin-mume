@@ -7,10 +7,10 @@
 }
 
 #alias {rent} {
-	info;
-	tpGet;
-	xpGet;
 	#if { "%0" == "" } {
+	    info;
+        tpGet;
+	    xpGet;
 		train all;
 		#action {^None of your skills needed refreshing.$} {#send {rent}};
 		#action {^No more skills need refreshing.$} {#send {rent}};
@@ -43,6 +43,7 @@
 	magic magenta, achievement magenta, \
 	weather cyan, \
 	avoid-damage bold blue, miss bold blue, damage red, hit blue, \
+	avoid-damage none, miss none, damage none, hit none, \
 	header green, exit bold yellow, \
 	hit bold black, \
 	movement-in bold yellow, movement-out bold yellow;
