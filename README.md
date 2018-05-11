@@ -258,6 +258,7 @@ ru: burn corpse
 sc: score, stat
 sa: look around
 sf: flush quick
+sf: reveal ginseng
 sq: reveal quick
 st: reveal thorough
 sr: seek rivendell

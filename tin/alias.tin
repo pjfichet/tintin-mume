@@ -145,6 +145,7 @@
 #alias {sc} {showsend score; stat};
 #alias {sd} {showsend scout d};
 #alias {sf} {showsend flush quick};
+#alias {sg} {showsend reveal ginseng};
 #alias {sh} {showsend scout w};
 #alias {sj} {showsend scout s};
 #alias {sk} {showsend scout n};
