@@ -56,18 +56,12 @@
 	#nop regexp {$promptmove} { Move:{\w+}} {#var {mv} {&1}} {#var {mv} {full}};
 
 	#var {shortprompt} {$hp $opponent};
+
+    showmode;
 };
 	
 
 #alias {showprompt} {
 	#var {SHOW_PROMPT} {1};
 }
-
-
-
-#action {^%* makes a strange sound{(?: but is suddenly very silent)?}, as you place %* in {his|her|its} back.$} {showprompt};
-#action {^Suddenly %* stabs you in the back.$} {showprompt};
-#action {^The lightning bolt hits %* with full impact.$} {showprompt};
-#sub {^You {(barely |lightly |strongly )?}{charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( hard| very hard)?}{( and tickle it| and shatter it)?}.$} {$shortprompt <049>%0<099>};
-#sub {^%* {(barely |lightly |strongly )?}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( hard| very hard)?}{( and tickles it| and shatters it)?}.$} {$shortprompt <019>%0<099>};
 
