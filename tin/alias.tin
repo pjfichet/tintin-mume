@@ -25,6 +25,31 @@
 #alias {Ap} {showsend change alertness paranoid};
 #alias {An} {showsend change alertness normal};
 
+#nop bash
+#alias {bv} {showsend bash ${NTARGET}\.${TARGET}};
+#alias {ba} {va; bv};
+#alias {bb} {vb; bv};
+#alias {bi} {vi; bv};
+#alias {bk} {vk; bv};
+#alias {bm} {vm; bv};
+#alias {bo} {vo; bv};
+#alias {bp} {vp; bv};
+#alias {bq} {showsend bash};
+#alias {br} {vr; bv};
+#alias {bs} {vs; bv};
+#alias {bt} {vt; bv};
+#alias {bw} {vw; bv};
+#alias {bz} {vz; bv};
+#alias {b1} {v1; bv};
+#alias {b2} {v2; bv};
+#alias {b3} {v3; bv};
+#alias {b4} {v4; bv};
+#alias {b5} {v5; bv};
+#alias {b6} {v6; bv};
+#alias {b7} {v7; bv};
+#alias {b8} {v8; bv};
+#alias {b9} {v9; bv};
+
 #nop cast
 #alias {ca} {showsend cast n 'armour'};
 #alias {cb} {showsend cast n 'bless' %0};
@@ -81,7 +106,13 @@
 #alias {el} {showsend escape e};
 #alias {eu} {showsend escape u};
 #alias {en} {showsend escape d};
+
+#nop emotes
+#alias {ef} {eemote shouts "FLEE!"};
+#alias {eL} {elaugh}
+#alias {er} {eride}
 #alias {es} {esmile};
+#alias {ey} {nod};
 
 #nop get
 #alias {ga} {showsend get all corpse};
