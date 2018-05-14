@@ -25,7 +25,8 @@
 
 #nop ride
 #highlight {^ZBLAM} {light red}
-#highlight {^ACK!} {light red}
+#nop highlight {^ACK!} {light red}
+#sub {^ACK! %1 didn't follow you, you lost him.$} {<119>[%1] %0<099>}
 #nop highlight {^You dismount from} {light red}
 #nop highlight {^You pick up} {light green}
 #nop highlight {^You stop riding} {light green}
