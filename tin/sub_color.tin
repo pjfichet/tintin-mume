@@ -69,6 +69,7 @@
 #nop combat various
 #highlight {begins some strange incantations...$} {light red}
 #highlight {%* nocks a missile in %*.} {bold black}
+#highlight {fighting YOU.$} {light red}
 #nop highlight {quickly approaches} {light red}
 #nop highlight {^%* joins your fight.$} {light blue}
 #nop highlight {^%* joins %*'s fight.$} {light blue}
