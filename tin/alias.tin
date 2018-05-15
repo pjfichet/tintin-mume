@@ -29,6 +29,8 @@
 #alias {bv} {showsend bash ${NTARGET}\.${TARGET}};
 #alias {ba} {va; bv};
 #alias {bb} {vb; bv};
+#alias {bd} {bash dis};
+#alias {bf} {vf; bv};
 #alias {bi} {vi; bv};
 #alias {bk} {vk; bv};
 #alias {bm} {vm; bv};

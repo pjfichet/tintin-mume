@@ -77,6 +77,7 @@
 	};
 	#macro {d} {
 		#if {"$MODE" == "none"} {mode d};
+		#elseif {"$MODE" == "b"} {bd};
 		#elseif {"$MODE" == "e"} {ed};
 		#elseif {"$MODE" == "p"} {pd};
 		#elseif {"$MODE" == "s"} {sd};
@@ -90,6 +91,7 @@
 	};
 	#macro {f} {
 		#if {"$MODE" == "none"} {f};
+		#elseif {"$MODE" == "b"} {bf};
 		#elseif {"$MODE" == "c"} {cf};
 		#elseif {"$MODE" == "e"} {ef};
 		#elseif {"$MODE" == "g"} {gf};
