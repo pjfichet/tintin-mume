@@ -13,7 +13,6 @@
 #sub {^You {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%* extremely hard{( and tickle it| and shatter it)?}.$} {$shortprompt <029>7<099> %0};
 
 
-
 #nop sub {^%* {(barely |lightly |strongly )?}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( hard| very hard)?}{( and tickles it| and shatters it)?}.$} {$shortprompt <019>-<099> %0};
 #sub {^%* barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>1<099> %0};
 #sub {^%* lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>2<099> %0};
@@ -23,50 +22,12 @@
 #sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>6<099> %0};
 #sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>7<099> %0};
 
-#sub {^%* barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>1<099> %0};
-#sub {^%* lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>2<099> %0};
-#sub {^{[^.]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>3<099> %0};
-#sub {^%* strongly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>4<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* hard{( and tickles it| and shatters it)?}.$} {.       <049>5<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {.       <049>6<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {.       <049>7<099> %0};
-
-
-
-
-#action {^%* makes a strange sound{(?: but is suddenly very silent)?}, as you place %* in {his|her|its} back.$} {showprompt};
-#action {^Suddenly %* stabs you in the back.$} {showprompt};
-#action {^The lightning bolt hits %* with full impact.$} {showprompt};
-
-
-#nop sub {^You {(barely |lightly |strongly )?}{charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( hard| very hard)?}{( and tickle it| and shatter it)?}.$} {$shortprompt <049>+<099> %0};
-#sub {^You barely {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( and tickle it| and shatter it)?}.$} {$shortprompt <029>1<099> %0};
-#sub {^You lightly {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( and tickle it| and shatter it)?}.$} {$shortprompt <029>2<099> %0};
-#sub {^You {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( and tickle it| and shatter it)?}.$} {$shortprompt <029>3<099> %0};
-#sub {^You strongly {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( and tickle it| and shatter it)?}.$} {$shortprompt <029>4<099> %0};
-#sub {^You {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%* hard{( and tickle it| and shatter it)?}.$} {$shortprompt <029>5<099> %0};
-#sub {^You {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%* very hard{( and tickle it| and shatter it)?}.$} {$shortprompt <029>6<099> %0};
-#sub {^You {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%* extremely hard{( and tickle it| and shatter it)?}.$} {$shortprompt <029>7<099> %0};
-
-
-
-#nop sub {^%* {(barely |lightly |strongly )?}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( hard| very hard)?}{( and tickles it| and shatters it)?}.$} {$shortprompt <019>-<099> %0};
-#sub {^%* barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>1<099> %0};
-#sub {^%* lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>2<099> %0};
-#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>3<099> %0};
-#sub {^%* strongly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>4<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>5<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>6<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>7<099> %0};
-
-#sub {^%* barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>1<099> %0};
-#sub {^%* lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>2<099> %0};
-#sub {^{[^.]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>3<099> %0};
-#sub {^%* strongly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {.       <049>4<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* hard{( and tickles it| and shatters it)?}.$} {.       <049>5<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {.       <049>6<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {.       <049>7<099> %0};
-
-
+#sub {^{[^#]*} barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <049>1<099> %0};
+#sub {^{[^#]*} lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <049>2<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <049>3<099> %0};
+#sub {^{[^#]*} strongly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <049>4<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* hard{( and tickles it| and shatters it)?}.$} {$shortprompt <049>5<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {$shortprompt <049>6<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {$shortprompt <049>7<099> %0};
 
 
