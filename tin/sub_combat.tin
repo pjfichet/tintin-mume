@@ -2,6 +2,13 @@
 #action {^Suddenly %* stabs you in the back.$} {showprompt};
 #action {^The lightning bolt hits %* with full impact.$} {showprompt};
 
+#sub {^Your bash at %* sends {him|her|it} sprawling.$} {$shortprompt <029>B %0<099>}
+#sub {^%* seems to have recovered {his|her|its} senses.$} {$shortprompt <019>R %0<099>}
+#sub {^As %* avoids your bash, you topple over and lose your balance.$} {$shortprompt <019>R %0<099>}
+#sub {^%* seems to be blinded!$} {$shortprompt <029>B %0<099>}
+#sub {^%* nocks a missile in %*.$} {$shortprompt N %0}
+
+
 
 #nop sub {^You {(barely |lightly |strongly )?}{charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( hard| very hard)?}{( and tickle it| and shatter it)?}.$} {$shortprompt <049>+<099> %0};
 #sub {^You barely {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %*{'|'s} {(right |left )?}%*{( and tickle it| and shatter it)?}.$} {$shortprompt <029>1<099> %0};
@@ -14,13 +21,13 @@
 
 
 #nop sub {^%* {(barely |lightly |strongly )?}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( hard| very hard)?}{( and tickles it| and shatters it)?}.$} {$shortprompt <019>-<099> %0};
-#sub {^%* barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>1<099> %0};
-#sub {^%* lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>2<099> %0};
+#sub {^{[^#]*} barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>1<099> %0};
+#sub {^{[^#]*} lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>2<099> %0};
 #sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>3<099> %0};
-#sub {^%* strongly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>4<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>5<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>6<099> %0};
-#sub {^%* {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>7<099> %0};
+#sub {^{[^#]*} strongly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <019>4<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>5<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* very hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>6<099> %0};
+#sub {^{[^#]*} {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {(right |left )?}%* extremely hard{( and tickles it| and shatters it)?}.$} {$shortprompt <019>7<099> %0};
 
 #sub {^{[^#]*} barely {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <049>1<099> %0};
 #sub {^{[^#]*} lightly {charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} %*{'|'s} {(right |left )?}%*{( and tickles it| and shatters it)?}.$} {$shortprompt <049>2<099> %0};
