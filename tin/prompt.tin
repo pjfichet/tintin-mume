@@ -2,7 +2,7 @@
 
 #prompt {^PROMPT:%1>:PROMPT$} {<069>${mood}${spell_speed}${islight} %1><099> $NTARGET\.$TARGET}
 
-#action {^PROMPT:{(?:[@*!\)o])?}{(?:[~\(\[+.%fO~UW:=<])?}{(?:[*'"~=-]{1,2})?}{(?: [RrSsCcW]{1,4})?}{(?: HP:\w+)?}{(?: Mana:\w+)?}{(?: Move:\w+)?}{(?: Mount:\w+)?}{(?: [^:]+:\w+)?}{(?: [^:]+:\w+)?}%*>:PROMPT$}
+#action {^PROMPT:{(?:[@*!\)o])?}{(?:[~\(\[+.%fO~UW:=<#])?}{(?:[*'"~=-]{1,2})?}{(?: [RrSsCcW]{1,4})?}{(?: HP:\w+)?}{(?: Mana:\w+)?}{(?: Move:\w+)?}{(?: Mount:\w+)?}{(?: [^:]+:\w+)?}{(?: [^:]+:\w+)?}%*>:PROMPT$}
 {
 
 	#var {promptlight} {%1};
