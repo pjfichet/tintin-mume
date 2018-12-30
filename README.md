@@ -8,7 +8,7 @@ Since speed is important to play mume, these scripts implement
 a modal system reminiscent of vim:
 - In _quick_ mode, it is not needed to hit `enter`, each key press
   executes an action directly. This is the mainly used mode.
-- In `writing` mode, one must hit enter to execute the action. This
+- In _writing_ mode, one must hit enter to execute the action. This
   mode should be used occasionnaly, to set up variables, write emotes,
   etc.
 - the bar `Space` toggles the _writing_ mode on, while `Tab` behaves like
@@ -285,7 +285,7 @@ From the _quick_ mode, you can use `wtr target`.
 ```
 tr: track
 th: track horse
-t[m|o|t|w|z]: track man*, orc*, troll*, woman*, zaugurz*
+t[m|o|t|w|z]: track man\*, orc\*, troll\*, woman\*, zaugurz\*
 tv: track $target
 ```
 
@@ -296,14 +296,14 @@ the _quick_ mode, simply type `wv something`. Once your target is set,
 all offensive commands (spells, backstab, bash, hit, etc.), will
 target it.
 
-You can specify the target number with `t[1-9]`, increase that number
+You can specify the target number with `v[1-9]`, increase that number
 with `vi` or reset it to 1 with `vr`.
 
 ```
 v: target %1
 vb: target assassin, brigand, bandit, smuggler, thief
 v[a|d|p|s]: target animal, dunlending, plant, shadow
-v[m|o|t|w|z]: target man*, orc*, troll*, woman*, zaugurz*
+v[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
 vl: label the target `l`, target `l`.
 vx: exam $target, cons $target
 vi: increase the target number
