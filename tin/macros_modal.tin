@@ -1,0 +1,31 @@
+#nop modal (dual mode) macros
+
+#var {MODE} {};
+#alias {mode} {
+	#var {MODE} {%1};
+	showmyprompt;
+};
+
+
+#macro {²} {modalon};
+#macro {	} {#cursor enter; modalon};
+
+
+#var {MODAL} {off};
+#alias {modaloff} {
+	#class {class_modal} {kill};
+	#var {MODAL} {off};
+	mode;
+	#showme {Modal mode $MODAL\.};
+};
+
+#alias {modalon} {
+	#var {MODAL} {on};
+	mode;
+	#class {class_modal} {open};
+	#macro { } {modaloff; #cursor {clear line};};
+	#macro {} {mode; #cursor {clear line};};
+	modalmacros;
+	#class {class_modal} {close};
+	#showme {Modal mode $MODAL\.};
+};

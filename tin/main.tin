@@ -71,13 +71,13 @@
 #read tin/grouping.tin
 #read tin/doors.tin
 #read tin/light.tin
+#read tin/spells.tin
 #read tin/xp_counter.tin
 #read tin/path.tin
 #read tin/go.tin
 #read tin/time.tin
 #read tin/prompt.tin
-#read tin/alias.tin
-#read tin/modal.tin
+#read tin/alias_common.tin
 
 
 #event {PROGRAM START} {

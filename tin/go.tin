@@ -64,7 +64,7 @@
 	#delay {7} {#var {go_by} {path}};
 	#echo {<139>You flee %1!<079>};
 	#if {"$flee_back" == "run"} {#var {flee_back} {none}; pr};
-	#elseif {"$flee_back" != "none"} {#delay {.3} {v}};
+	#elseif {"$flee_back" != "none"} {#delay {.3} {go}};
 	#line gag;
 };
 

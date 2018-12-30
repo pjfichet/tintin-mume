@@ -1,0 +1,40 @@
+#nop cleric aliases
+#nop quick
+#alias {ee} {castn {dispel evil} {%0}};
+#alias {EE} {castq {dispel evil} {%0}};
+#alias {i} {castn {blind} {%0}};
+#alias {I} {castq {blind} {%0}};
+#alias {z} {castn {lightning bolt} {%0}};
+
+#nop cast
+#alias {ca} {showsend cast n 'armour' %0};
+#alias {cb} {showsend cast 'remove blindness' %0};
+#alias {cc} {showsend cast n 'cure critic' %0};
+#alias {ce} {showsend cast 'dispel evil' %0};
+#alias {ch} {showsend cast n 'heal' %0};
+#alias {ci} {showsend cast 'blind' %0};
+#alias {cm} {showsend cast n 'summon' %0};
+#alias {co} {showsend cast 'word of recall'};
+#alias {cr} {showsend cast 'breath of briskness'};
+#alias {cs} {showsend cast n 'cure serious' %0};
+#alias {ct} {showsend cast n 'strength' %0};
+#alias {cy} {showsend cast n 'sanctuary' %0};
+#alias {cz} {showsend cast 'lightning bolt' {%0}};
+
+#alias {c1} {v1; castn {blind} {%0}};
+#alias {c2} {v2; castn {blind} {%0}};
+#alias {c3} {v3; castn {blind} {%0}};
+#alias {c4} {v4; castn {blind} {%0}};
+#alias {c5} {v5; castn {blind} {%0}};
+#alias {c6} {v6; castn {blind} {%0}};
+#alias {c7} {v7; castn {blind} {%0}};
+#alias {c8} {v8; castn {blind} {%0}};
+#alias {c9} {v9; castn {blind} {%0}};
+
+#alias {Lcl} {showsend cast 'cure light' $leader};
+#alias {Lcc} {showsend cast 'cure critic' $leader};
+#alias {Lch} {showsend cast 'heal' $leader};
+#alias {Lcs} {showsend cast 'cure serious' $leader};
+#alias {Lcy} {showsend cast 'sanctuary' $leader};
+#alias {Lcb} {showsend cast 'remove blindness' $leader};
+

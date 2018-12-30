@@ -1,0 +1,35 @@
+#nop common spells
+
+#alias {car} {showsend cast n 'armour'};
+#alias {ccd} {showsend cast n 'cure disease' %0};
+#alias {ccb} {showsend cast n 'cure blindness' %0};
+#alias {cde} {showsend cast n 'detect evil'};
+#alias {cld} {showsend cast n 'shield'};
+#alias {cpe} {showsend cast n 'protection from evil'};
+#alias {crp} {showsend cast n 'remove poison' %0};
+#alias {csh} {showsend cast n 'shroud'};
+#alias {csl} {showsend cast n 'sense life'};
+
+#alias {castfood} {
+	#action {^{A magic mushroom|Something} suddenly appears.$} {
+		eat mushroom;
+		#unaction {^{A magic mushroom|Something} suddenly appears.$};
+	};
+	showsend cast 'create food';
+}
+
+#alias {castn} {
+	#if { "%2" != ""} {target %2};
+	showsend cast '%1' ${NTARGET}\.${TARGET};
+};
+
+#alias {castq} {
+	#if { "%2" != ""} {target %2};
+	showsend cast quick '%1' ${NTARGET}\.${TARGET};
+};
+
+#action {^%1 seems to be blinded!$} {
+	#delay {85} {#showme {<119>Blind will drop on %1.<079>}}
+}
+
+

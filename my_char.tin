@@ -9,24 +9,44 @@
 #read tin/main.tin
 
 #nop for clerics
-#nop read cleric.tin
-
-#nop for scouts
-#nop read light.tin
+#nop read tin/alias_cleric.tin
 
 #nop for mages
-#nop read mage.tin
-#nop read locate.tin
+#nop read tin/mage.tin
+#nop read tin/alias_mage.tin
 
 #nop for warriors
-#nop read warrior.tin
+#nop read tin/warrior.tin
+
+#nop macro system
+#nop read tin/macros_alt.tin
+#nop read tin/macros_keypad.tin
+#nop read tin/macros_modal.tin
+#nop read tin/macros_number.tin
+
+#nop if macros_modal.tin is included,
+#nop also include one of the following:
+#nop read tin/modal_common.tin
+#nop read tin/modal_cleric.tin
+#nop read tin/modal_mage.tin
 
 #nop the following is executed at startup
 #action {^STARTING$} {
 	setweapon elven nimble;
 	setlight lantern;
+	setrecipient skin;
 	lightoff;
+	#nop modalon; #nop {uncomment to toggle the modal mode on};
 	#line gag;
 };
 
-
+#nop define your emotes here.
+#alias {ebow} {eemote bows swiftly.};
+#alias {edie} {eemote dies, with a sigh.};
+#alias {eflee} {eemote shouts "FLEE !"};
+#alias {ehair} {eemote 's long hair flow on the wind.};
+#alias {eintriguing} {eemote raises an eyebrow, surprised.};
+#alias {elaugh} {eemote laughs with joy.};
+#alias {esmile} {eemote smiles with amuzement.};
+#alias {eno} {eemote does not seem to agree.; say no};
+#alias {eyes} {eemote nods softly; say yes};

@@ -5,7 +5,9 @@ forked from <https://github.com/nstockton/tintin-mume>.
 **Work in Progress.**
 
 Since speed is important to play mume, these scripts implement
-a modal system reminiscent of vim:
+several macros system: one use the keypad, one use the alt key,
+one use the row of numbers, and another implements a modal system
+reminiscent of vim:
 - In _quick_ mode, it is not needed to hit `enter`, each key press
   executes an action directly. This is the mainly used mode.
 - In _writing_ mode, one must hit enter to execute the action. This
@@ -37,17 +39,90 @@ the scripts to load. Once done, you can play with:
     tt++ my_char.tin
 ```
 
-## Aliases ##
+## Personalization ##
 
 Some aliases are supposed to be used from the character file to set up
 some variables:
+
 ```
 setweapon weapon1 weapon2 # to quickly switch from one to the other
 setlight sourcelight # The scripts toggle light on or off automatically.
+setrecipient # set your water container, to automatically fill it
 ```
 
-The following aliases are available both in the _quick_ and _writing_
-modes.
+From the character file, you should also include the aliases you want
+to use. By default, only the file _tin/alias\_common.tin_, which
+define the most commonly used aliases is included. You may want to
+also include _tin/alias\_cleric.tin_ for a cleric, or
+_tin/alias\_mage.tin_ for a mage. 
+
+## Macros ##
+
+There are several macro files you may want to include.
+
+### For the numeric keypad ###
+
+If you want your macros to be executed from the numeric
+keypad, include _tin/macro\_keypad.tin_.
+
+### For the number row ###
+
+If you want your macros to be executed from the number row,
+include _tin/macro\_number.tin_. This file has been made
+for an azerty keyboard, but should be easily modified to
+suit your own keyboard.
+
+This file implements the alias `action` to set up an action
+to execute on [1-9].target, when hitting the corresponding
+number. `unaction` will remove these macros. For example,
+if you enter `action cast 'blind'` you can blind _3.target_
+by hitting `"` (key 3, on an azerty keyboard).
+
+### For the Alt key ###
+
+_tin/macro\_alt.tin_ define macros for the alt key (for
+an azerty keyboard).
+
+```
+Alt-h: west
+Alt-j: south
+Alt-k: north
+Alt-l: east
+Alt-u: up
+Alt-n: down
+Alt-a: assist
+Alt-z: z
+Alt-f: flee
+Alt-i: i
+Alt-q: kill $target
+Alt-o: open $door
+Alt-c: close $door
+```
+
+### For the modal mode ###
+
+To use the modal mode, one must include **both** _tin/modal.tin_ and
+the the dedicated macro file he wants. For most characters,
+_tin/modal\_common.tin_ is enough. Include _tin/modal\_cleric.tin_
+instead for a cleric, or _tin/modal\_mage.tin_ for a mage.
+
+The script _modalizer.py_ is used to generate these files. It takes
+as argument a list of files containing aliases, and builts the macros
+from those aliases. As a result, the macros are exactly the same
+as your aliases.
+
+```
+python modalizer.py alias_common.tin > modal_common.tin
+python modalizer.py alias_common.tin alias_cleric.tin > modal_cleric.tin
+```
+
+You should use that script if you want to set up your own aliases.
+Beware that it does not check for errors. For instance, if you define
+both the alias `abc` and the alias `abcd`, only the macro `abc` will
+work.
+
+
+## Aliases ##
 
 ### Directions ###
 
@@ -58,6 +133,12 @@ k: north
 l: east
 u: up
 n: down
+H: escape west
+J: escape south
+K: escape north
+L: escape east
+U: escape up
+N: escape down
 ```
 
 ### Important ###
@@ -69,20 +150,15 @@ playstyle.
 ```
 a: assist
 f: flee
-g: go
-i: cast quick 'lightning bolt' $target
-I: cast 'lightning bolt' $target
-J: go (see below)
-K: kill target
+i: blind for clerics, bolts for mages.
+z: stab for scouts, bolts for clerics, quake for mages.
 m: change mood
 M: change weapon
-N: sneak
 q: kill $target
-y: toggle light # set up you light source with `setlight`
-z: backstab $target
+,: go
 ```
 
-The `J` alias (or `go` in _writing_ mode), is a special command which
+The `,` alias (or `go` in _writing_ mode), is a special command which
 behaves differently depending on the situation:
 - By default, it moves one step toward the pre-defined destination
   (see the path section below),
@@ -97,25 +173,60 @@ Ap: change alertness paranoid
 An: change alertness normal
 ```
 
-### Cast ###
-
-Offensive spells are casted against $target.
+### Bash ###
 
 ```
-ca: armour
+bb: bash assassin, brigand, bandit, smuggler, ruffian, thief
+b[a|d|h|p]: bash animal, dunlending, shadow, plant
+b[m|o|t|w|z]: bash man*, orc*, troll*, woman*, zaugurz*
+bs: bash skeleton, spirit, soldier
+bv: bash $target
+vk: label k; bash k
+vl: label l; bash l
+bq: bash (when engaged)
+bi: bash next.target 
+br: bash 1.target
+b[1-9]: bash [1-9].$target 
+```
+
+### Cast ###
+
+Offensive spells begining by `c` are not casted against any target,
+and should only be used when engaged.
+
+#### Common spells ####
+
+Common spells are defined in the file _tin/alias\_common.tin_.
+Spells for clerics and mages are defined in the files
+_tin/alias\_cleric.tin_ and _tin/alias\_mage.tin_.
+
+```
 cb: bless
-cf: create food
-ch: cast 'locate life' character_name # locate current location
-ci: lightning bolt
+cf: create food; eat mushroom.
 cl: cure light
 cn: change spellcasting normally
 cq: change spellcasting quick
-cr: create light $sourcelight
-ck: list keys to teleport
-ct: teleport
 cw: create water
-c[1-9]: teleport to key number n
 ```
+
+#### Cleric spells ####
+
+```
+ca: armour
+cc: cure critic
+ce: dispel evil
+ch: heal
+ci: blind
+cm: summon
+co: word of recall
+cr: breath of briskness
+cs: cure serious
+ct: strength
+cy: sanctuary
+cz: lightning bolt
+```
+
+#### Mage spells ####
 
 To teleport easily, all the keys given by _locate life_ are recorded.
 `ck` will list those recorded keys, and `ct 2` will teleport you to
@@ -123,6 +234,17 @@ the second key in that recorded list. A label can be added to a
 recorded key with the command `keyl 3 my_label`. The list of keys can
 be deleted (cleared) with `keyc`, while `keyd 4` will delete the key
 number 4, and `keyd 2 6` will delete keys 2, 3, 4, 5 and 6.
+
+```
+ca: armour
+ci: lightning bolt
+cr: create light lantern
+ck: list teleport keys
+ch: locate current room (with locate life $character_name)
+ct: teleport %1
+c[1-9]: teleport to key 1-9
+```
+
 
 ### Doors ###
 
@@ -145,13 +267,19 @@ dh: pick chest; open chest; look in chest
 ### Drink ###
 
 ```
-dw: drink water
+dw: drink water; pour water $recipient
 ```
 
-### Escape ###
+### Emotes ###
+
+Emotes should be defined within the character file.
 
 ```
-e[h|j|k|l|u|n]: escape direction
+ef: eflee (`eemote shout flee !`)
+es: esmile (`eemote smiles softly.`)
+el: elaugh (`eemote laughs with joy.`)
+en: enod (`nod`)
+
 ```
 
 ### Get ###
@@ -159,8 +287,10 @@ e[h|j|k|l|u|n]: escape direction
 ```
 ga: get all corpse
 gc: get all.coins all.corpse
+gm: gc; get all.coin all.corpse
 gf: get all (from floor)
 gl: look in corpse
+gL: look in 1 through 9 corpse.
 g[1-9]: look in number.corpse
 ```
 
@@ -184,7 +314,7 @@ behind your leader.
 
 ```
 Lb: toggle backride on or off
-Lc: cast 'cure light' $leader
+Lcl: cast 'cure light' $leader
 Lf: follow $leader
 Ln: set leader to none
 Lp: protect $leader
@@ -193,6 +323,16 @@ Ls: follow self
 Lt: tell $leader
 Lw: wake $leader
 Lx: examine $leader
+```
+
+Clerics also have the following aliases:
+
+```
+Lcc: cure critic $leader
+Lch: heal $leader
+Lcs: cure serious $leader
+Lcy: sanctuary $leader
+Lcb: remove blindness $leader
 ```
 
 ### Look ###
@@ -250,9 +390,10 @@ re: rest
 rs: sleep
 rt: wake; stand
 ru: burn corpse
+ry: toggle light on or off.
 ```
 
-#### Score, search, scout ###
+#### Score, search, scout, sneak###
 
 ```
 sc: score, stat
@@ -260,8 +401,9 @@ sa: look around
 sf: flush quick
 sg: reveal ginseng
 sq: reveal quick
-st: reveal thorough
 sr: seek rivendell
+ss: sneak
+st: reveal thorough
 s[h|j|k|l|u|d]: scout direction
 S[h|j|k|l|u|d]: search direction
 ```
@@ -285,25 +427,27 @@ From the _quick_ mode, you can use `wtr target`.
 ```
 tr: track
 th: track horse
-t[m|o|t|w|z]: track man\*, orc\*, troll\*, woman\*, zaugurz\*
+t[m|o|t|w|z]: track man*, orc*, troll*, woman*, zaugurz*
 tv: track $target
 ```
 
 ### Target ###
 
-You can target something in _writing_ mode with `v something`. From
-the _quick_ mode, simply type `wv something`. Once your target is set,
-all offensive commands (spells, backstab, bash, hit, etc.), will
-target it.
+You can target something in _writing_ mode with `vv something`. From
+the _quick_ mode, type `<space>vv something` instead. Once your target
+is set, all offensive commands (spells, backstab, bash, hit, etc.),
+will target it.
 
 You can specify the target number with `v[1-9]`, increase that number
 with `vi` or reset it to 1 with `vr`.
 
 ```
-v: target %1
+vv: target %1
 vb: target assassin, brigand, bandit, smuggler, thief
-v[a|d|p|s]: target animal, dunlending, plant, shadow
-v[m|o|t|w|z]: target man\*, orc\*, troll\*, woman\*, zaugurz\*
+v[a|d|h|p]: target animal, dunlending, shadow, plant
+v[m|o|t|w|z]: target man*, orc*, troll*, woman*, zaugurz*
+vs: target skeleton, spriti, soldier
+vk: lable the target `k`, target `k`.
 vl: label the target `l`, target `l`.
 vx: exam $target, cons $target
 vi: increase the target number
@@ -330,3 +474,12 @@ xt: show tp
 xx: exam target
 ```
 
+### Shoot ###
+
+```
+ya: recover all
+yf: shoot; flee
+yg: go; shoot; flee
+yr: recover
+yy: shoot $target
+```

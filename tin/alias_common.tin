@@ -1,4 +1,4 @@
-#nop aliases
+#nop common aliases
 
 #nop directions
 #alias {h} {showsend w};
@@ -8,29 +8,30 @@
 #alias {u} {showsend u};
 #alias {n} {showsend d};
 
+#alias {H} {showsend escape w};
+#alias {J} {showsend escape s};
+#alias {K} {showsend esacpe n};
+#alias {L} {showsend escape e};
+#alias {U} {showsend escape u};
+#alias {N} {showsend escape d};
+
 #nop quick
 #alias {a} {showsend assist}
 #alias {f} {showsend flee};
-#alias {i} {castqbolt %0};
-#alias {I} {castkbolt %0};
-#alias {J} {go};
 #alias {m} {mood %0};
 #alias {M} {chaweapon};
-#alias {N} {sneak};
 #alias {q} {kill %0};
-#alias {y} {togglelight};
-#alias {z} {stab};
+#alias {,} {go};
 
 #nop alertness
 #alias {Ap} {showsend change alertness paranoid};
 #alias {An} {showsend change alertness normal};
 
 #nop bash
-#alias {bv} {showsend bash ${NTARGET}\.${TARGET}};
 #alias {ba} {va; bv};
 #alias {bb} {vb; bv};
 #alias {bd} {bash dis};
-#alias {bf} {vf; bv};
+#alias {bh} {vh; bv};
 #alias {bi} {vi; bv};
 #alias {bk} {vk; bv};
 #alias {bm} {vm; bv};
@@ -40,6 +41,7 @@
 #alias {br} {vr; bv};
 #alias {bs} {vs; bv};
 #alias {bt} {vt; bv};
+#alias {bv} {showsend bash ${NTARGET}\.${TARGET}};
 #alias {bw} {vw; bv};
 #alias {bz} {vz; bv};
 #alias {b1} {v1; bv};
@@ -53,27 +55,12 @@
 #alias {b9} {v9; bv};
 
 #nop cast
-#alias {ca} {showsend cast n 'armour'};
 #alias {cb} {showsend cast n 'bless' %0};
-#alias {cf} {castfood %0};
-#alias {ci} {showsend cast 'lightning bolt' %0};
+#alias {cf} {castfood};
 #alias {cl} {showsend cast n 'cure light' %0};
 #alias {cn} {showsend change spellcasting normally; #var {spell_speed} {N}}
 #alias {cq} {showsend change spellcasting quick; #var {spell_speed} {Q}}
-#alias {cr} {showsend cast n 'create light' lantern};
-#alias {ck} {keys};
-#alias {ch} {casthere %0};
-#alias {ct} {castport %0};
 #alias {cw} {showsend cast n 'create water' %0};
-#alias {c1} {castport 1};
-#alias {c2} {castport 2};
-#alias {c3} {castport 3};
-#alias {c4} {castport 4};
-#alias {c5} {castport 5};
-#alias {c6} {castport 6};
-#alias {c7} {castport 7};
-#alias {c8} {castport 8};
-#alias {c9} {castport 9};
 
 #nop door drink
 #alias {dah} {door bar w}; #alias {daj} {door bar s}; #alias {dak} {door bar n};
@@ -99,37 +86,40 @@
 #alias {duh} {door unlock w}; #alias {duj} {door unlock s}; #alias {duk} {door unlock n};
 #alias {dul} {door unlock e}; #alias {duu} {door unlock u}; #alias {dun} {door unlock d};
 #alias {dh} {#showme {pick chest\; open chest\; look in chest}; pick chest; open chest; look in chest};
-#alias {dw} {drink water};
-
-#nop escape
-#alias {eh} {showsend escape w};
-#alias {ej} {showsend escape s};
-#alias {ek} {showsend escape n};
-#alias {el} {showsend escape e};
-#alias {eu} {showsend escape u};
-#alias {en} {showsend escape d};
+#alias {dw} {drink water; pour water $recipient};
 
 #nop emotes
-#alias {ef} {eemote shouts "FLEE!"};
-#alias {eL} {elaugh}
-#alias {er} {eride}
+#alias {eb} {ebow};
+#alias {ed} {edie};
+#alias {ef} {eflee};
+#alias {eh} {ehair};
+#alias {ei} {eintriguing};
+#alias {el} {elaugh};
 #alias {es} {esmile};
-#alias {ey} {nod};
+#alias {en} {eno};
+#alias {ey} {eyes};
+
+#alias {eq} {showsend eq};
 
 #nop get
 #alias {ga} {showsend get all corpse};
 #alias {gc} {showsend get all.coins all.corpse};
 #alias {gf} {lightor_sneak; showsend get all; lightoff_sneak};
 #alias {gl} {lightor_sneak; showsend look in corpse; lightoff_sneak};
-#alias {g1} {lightor_sneak; showsend look in 1.corpse; lightoff_sneak};
-#alias {g2} {lightor_sneak; showsend look in 2.corpse; lightoff_sneak};
-#alias {g3} {lightor_sneak; showsend look in 3.corpse; lightoff_sneak};
-#alias {g4} {lightor_sneak; showsend look in 4.corpse; lightoff_sneak};
-#alias {g5} {lightor_sneak; showsend look in 5.corpse; lightoff_sneak};
-#alias {g6} {lightor_sneak; showsend look in 6.corpse; lightoff_sneak};
-#alias {g7} {lightor_sneak; showsend look in 7.corpse; lightoff_sneak};
-#alias {g8} {lightor_sneak; showsend look in 8.corpse; lightoff_sneak};
-#alias {g9} {lightor_sneak; showsend look in 9.corpse; lightoff_sneak};
+#alias {gm} {gc; showsend get all.metal all.corpse};
+#alias {gL} {
+	lightor_sneak;
+	showsend look in 1.corpse;
+	showsend look in 2.corpse;
+	showsend look in 3.corpse;
+	showsend look in 4.corpse;
+	showsend look in 5.corpse;
+	showsend look in 6.corpse;
+	showsend look in 7.corpse;
+	showsend look in 8.corpse;
+	showsend look in 9.corpse;
+	lightoff_sneak
+};
 
 #nop hide
 #alias {Hq} {lightor_sneak; hide quick};
@@ -137,18 +127,18 @@
 
 #nop leader, look
 #alias {Lb} {backride on};
-#alias {Lc} {showsend cast 'cure light' $leader};
+#alias {Lcl} {showsend cast 'cure light' $leader};
 #alias {Lf} {showsend follow %1};
 #alias {Ln} {leader none};
 #alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
 #alias {Lr} {#echo {rescue $leader}; #send {rescue $leader}};
-#alias {Ls} {#echo {follow self}; Ln; #send {follow self}};
-#alias {Lt} {#echo {tell $leader %0}; #send {tell $leader %0}};
+#alias {Ls} {showsend follow self};
+#alias {Lt} {showsend tell $leader %0};
 #alias {Lw} {showsend wake $leader};
 #alias {Lx} {lightor_sneak; showsend examine $leader; lightoff_sneak};
 #alias {LL} {lightor_sneak; look; exit; lightoff_sneak};
 
-#nop path
+#nop path and go
 #alias {pd} {pathdeathshow};
 #alias {pf} {rlabel search %1};
 #alias {pg} {pathstep};
@@ -158,7 +148,7 @@
 #alias {pr} {pathrun %0};
 #alias {ps} {pathshow %0};
 
-#nop ride rest
+#nop ride rest management
 #alias {ra} {aba};
 #alias {rk} {ride behind $leader; backride on};
 #alias {ri} {showsend ride %0};
@@ -171,9 +161,10 @@
 #alias {rs} {showsend sleep};
 #alias {rt} {#showme {wake\; stand}; wake; stand};
 #alias {ru} {showsend burn corpse};
+#alias {ry} {togglelight};
 
 
-#nop score search scout
+#nop score search scout sneak
 #alias {sa} {showsend look around};
 #alias {sc} {showsend score; stat};
 #alias {sd} {showsend scout d};
@@ -185,6 +176,7 @@
 #alias {sl} {showsend scout e};
 #alias {sq} {showsend reveal quick};
 #alias {sr} {showsend seek rivendell};
+#alias {ss} {showsend sneak};
 #alias {st} {showsend reveal thorough};
 #alias {su} {showsend scout u};
 #alias {sn} {showsend scout d};
@@ -197,7 +189,6 @@
 #alias {Sn} {showsend search d};
 
 #nop track, time
-#alias {t} {lighton_sneak; showsend track %0};
 #alias {th} {lighton_sneak; showsend track horse; tm};
 #alias {tm} {lighton_sneak; showsend track man*; tm};
 #alias {to} {lighton_sneak; showsend track orc*; to};
@@ -205,21 +196,23 @@
 #alias {tt} {lighton_sneak; showsend track troll*; tt};
 #alias {tv} {lighton_sneak; tracktarget %0};
 #alias {tw} {lighton_sneak; showsend track woman*; tw};
+#alias {tz} {lighton_sneak; showsend track zaugurz*; tz};
 #alias {ti} {_time_short};
 
 #nop target
-#alias {v} {target %0};
+#alias {vv} {target %0};
 #alias {va} {target animal};
-#alias {vb} {targetswitch assassin brigand bandit smuggler thief};
+#alias {vb} {targetswitch assassin brigand bandit smuggler ruffian thief};
 #alias {vd} {target dunlending};
+#alias {vh} {target shadow};
 #alias {vi} {itarget};
-#alias {vk} {targetswitch skeleton spirit soldier};
-#alias {vl} {lab ${NTARGET}\.${TARGET} l; target l};
+#alias {vk} {lab k; target k};
+#alias {vl} {lab l; target l};
 #alias {vm} {target man*};
 #alias {vo} {target orc*};
 #alias {vp} {target plant};
 #alias {vr} {rtarget};
-#alias {vs} {target shadow};
+#alias {vs} {targetswitch skeleton spirit soldier};
 #alias {vt} {target troll*};
 #alias {vw} {target woman*};
 #alias {vx} {xtarget};
@@ -234,8 +227,6 @@
 #alias {v8} {itarget 8};
 #alias {v9} {itarget 9};
 
-#alias {w} {modaloff};
-
 #nop xp counter, exam
 #alias {xa} {reportall};
 #alias {xp} {xpGet};
@@ -243,4 +234,10 @@
 #alias {xs} {reportscore};
 #alias {xt} {tpGet};
 #alias {xx} {xtarget};
+
+#nop shoot
+#alias {yy} {showsend shoot ${NTARGET}\.${TARGET}};
+#alias {yr} {showsend recover};
+#alias {ya} {showsend recover all};
+#alias {yg} {go; showsend shoot; showsend flee};
 

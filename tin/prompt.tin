@@ -1,6 +1,6 @@
 #nop Only show the prompt during combat
 
-#prompt {^PROMPT:%1>:PROMPT$} {<069>${mood}${spell_speed}${islight} %1><099> $NTARGET\.$TARGET}
+#prompt {^PROMPT:%1>:PROMPT$} {<069>%1><099>}
 
 #action {^PROMPT:{(?:[@*!\)o])?}{(?:[~\(\[+.%fO~UW:=<#])?}{(?:[*'"~=-]{1,2})?}{(?: [RrSsCcW]{1,4})?}{(?: HP:\w+)?}{(?: Mana:\w+)?}{(?: Move:\w+)?}{(?: Mount:\w+)?}{(?: [^:]+:\w+)?}{(?: [^:]+:\w+)?}%*>:PROMPT$}
 {
@@ -57,9 +57,18 @@
 
 	#var {shortprompt} {$hp $opponent};
 
-    showmode;
+	showmyprompt;
 };
-	
+
+#alias {showmyprompt} {
+    #if {"$MODAL" == "on"} {	
+		#showme {<029>${mood} ${spell_speed} ${islight} ${MODAL}<099> $NTARGET\.$TARGET> $MODE} {0};
+	};
+	#else {
+		#showme {<029>${mood} ${spell_speed} ${islight} <019>${MODAL}<099> $NTARGET\.$TARGET> } {0};
+
+	};
+};	
 
 #alias {showprompt} {
 	#var {SHOW_PROMPT} {1};

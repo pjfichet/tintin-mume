@@ -1,0 +1,23 @@
+#nop macros
+
+#alias {action} {
+	#if {"%0"!=""} {#var {action} {%0}};
+	#class actions {open};
+	#macro {&} {showsend $action 1.$TARGET};
+	#macro {é} {showsend $action 2.$TARGET};
+	#macro {"} {showsend $action 3.$TARGET};
+	#macro {'} {showsend $action 4.$TARGET};
+	#macro {(} {showsend $action 5.$TARGET};
+	#macro {-} {showsend $action 6.$TARGET};
+	#macro {è} {showsend $action 7.$TARGET};
+	#macro {_} {showsend $action 8.$TARGET};
+	#macro {ç} {showsend $action 9.$TARGET};
+	#class {actions} {close};
+	#showme {Actions 1 to 9 set to $action\.};
+}
+
+#alias {unaction} {
+	#class actions {kill};
+	#showme {Actions 1 to 9 deleted.};
+}
+

@@ -1,0 +1,23 @@
+#nop cleric aliases
+#nop quick
+#alias {i} {castq {lightning bolt} {%0}};
+#alias {I} {castn {lightning bolt} { %0}};
+#alias {z} {castn {quake} {%0}};
+
+#nop cast
+#alias {ca} {showsend cast n 'armour'};
+#alias {ci} {showsend cast n 'lightning bolt' %0};
+#alias {cr} {showsend cast n 'create light' lantern};
+#alias {ck} {keys};
+#alias {ch} {casthere %0};
+#alias {ct} {castport %0};
+#alias {c1} {castport 1};
+#alias {c2} {castport 2};
+#alias {c3} {castport 3};
+#alias {c4} {castport 4};
+#alias {c5} {castport 5};
+#alias {c6} {castport 6};
+#alias {c7} {castport 7};
+#alias {c8} {castport 8};
+#alias {c9} {castport 9};
+

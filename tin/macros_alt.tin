@@ -1,0 +1,19 @@
+#nop directions
+#macro {ð} {h}
+#macro {Û} {j}
+#macro {Î} {k}
+#macro {Ô} {l}
+#macro {¬} {n}
+#macro {ù} {u}
+
+#nop attack
+#macro {â} {a}
+#macro {«} {z}
+#macro {±} {f}
+#macro {î} {i}
+#macro {Â} {q}
+
+#nop door
+#macro {œ} {open $door_name};
+#macro {©} {close $door_name};
+

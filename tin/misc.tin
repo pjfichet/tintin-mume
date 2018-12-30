@@ -35,6 +35,10 @@
 	wield dagger;
 }
 
+#alias setrecipient {
+	#var {recipient} {%1};
+}
+
 
 #alias {mkcolordefault} {
 	change colour \
