@@ -1,5 +1,9 @@
 #nop modal (dual mode) macros
 
+#event {SEND OUTPUT} {
+	#if {"$MODAL" == "off"} {modalon};
+}
+
 #var {MODE} {};
 #alias {mode} {
 	#var {MODE} {%1};
@@ -16,7 +20,7 @@
 	#class {class_modal} {kill};
 	#var {MODAL} {off};
 	mode;
-	#showme {Modal mode $MODAL\.};
+	#nop showme {Modal mode $MODAL\.};
 };
 
 #alias {modalon} {
@@ -27,5 +31,5 @@
 	#macro {} {mode; #cursor {clear line};};
 	modalmacros;
 	#class {class_modal} {close};
-	#showme {Modal mode $MODAL\.};
+	#nop showme {Modal mode $MODAL\.};
 };
