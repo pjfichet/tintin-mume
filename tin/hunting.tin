@@ -1,20 +1,20 @@
 #alias {setweapon} {
-	#var {wwimpy} {%1};
-	#var {waggro} {%2};
-	#var {weapon} {$wwimpy};
-	#echo {Weapons set to $wwimpy (wimpy) and $waggro (aggro).};
+	#var {weapona} {%1};
+	#var {weaponb} {%2};
+	#var {weapon} {$weapona};
+	#echo {Weapons set to $weapona and $weaponb\.};
 	#cr;
 }
 #alias {chaweapon} {
-	#if { "$weapon" == "$waggro"} {
-		#var {weapon} {$wwimpy};
-		#send {sheathe};
-		#send {wield $wwimpy};
+	#if { "$weapon" == "$weapona"} {
+		#var {weapon} {$weaponb};
+		#send {rem $weapona};
+		#send {wield $weaponb};
 	};
 	#else {
-		#var {weapon} {$waggro};
-		#send {draw};
-		#nop send {wield $waggro};
+		#var {weapon} {$weapona};
+		#send {rem $weaponb};
+		#send {wield $weapona};
 	};
 }
 
