@@ -127,6 +127,9 @@
 #highlight {^As you call down lightning, %* is scorched to death.$} {magenta}
 #highlight {^The impact of your lightning bolt kills %*.$} {magenta}
 
+#nop aura
+#highlight {(red aura)} {red}
+
 #nop third person spells
 #highlight {^%* lies down and falls asleep.$} {magenta}
 #nop highlight {^%* casts 'Elbereth Gilthoniel' and makes %* shiver in pain.} {magenta}
