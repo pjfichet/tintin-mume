@@ -236,8 +236,9 @@
 #alias {xx} {xtarget};
 
 #nop shoot
-#alias {yy} {showsend shoot ${NTARGET}\.${TARGET}};
-#alias {yr} {showsend recover};
 #alias {ya} {showsend recover all};
+#alias {yf} {showsend shoot ${NTARGET}\.${TARGET}; showsend flee};
 #alias {yg} {go; showsend shoot; showsend flee};
+#alias {yr} {showsend recover};
+#alias {yy} {showsend shoot ${NTARGET}\.${TARGET}};
 

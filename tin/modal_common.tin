@@ -140,6 +140,7 @@
 		#elseif {"$MODE" == "g"} {gf; mode};
 		#elseif {"$MODE" == "p"} {pf; mode};
 		#elseif {"$MODE" == "s"} {sf; mode};
+		#elseif {"$MODE" == "y"} {yf; mode};
 		#else mode;
 	};
 	#macro {g} {
