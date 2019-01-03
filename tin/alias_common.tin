@@ -127,7 +127,8 @@
 
 #nop leader, look
 #alias {Lb} {backride on};
-#alias {Lcl} {showsend cast 'cure light' $leader};
+#alias {Lcl} {showsend cast n 'cure light' $leader};
+#alias {Lcb} {showsend cast n 'bless' $leader};
 #alias {Lf} {showsend follow %1};
 #alias {Ln} {leader none};
 #alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
@@ -148,6 +149,17 @@
 #alias {pr} {pathrun %0};
 #alias {ps} {pathshow %0};
 
+#nop order charmies and mercs
+#alias {oa} {ask $follower assist};
+#alias {ob} {showsend bandage $follower};
+#alias {ocb} {showsend cast 'bless' $follower};
+#alias {ocl} {showsend cast 'cure light' $follower};
+#alias {oh} {ask $follower health};
+#alias {om} {ask $follower moves};
+#alias {or} {ask $follower ride %1};
+#alias {ot} {ask $follower time};
+#alias {ox} {showsend examine $follower};
+
 #nop ride rest management
 #alias {ra} {aba};
 #alias {rk} {ride behind $leader; backride on};
@@ -155,7 +167,7 @@
 #alias {rl} {ridelead %0};
 #alias {rz} {ridezblam};
 
-#alias {rb} {showsend bandage};
+#alias {rb} {showsend bandage %0};
 #alias {rc} {showsend butcher corpse};
 #alias {re} {showsend rest};
 #alias {rs} {showsend sleep};
@@ -239,6 +251,7 @@
 #alias {ya} {showsend recover all};
 #alias {yf} {showsend shoot ${NTARGET}\.${TARGET}; showsend flee};
 #alias {yg} {go; showsend shoot; showsend flee};
+#alias {yq} {showsend shoot};
 #alias {yr} {showsend recover};
 #alias {yy} {showsend shoot ${NTARGET}\.${TARGET}};
 
