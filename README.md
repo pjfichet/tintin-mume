@@ -214,16 +214,22 @@ cw: create water
 ```
 ca: armour
 cc: cure critic
+cd: cure disease
 ce: dispel evil
 ch: heal
 ci: blind
 cm: summon
+cn: cure blindness
 co: word of recall
+cp: remove poison
 cr: breath of briskness
 cs: cure serious
 ct: strength
 cy: sanctuary
 cz: lightning bolt
+
+c[1-9]: blind [1-9].target
+[&é"'(-è_ç]: blind [1-9].target
 ```
 
 #### Mage spells ####
@@ -252,7 +258,7 @@ c[1-9]: teleport to key 1-9
 da[h|j|k|l|u|n]: bar door $direction
 db[h|j|k|l|u|n]: bash door $direction
 dc[h|j|k|l|u|n]: close door $direction
-dn[h|j|k|l|u|n]: knock door $direction
+dg[h|j|k|l|u|n]: knock door $direction
 dk[h|j|k|l|u|n]: block door $direction
 dl[h|j|k|l|u|n]: lock door $direction
 dn[h|j|k|l|u|n]: unbar door $direction
@@ -275,11 +281,15 @@ dw: drink water; pour water $recipient
 Emotes should be defined within the character file.
 
 ```
-ef: eflee (`eemote shout flee !`)
-es: esmile (`eemote smiles softly.`)
-el: elaugh (`eemote laughs with joy.`)
-en: enod (`nod`)
-
+eb: ebow (eemote bows swiftly.)
+ed: edie (eemote dies, with a sigh.)
+ef: eflee (eemote shouts "FLEE !")
+eh: ehair (eemote 's long hair flow on the wind.)
+ei: eintriguing (eemote raises an eyebrow, surprised.)
+el: elaugh (eemote laughs with joy.)
+es: esmile (eemote smiles with amuzement.)
+en: eno (eemote does not seem to agree.; say no)
+ey: eyes (eemote nods softly; say yes)
 ```
 
 ### Get ###
@@ -287,7 +297,7 @@ en: enod (`nod`)
 ```
 ga: get all corpse
 gc: get all.coins all.corpse
-gm: gc; get all.coin all.corpse
+gm: gc; get all.metal all.corpse
 gf: get all (from floor)
 gl: look in corpse
 gL: look in 1 through 9 corpse.
@@ -314,6 +324,7 @@ behind your leader.
 
 ```
 Lb: toggle backride on or off
+Lcb: cast 'bless' $leader
 Lcl: cast 'cure light' $leader
 Lf: follow $leader
 Ln: set leader to none
@@ -329,10 +340,42 @@ Clerics also have the following aliases:
 
 ```
 Lcc: cure critic $leader
+Lcd: cure disease $leader
 Lch: heal $leader
+Lcn: cure blindness $leader
+Lcp: remove poison $leader
 Lcs: cure serious $leader
 Lcy: sanctuary $leader
-Lcb: remove blindness $leader
+```
+
+### Order to follower ###
+
+Once you have set up your follower with `follower follower_name`,
+you can use the following aliases:
+
+```
+oa: ask $follower assist
+ob: bandage $follower
+ocb: bless $follower
+ocl: cure light $follower
+oh: ask $follower health
+om: ask $follower moves
+or: ask $follower ride %1
+ot: ask $follower time
+ox: examine $follower
+```
+
+Clerics also have the following aliases:
+
+```
+occ: cure critic $follower
+ocd: cure disease $follower
+och: heal $follower
+ocl: cure light $follower
+ocn: cure blindness $follower
+ocp: remove poison $follower
+ocs: cure serious $follower
+ocy: sanctuary $follower
 ```
 
 ### Look ###
@@ -446,8 +489,8 @@ vv: target %1
 vb: target assassin, brigand, bandit, smuggler, thief
 v[a|d|h|p]: target animal, dunlending, shadow, plant
 v[m|o|t|w|z]: target man*, orc*, troll*, woman*, zaugurz*
-vs: target skeleton, spriti, soldier
-vk: lable the target `k`, target `k`.
+vs: target skeleton, spirit, soldier
+vk: label the target `k`, target `k`.
 vl: label the target `l`, target `l`.
 vx: exam $target, cons $target
 vi: increase the target number
@@ -480,6 +523,7 @@ xx: exam target
 ya: recover all
 yf: shoot; flee
 yg: go; shoot; flee
+yq: shoot (when engaged)
 yr: recover
 yy: shoot $target
 ```
