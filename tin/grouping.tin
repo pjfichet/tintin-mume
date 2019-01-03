@@ -119,6 +119,11 @@
 	#echo {Auto group $auto_group\.}
 }
 
+#alias {follower} {
+	#var {follower} {%1};
+	#echo {Follower set to $follower\.};
+};
+
 #var {auto_group} {off}
 #var {auto_ride} {off}
 #var {ride_back} {off}
