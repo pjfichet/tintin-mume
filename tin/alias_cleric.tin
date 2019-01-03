@@ -8,33 +8,58 @@
 
 #nop cast
 #alias {ca} {showsend cast n 'armour' %0};
-#alias {cb} {showsend cast 'remove blindness' %0};
 #alias {cc} {showsend cast n 'cure critic' %0};
+#alias {cd} {showsend cast n 'cure disease' %0};
 #alias {ce} {showsend cast 'dispel evil' %0};
 #alias {ch} {showsend cast n 'heal' %0};
 #alias {ci} {showsend cast 'blind' %0};
 #alias {cm} {showsend cast n 'summon' %0};
+#alias {cn} {showsend cast n 'cure blindness' %0};
 #alias {co} {showsend cast 'word of recall'};
+#alias {cp} {showsend cast 'remove poison'};
 #alias {cr} {showsend cast 'breath of briskness'};
 #alias {cs} {showsend cast n 'cure serious' %0};
 #alias {ct} {showsend cast n 'strength' %0};
 #alias {cy} {showsend cast n 'sanctuary' %0};
 #alias {cz} {showsend cast 'lightning bolt' {%0}};
 
-#alias {c1} {v1; castn {blind} {%0}};
-#alias {c2} {v2; castn {blind} {%0}};
-#alias {c3} {v3; castn {blind} {%0}};
-#alias {c4} {v4; castn {blind} {%0}};
-#alias {c5} {v5; castn {blind} {%0}};
-#alias {c6} {v6; castn {blind} {%0}};
-#alias {c7} {v7; castn {blind} {%0}};
-#alias {c8} {v8; castn {blind} {%0}};
-#alias {c9} {v9; castn {blind} {%0}};
+#alias {c1} {showsend cast 'blind' 1.$TARGET};
+#alias {c2} {showsend cast 'blind' 2.$TARGET};
+#alias {c3} {showsend cast 'blind' 3.$TARGET};
+#alias {c4} {showsend cast 'blind' 4.$TARGET};
+#alias {c5} {showsend cast 'blind' 5.$TARGET};
+#alias {c6} {showsend cast 'blind' 6.$TARGET};
+#alias {c7} {showsend cast 'blind' 7.$TARGET};
+#alias {c8} {showsend cast 'blind' 8.$TARGET};
+#alias {c9} {showsend cast 'blind' 9.$TARGET};
 
-#alias {Lcl} {showsend cast 'cure light' $leader};
-#alias {Lcc} {showsend cast 'cure critic' $leader};
-#alias {Lch} {showsend cast 'heal' $leader};
-#alias {Lcs} {showsend cast 'cure serious' $leader};
-#alias {Lcy} {showsend cast 'sanctuary' $leader};
-#alias {Lcb} {showsend cast 'remove blindness' $leader};
+#alias {&} {showsend cast 'blind' 1.$TARGET};
+#alias {é} {showsend cast 'blind' 2.$TARGET};
+#alias {"} {showsend cast 'blind' 3.$TARGET};
+#alias {'} {showsend cast 'blind' 4.$TARGET};
+#alias {(} {showsend cast 'blind' 5.$TARGET};
+#alias {-} {showsend cast 'blind' 6.$TARGET};
+#alias {è} {showsend cast 'blind' 7.$TARGET};
+#alias {_} {showsend cast 'blind' 8.$TARGET};
+#alias {ç} {showsend cast 'blind' 9.$TARGET};
+
+#alias {Lcb} {showsend cast n 'bless' $leader};
+#alias {Lcc} {showsend cast n 'cure critic' $leader};
+#alias {Lcd} {showsend cast n 'cure disease' $leader};
+#alias {Lch} {showsend cast n 'heal' $leader};
+#alias {Lcl} {showsend cast n 'cure light' $leader};
+#alias {Lcn} {showsend cast n 'cure blindness' $leader};
+#alias {Lcp} {showsend cast n 'remove poison' $leader};
+#alias {Lcs} {showsend cast n 'cure serious' $leader};
+#alias {Lcy} {showsend cast n 'sanctuary' $leader};
+
+#alias {ocb} {showsend cast n 'bless' $follower};
+#alias {occ} {showsend cast n 'cure critic' $follower};
+#alias {ocd} {showsend cast n 'cure disease' $follower};
+#alias {och} {showsend cast n 'heal' $follower};
+#alias {ocl} {showsend cast n 'cure light' $follower};
+#alias {ocn} {showsend cast n 'cure blindness' $follower};
+#alias {ocp} {showsend cast n 'remove poison' $follower};
+#alias {ocs} {showsend cast n 'cure serious' $follower};
+#alias {ocy} {showsend cast n 'sanctuary' $follower};
 
