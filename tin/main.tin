@@ -61,7 +61,6 @@
 #read tin/sub_spell.tin
 #read tin/sub_spelltime.tin
 #read tin/sub_color.tin
-#read tin/sub_combat.tin
 
 #nop Scripts
 #read tin/log.tin
@@ -69,6 +68,7 @@
 #read tin/emotes.tin
 #read tin/hunting.tin
 #read tin/grouping.tin
+#read tin/label.tin
 #read tin/doors.tin
 #read tin/light.tin
 #read tin/spells.tin
