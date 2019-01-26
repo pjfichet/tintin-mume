@@ -77,7 +77,7 @@
 	#elseif {"%0" != ""} {
 		#var {leader} {%0};
 		#echo {Leader set to $leader\.};
-		showsend lab $leader ga;
+		showsend lab $leader gl;
 		autoride on;
 	};
 	#else {
