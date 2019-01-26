@@ -8,10 +8,8 @@
 #action {^You flee {north|south|east|west|up|down}.$} {
 	#var lastFled {%1};
 	#var GoBy {back};
-	#echo {$shortprompt <139>You flee %1!<099>};
 	#if {"$fleeback" == "run"} {#var {fleeback} {none}; pr};
 	#elseif {"$fleeback" != "none"} {#delay {.3} {v}};
-	#line gag;
 }
 
 #alias {goback} {
