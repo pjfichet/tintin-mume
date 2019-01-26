@@ -9,7 +9,7 @@
 #nop cast
 #alias {ca} {showsend cast n 'armour' %0};
 #alias {cc} {showsend cast n 'cure critic' %0};
-#nop alias {cd} {showsend cast n 'cure disease' %0};
+#alias {cd} {showsend cast n 'shield' %0};
 #alias {ce} {showsend cast 'dispel evil' %0};
 #alias {ch} {showsend cast n 'heal' %0};
 #alias {ci} {showsend cast 'blind' %0};
@@ -45,7 +45,6 @@
 
 #alias {Lcb} {showsend cast n 'bless' $leader};
 #alias {Lcc} {showsend cast n 'cure critic' $leader};
-#alias {Lcd} {showsend cast n 'cure disease' $leader};
 #alias {Lch} {showsend cast n 'heal' $leader};
 #alias {Lcl} {showsend cast n 'cure light' $leader};
 #alias {Lcn} {showsend cast n 'cure blindness' $leader};
@@ -55,7 +54,6 @@
 
 #alias {ocb} {showsend cast n 'bless' $follower};
 #alias {occ} {showsend cast n 'cure critic' $follower};
-#nop alias {ocd} {showsend cast n 'cure disease' $follower};
 #alias {och} {showsend cast n 'heal' $follower};
 #alias {ocl} {showsend cast n 'cure light' $follower};
 #alias {ocd} {showsend cast n 'cure blindness' $follower};
