@@ -77,14 +77,6 @@
 		#if {"$MODE" == ""} {I; mode};
 		#else mode;
 	};
-	#macro {J} {
-		#if {"$MODE" == ""} {J; mode};
-		#else mode;
-	};
-	#macro {K} {
-		#if {"$MODE" == ""} {K; mode};
-		#else mode;
-	};
 	#macro {L} {
 		#if {"$MODE" == ""} {mode L};
 		#elseif {"$MODE" == "L"} {LL; mode};
@@ -95,16 +87,8 @@
 		#if {"$MODE" == ""} {M; mode};
 		#else mode;
 	};
-	#macro {N} {
-		#if {"$MODE" == ""} {N; mode};
-		#else mode;
-	};
 	#macro {S} {
 		#if {"$MODE" == ""} {mode S};
-		#else mode;
-	};
-	#macro {U} {
-		#if {"$MODE" == ""} {U; mode};
 		#else mode;
 	};
 	#macro {a} {
@@ -179,6 +163,7 @@
 		#if {"$MODE" == ""} {f; mode};
 		#elseif {"$MODE" == "L"} {Lf; mode};
 		#elseif {"$MODE" == "c"} {cf; mode};
+		#elseif {"$MODE" == "d"} {df; mode};
 		#elseif {"$MODE" == "e"} {ef; mode};
 		#elseif {"$MODE" == "g"} {gf; mode};
 		#elseif {"$MODE" == "p"} {pf; mode};
