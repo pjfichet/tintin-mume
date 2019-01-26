@@ -12,8 +12,8 @@
 #var {label[k]} {0}
 #alias labelize {
 	#var {label_letter} {%1};
-	#math {label[$label_letter]} {$label[$label_letter] + 1}
-	#if {$label[$label_letter] == 10} {#var {label[$label_letter]} {1}};
+	#math {label[$label_letter]} {$label[$label_letter] + 1};
+	#if {$label[$label_letter] >= 10} {#var {label[$label_letter]} {1}};
 	#action {Ok.} {
 		#unaction {Ok.};
 		#showme $labelled;
@@ -21,9 +21,9 @@
 	#action {^Exactly whom did you wish to give a label?} {
 		#unaction {^Exactly whom did you wish to give a label?};
 		lab $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]];
-		#var {labellled} {Labelled $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]]};
+		#var {labelled} {Labelled $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]]};
 	};
-	lab k$letter[$label_target_num];
+	lab k$letter[$label[$label_letter]];
 	#var {labelled} {Labelled $label_letter$letter[$label[$label_letter]]};
 };
 
