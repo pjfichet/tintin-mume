@@ -77,15 +77,8 @@
 	#elseif {"%0" != ""} {
 		#var {leader} {%0};
 		#echo {Leader set to $leader\.};
+		showsend lab $leader ga;
 		autoride on;
-		#class {class_leader} {open};
-			#nop highlight {$leader} {bold blue};
-			#highlight {^$leader flee %*.} {bold red};
-			#highlight {^%* sends $leader sprawling with a powerful bash.$} {bold red};
-			#highlight {^$leader leaves %*.} {bold yellow};
-			#highlight {^$leader dismounts} {bold green};
-			#highlight {^$leader picks up} {bold green};
-		#class {class_leader} {close};
 	};
 	#else {
 		#if {"$leader" == "none"} {#echo Leader undefined.};
