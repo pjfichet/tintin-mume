@@ -20,12 +20,12 @@
 
 #alias {castn} {
 	#if { "%2" != ""} {target %2};
-	showsend cast '%1' ${NTARGET}\.${TARGET};
+	showsend cast '%1' $target[$tkey][tnum]\.$target[$tkey][tname];
 };
 
 #alias {castq} {
 	#if { "%2" != ""} {target %2};
-	showsend cast quick '%1' ${NTARGET}\.${TARGET};
+	showsend cast quick '%1' $target[$tkey][tnum]\.$target[$tkey][tname];
 };
 
 #action {^%1 seems to be blinded!$} {

@@ -18,8 +18,8 @@
 #nop quick
 #alias {a} {showsend assist}
 #alias {f} {showsend flee};
-#alias {m} {mood %0};
-#alias {M} {chaweapon};
+#alias {m} {mood %0; modalon};
+#alias {M} {chaweapon; modalon};
 #alias {q} {kill %0};
 #alias {,} {go};
 
@@ -41,7 +41,7 @@
 #alias {br} {vr; bv};
 #alias {bs} {vs; bv};
 #alias {bt} {vt; bv};
-#alias {bv} {showsend bash ${NTARGET}\.${TARGET}};
+#alias {bv} {showsend bash $target[$tkey][tnum]\.$target[$tkey][tname]};
 #alias {bw} {vw; bv};
 #alias {bz} {vz; bv};
 #alias {b1} {v1; bv};
@@ -65,28 +65,42 @@
 #nop door drink
 #alias {dah} {door bar w}; #alias {daj} {door bar s}; #alias {dak} {door bar n};
 #alias {dal} {door bar e}; #alias {dau} {door bar u}; #alias {dan} {door bar d};
+#alias {dad} {showsend bar $door_name}
 #alias {dbh} {door bash w}; #alias {dbj} {door bash s}; #alias {dbk} {door bash n};
 #alias {dbl} {door bash e}; #alias {dbu} {door bash u}; #alias {dbn} {door bash d};
+#alias {dbd} {showsend bash $door_name}
 #alias {dch} {door close w}; #alias {dcj} {door close s}; #alias {dck} {door close n};
 #alias {dcl} {door close e}; #alias {dcu} {door close u}; #alias {dcn} {door close d};
+#alias {dcd} {showsend close $door_name}
 #alias {dgh} {door knock w}; #alias {dgj} {door knock s}; #alias {dgk} {door knock n};
 #alias {dgl} {door knock e}; #alias {dgu} {door knock u}; #alias {dgn} {door knock d};
+#alias {dgd} {showsend knock $door_name}
 #alias {dkh} {door block w}; #alias {dkj} {door block s}; #alias {dkk} {door block n};
 #alias {dkl} {door block e}; #alias {dku} {door block u}; #alias {dkn} {door block d};
-#alias {dlh} {door lock w}; #alias {dlj} {door lock s}; #alias {dlk} {door lock n};
-#alias {dll} {door lock e}; #alias {dlu} {door lock u}; #alias {dln} {door lock d};
+#alias {dkd} {showsend cast 'block' $door_name}
+#alias {dlh} {door close w; door lock w}; #alias {dlj} {door close s; door lock s}; #alias {dlk} {door close n; door lock n};
+#alias {dll} {door close e; door lock e}; #alias {dlu} {door close u; door lock u}; #alias {dln} {door close d; door lock d};
+#alias {dld} {showsend lock $door_name}
 #alias {dnh} {door unbar w}; #alias {dnj} {door unbar s}; #alias {dnk} {door unbar n};
 #alias {dnl} {door unbar e}; #alias {dnu} {door unbar u}; #alias {dnn} {door unbar d};
+#alias {dnd} {showsend unbar $door_name}
 #alias {doh} {door open w}; #alias {doj} {door open s}; #alias {dok} {door open n};
 #alias {dol} {door open e}; #alias {dou} {door open u}; #alias {don} {door open d};
+#alias {dod} {showsend open $door_name}
 #alias {dph} {door pick w}; #alias {dpj} {door pick s}; #alias {dpk} {door pick n};
 #alias {dpl} {door pick e}; #alias {dpu} {door pick u}; #alias {dpn} {door pick d};
+#alias {dpd} {showsend pick $door_name}
 #alias {drh} {door break w}; #alias {drj} {door break s}; #alias {drk} {door break n};
 #alias {drl} {door break e}; #alias {dru} {door break u}; #alias {drn} {door break d};
-#alias {duh} {door unlock w}; #alias {duj} {door unlock s}; #alias {duk} {door unlock n};
-#alias {dul} {door unlock e}; #alias {duu} {door unlock u}; #alias {dun} {door unlock d};
+#alias {drd} {showsend cast 'break door' $door_name}
+#alias {duh} {door unlock w; door open w}; #alias {duj} {door unlock s; door open s}; #alias {duk} {door unlock n; door open n};
+#alias {dul} {door unlock e; door open e}; #alias {duu} {door unlock u; door open u}; #alias {dun} {door unlock d; door open d};
+#alias {dud} {showsend unlock $door_name}
+#alias {)} {showsend open $door_name}
+#alias {=} {showsend close $door_name}
 #alias {dh} {#showme {pick chest\; open chest\; look in chest}; pick chest; open chest; look in chest};
 #alias {dw} {drink water; pour water $recipient};
+
 
 #nop emotes
 #alias {eb} {ebow};
@@ -126,11 +140,11 @@
 #alias {Ht} {lightor_sneak; hide thorough};
 
 #nop leader, look
-#alias {Lb} {backride on};
+#alias {Lb} {backride on; modalon};
 #alias {Lcl} {showsend cast n 'cure light' $leader};
 #alias {Lcb} {showsend cast n 'bless' $leader};
 #alias {Lf} {showsend follow %1};
-#alias {Ln} {leader none};
+#alias {Ln} {leader none; modalon};
 #alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
 #alias {Lr} {#echo {rescue $leader}; #send {rescue $leader}};
 #alias {Ls} {showsend follow self};
@@ -140,14 +154,15 @@
 #alias {LL} {lightor_sneak; look; exit; lightoff_sneak};
 
 #nop path and go
-#alias {pd} {pathdeathshow};
-#alias {pf} {rlabel search %1};
+#alias {pd} {pathdeathshow; modalon};
+#alias {pf} {rlabel search %1; modalon};
 #alias {pg} {pathstep};
 #alias {pk} {pathmark};
 #alias {pl} {getlabel};
-#alias {pm} {pathmarkshow};
+#alias {pm} {pathmarkshow; modalon};
 #alias {pr} {pathrun %0};
-#alias {ps} {pathshow %0};
+#alias {pp} {pathshow %0};
+#alias {ps} {stop};
 
 #nop order charmies and mercs
 #alias {oa} {ask $follower assist};
@@ -162,7 +177,7 @@
 
 #nop ride rest management
 #alias {ra} {aba};
-#alias {rk} {ride behind $leader; backride on};
+#alias {rk} {ride behind $leader; backride on; modalon};
 #alias {ri} {showsend ride %0};
 #alias {rl} {ridelead %0};
 #alias {rz} {ridezblam};
@@ -201,57 +216,77 @@
 #alias {Sn} {showsend search d};
 
 #nop track, time
-#alias {th} {lighton_sneak; showsend track horse; tm};
-#alias {tm} {lighton_sneak; showsend track man*; tm};
-#alias {to} {lighton_sneak; showsend track orc*; to};
+#alias {th} {lighton_sneak; showsend track horse};
+#alias {tm} {lighton_sneak; showsend track man*};
+#alias {to} {lighton_sneak; showsend track orc*};
 #alias {tr} {lightor_sneak; showsend track %0; lightoff_sneak};
-#alias {tt} {lighton_sneak; showsend track troll*; tt};
+#alias {tt} {lighton_sneak; showsend track troll*};
 #alias {tv} {lighton_sneak; tracktarget %0};
-#alias {tw} {lighton_sneak; showsend track woman*; tw};
-#alias {tz} {lighton_sneak; showsend track zaugurz*; tz};
-#alias {ti} {_time_short};
+#alias {tw} {lighton_sneak; showsend track woman*};
+#alias {tz} {lighton_sneak; showsend track zaugurz*};
+#alias {ti} {_time_short; modalon};
 
 #nop target
-#alias {vv} {target %0};
-#alias {va} {target animal};
-#alias {vb} {targetswitch assassin brigand bandit smuggler ruffian thief};
-#alias {vd} {target dunlending};
-#alias {vh} {target shadow};
-#alias {vi} {itarget};
-#alias {vk} {lab k; target k};
-#alias {vl} {lab l; target l};
-#alias {vm} {target man*};
-#alias {vo} {target orc*};
-#alias {vp} {target plant};
-#alias {vr} {rtarget};
-#alias {vs} {targetswitch skeleton spirit soldier};
-#alias {vt} {target troll*};
-#alias {vw} {target woman*};
-#alias {vx} {xtarget};
-#alias {vz} {target zaugurz*};
-#alias {v1} {itarget 1};
-#alias {v2} {itarget 2};
-#alias {v3} {itarget 3};
-#alias {v4} {itarget 4};
-#alias {v5} {itarget 5};
-#alias {v6} {itarget 6};
-#alias {v7} {itarget 7};
-#alias {v8} {itarget 8};
-#alias {v9} {itarget 9};
+#alias {va} {target 1 animal; modalon};
+#alias {vb} {targetswitch assassin brigand bandit smuggler ruffian thief; modalon};
+#alias {vd} {target 1 dunlending; modalon};
+#alias {vf} {target 1 $found; modalon};
+#alias {vg} {target 2 %1; modalon};
+#alias {vh} {target 3 %1; modalon};
+#alias {vi} {itarget; modalon};
+#alias {vj} {target 4 %1; modalon};
+#alias {vm} {target 1 man; modalon};
+#alias {vo} {target 1 orc; modalon};
+#alias {vp} {target 1 plant; modalon};
+#alias {vr} {rtarget; modalon};
+#alias {vs} {targetswitch wraith shadow spirit soldier skeleton; modalon};
+#alias {vt} {target 1 troll; modalon};
+#alias {vw} {target 1 woman; modalon};
+#alias {vx} {xtarget; modalon};
+#alias {vz} {target 1 zaugurz*; modalon};
+#alias {vvm} {target 1 man*; modalon};
+#alias {vvo} {target 1 orc*; modalon};
+#alias {vvt} {target 1 troll*; modalon};
+#alias {vvw} {target 1 woman*; modalon};
+#alias {vvz} {target 1 zaugurz*; modalon};
+#alias {v1} {itarget 1; modalon};
+#alias {v2} {itarget 2; modalon};
+#alias {v3} {itarget 3; modalon};
+#alias {v4} {itarget 4; modalon};
+#alias {v5} {itarget 5; modalon};
+#alias {v6} {itarget 6; modalon};
+#alias {v7} {itarget 7; modalon};
+#alias {v8} {itarget 8; modalon};
+#alias {v9} {itarget 9; modalon};
+
+#nop label
+#alias {vl} {labelize k};
+#alias {vka} {target 1 ka; modalon};
+#alias {vkb} {target 1 kb; modalon};
+#alias {vkc} {target 1 kc; modalon};
+#alias {vkd} {target 1 kd; modalon};
+#alias {vke} {target 1 ke; modalon};
+#alias {vkf} {target 1 kf; modalon};
+#alias {vkg} {target 1 kg; modalon};
+#alias {vkh} {target 1 kh; modalon};
+#alias {vki} {target 1 ki; modalon};
 
 #nop xp counter, exam
-#alias {xa} {reportall};
-#alias {xp} {xpGet};
-#alias {xn} {reporttnl};
-#alias {xs} {reportscore};
-#alias {xt} {tpGet};
-#alias {xx} {xtarget};
+#alias {xa} {reportall; modalon};
+#alias {xp} {xpGet; modalon};
+#alias {xr} {reporttnl; modalon};
+#alias {xs} {reportscore; modalon};
+#alias {xt} {tpGet; modalon};
+#alias {xx} {xtarget; modalon};
 
 #nop shoot
 #alias {ya} {showsend recover all};
-#alias {yf} {showsend shoot ${NTARGET}\.${TARGET}; showsend flee};
-#alias {yg} {go; showsend shoot; showsend flee};
+#alias {yf} {
+	#showme {shoot $target[$tkey][tnum]\.$target[$tkey][tname]\; flee};
+	shoot $target[$tkey][tnum]\.$target[$tkey][tname]; flee
+};
+#alias {yg} {go; yf;}
 #alias {yq} {showsend shoot};
 #alias {yr} {showsend recover};
-#alias {yy} {showsend shoot ${NTARGET}\.${TARGET}};
+#alias {yy} {showsend shoot $target[$tkey][tnum]\.$target[$tkey][tname]};
 

@@ -27,45 +27,45 @@
 
 	#regexp {$prompthp} { HP:{\w+}}
 		{
-			#if {"&1" == "Healhy"} {#var {hp} {<029>###<099>}};
-			#elseif {"&1" == "Fine"} {#var {hp} {<029>## <099>}};
-			#elseif {"&1" == "Hurt"} {#var {hp} {<029>#  <099>}};
-			#elseif {"&1" == "Wounded"} {#var {hp} {<019>###<099>}};
-			#elseif {"&1" == "Bad"} {#var {hp} {<019>## <099>}};
-			#elseif {"&1" == "Awful"} {#var {hp} {<019>#  <099>}};
-			#elseif {"&1" == "Dying"} {#var {hp} {<019>...<099>}};
+			#if {"&1" == "Healhy"} {#var {hp} {6}};
+			#elseif {"&1" == "Fine"} {#var {hp} {5}};
+			#elseif {"&1" == "Hurt"} {#var {hp} {4}};
+			#elseif {"&1" == "Wounded"} {#var {hp} {3}};
+			#elseif {"&1" == "Bad"} {#var {hp} {2}};
+			#elseif {"&1" == "Awful"} {#var {hp} {1}};
+			#elseif {"&1" == "Dying"} {#var {hp} {0}};
 		}
 		{
-			#var {hp} {<029>###<099>}
+			#var {hp} {6}
 		};
 
-	#regexp {$promptopponent} { {\w+}:{\w+}}
+	#regexp {$promptopponent} { {[^:]+}:{\w+}}
 		{
-			#if {"&2" == "Healhy"} {#var {opponent} {<029>###<099>}};
-			#elseif {"&2" == "Fine"} {#var {opponent} {<029>## <099>}};
-			#elseif {"&2" == "Hurt"} {#var {opponent} {<029>#  <099>}};
-			#elseif {"&2" == "Wounded"} {#var {opponent} {<019>###<099>}};
-			#elseif {"&2" == "Bad"} {#var {opponent} {<019>## <099>}};
-			#elseif {"&2" == "Awful"} {#var {opponent} {<019>#  <099>}};
-			#elseif {"&2" == "Dying"} {#var {opponent} {<019>...<099>}};
+			#if {"&2" == "Healhy"} {#var {opponent} {6}};
+			#elseif {"&2" == "Fine"} {#var {opponent} {5}};
+			#elseif {"&2" == "Hurt"} {#var {opponent} {4}};
+			#elseif {"&2" == "Wounded"} {#var {opponent} {3}};
+			#elseif {"&2" == "Bad"} {#var {opponent} {2}};
+			#elseif {"&2" == "Awful"} {#var {opponent} {1}};
+			#elseif {"&2" == "Dying"} {#var {opponent} {0}};
 		}
 		{
-			#var {opponent} {<029>###<099>}
+			#var {opponent} {6}
 		};	
 	#nop regexp {$promptmana} { Mana:{\w+}} {#var {mana} {&1}} {#var {mana} {full}};
 	#nop regexp {$promptmove} { Move:{\w+}} {#var {mv} {&1}} {#var {mv} {full}};
 
-	#var {shortprompt} {$hp $opponent};
+	#var {shortprompt} {$hp/$opponent};
 
 	showmyprompt;
 };
 
 #alias {showmyprompt} {
     #if {"$MODAL" == "on"} {	
-		#showme {<029>${mood} ${spell_speed} ${islight} ${MODAL}<099> $NTARGET\.$TARGET> $MODE} {0};
+		#showme {<029>${mood} ${spell_speed} ${islight} ${MODAL}<099> $target[$tkey][tnum]\.$target[$tkey][tname]> $MODE} {0};
 	};
 	#else {
-		#showme {<029>${mood} ${spell_speed} ${islight} <019>${MODAL}<099> $NTARGET\.$TARGET> } {0};
+		#showme {<029>${mood} ${spell_speed} ${islight} <019>${MODAL}<099> $target[$tkey][tnum]\.$target[$tkey][tname]> } {0};
 
 	};
 };	

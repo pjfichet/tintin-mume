@@ -8,13 +8,15 @@
 #alias {chaweapon} {
 	#if { "$weapon" == "$weapona"} {
 		#var {weapon} {$weaponb};
-		#send {rem $weapona};
+		#send {get $weaponb pack};
 		#send {wield $weaponb};
+		#send {put $weapona pack};
 	};
 	#else {
 		#var {weapon} {$weapona};
-		#send {rem $weaponb};
+		#send {get $weapona pack};
 		#send {wield $weapona};
+		#send {put $weaponb pack};
 	};
 }
 
@@ -43,13 +45,14 @@
 
 #alias {tracktarget} {
 	if { "%0" != ""} {target %0};
-	#send {track ${TARGET}};
+	#showsend track $target[$tkey][tname];
 }
 
 
-#var {TARGET} {animal}
-#var {NTARGET} {1}
-#action {^{A|An} %1 has arrived from the %*.$} {#var {arrived} {%1}}
+#var {tkey} {1}
+#var {target[1][tnum]} {1};
+#var {target[1][tname]} {animal};
+#action {^{A|An} %1 has arrived from the %*.$} {#var {found} {%1}}
 #action {^You have found {a|an} %1!$} {
 	#var {found} {%1};
 	#if {"$found" == "mean brigand"} {#var {found} {brigand}};
@@ -63,67 +66,69 @@
 	#if {"$found" == "mean brigand"} {#var {found} {brigand}};
 }
 
-#action {%* (l) is dead! R.I.P.$} {#var TARGET {animal}; rtarget};
+#nop reset target when labelled on dies.
+#action {%* \(\w\) is dead! R.I.P.$} {target};
 
 #alias kill {
 	#nop hit the target;
 	#if { "%0" != ""} {target %0};
-	#echo {kill ${NTARGET}\.${TARGET}};
-	#send {kill ${NTARGET}\.${TARGET}};
+	showsend kill $target[$tkey][tnum]\.$target[$tkey][tname];
 };
 #alias stab {
 	#nop backstab the target;
 	#if { "%0" != ""} {target %0};
-	#echo {backstab ${NTARGET}\.${TARGET}};
-	#send {backstab ${NTARGET}\.${TARGET}};
+	showsend backstab $target[$tkey][tnum]\.$target[$tkey][tname];
 };
 #alias xtarget {
 	#nop exam the target;
 	#if {"%0" != ""} {exam %0};
 	#else {
-		exam ${NTARGET}\.${TARGET};
-		cons ${NTARGET}\.${TARGET};
+		showsend exam $target[$tkey][tnum]\.$target[$tkey][tname];
+		showsend cons $target[$tkey][tnum]\.$target[$tkey][tname];
 	};
 }
 
 
+
 #alias target {
-	#if { "%0" != ""} {
-		#var {TARGET} {%0};
+	#if { "%0" == ""} {
+		#var {tkey} {1};
+		#var {target[$tkey][tname]} {animal};
 	};
 	#else {
-		#var {TARGET} {animal};
+		#var {tkey} {%1};
+		#if { "%2" != "" } {
+			#var {target[$tkey][tname]} {%2};
+		};
 	};
-	targetnoswitch;
 	rtarget;
+	targetnoswitch;
 };
 	
 
 #alias itarget {
 	#nop increase the target number;
 	#if { "%0" != ""} {
-		#var {NTARGET} {%0};
+		#var {target[$tkey][tnum]} {%1};
 	};
 	#else {
-		#math {NTARGET} {$NTARGET + 1};
+		#math {target[$tkey][tnum]} {$target[$tkey][tnum] + 1};
 	};
-	#echo {Target ${NTARGET}\.${TARGET}\.};
+	#showme {Target $target[$tkey][tnum]\.$target[$tkey][tname]\.};
 };
 
 #alias rtarget {
 	#nop reset the target number to 1;
-	#var {NTARGET} {1};
-	#showme {Target ${NTARGET}\.$TARGET\.};
+	#var {target[$tkey][tnum]} {1};
+	#showme {Target $target[$tkey][tnum]\.$target[$tkey][tname]\.};
+	#nop showmyprompt;
 };
 
-#alias settarget {
-	#var {NTARGET} {%1};
-	#showme {Target ${NTARGET}\.$TARGET\.};
-}
+
 
 #alias targetswitch {
-	#var NTARGET {1};
-	#var TARGET {%1};
+	#var {target[$tkey][tnum]} {1};
+	#var {target[$tkey][tname]} {%1};
 	#action {^Backstab whom?$} {
 		targetswitch %2 %3 %4 %5 %6 %7 %8 %9 %1;
 		#echo {They aren't here. Targetting %2.};
