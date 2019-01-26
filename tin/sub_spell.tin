@@ -71,10 +71,10 @@
 
 #action {^%1 utters the {word|words} '%2'$} {
 	#if {&spells[%2]} {
-		#echo {$shortprompt <059>%1 casts $spells[%2]!<099>}
+		#echo {$shortprompt %1 casts <059>$spells[%2]!<099>}
 	};
 	#else {
-		#echo {$shortprompt <059>%1 casts %2!<099>}
+		#echo {$shortprompt %1 casts <059>%2!<099>}
 	};
 	#line gag
 }
