@@ -1,5 +1,12 @@
+#action {^The %w closes quietly.$} {#var {door_name} {%1}}
 #action {^The %w {is|are} {open|closed}.$} {#var {door_name} {%1}}
+#action {The %w {is|are} opened from the other side.$} {#var {door_name} {%1}}
+#action {^The %w {blur|blurs} for a while.$} {#var {door_name} {%1}}
+#action {^The %w is filled with a bright light.$} {#var {door_name} {%1}}
+#action {opens the %w.$} {#var {door_name} {%1}}
+#action {closes the %w.$} {#var {door_name} {%1}}
 #action {^You skillfully discover a hidden %w.$} {#var {door_name} {%1}}
+
 #nop action {^*%+{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* closes the %*.$} {
 	#var {door_name} {%3};
 };
@@ -8,17 +15,13 @@
 	#var {door_name} {%3};
 };
 
-#action {The %w {is|are} opened from the other side.$} {
-	#var {door_name} {%1};
-};
-
 #action {^The %w {seem|seems} to be closed.$} {
 	#var {door_name} {%1};
 	#if {"$auto_open" == "on"} {#send {open $door_name}};
 	#if {"$door_name" == "greatgates"} {#send {knock $door_name}};
 }
 
-#action {^Exits: %*.$} {#var {door_name} {}};
+#nop action {^Exits: %*.$} {#var {door_name} {}};
 
 #alias {autoopen} {
 	#if {("%1" == "on") || ("%1" == "off")} {#var {auto_open} {%1}};
