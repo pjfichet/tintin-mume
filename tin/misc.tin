@@ -39,18 +39,24 @@
 	#var {recipient} {%1};
 }
 
+#action {^You look up towards the skies and start calling the mighty creatures.$} {
+	#delay {80} {#showme <029>The eagle should arrive soon!<099>};
+	#delay {120} {#showme The eagle will not come.};
+};
+
+#alias {willow} {#showme hunting place:w 1:n 2:w 3:w 4:s 5:w 6:w 7:n 8:w dangerous:n deep:e deep:e willow.}
+
 
 #alias {mkcolordefault} {
 	change colour \
-	emote bold cyan, tell bold cyan, social bold cyan, say bold cyan, \
-	pray bold magenta, shout bold magenta, song bold magenta, yell bold magenta, \
+	emote cyan, tell cyan, social cyan, say cyan, \
+	pray cyan, shout cyan, song cyan, yell cyan, \
 	magic magenta, achievement magenta, \
-	weather cyan, \
+	weather none, \
 	avoid-damage bold blue, miss bold blue, damage red, hit blue, \
 	avoid-damage none, miss none, damage none, hit none, \
-	header green, exit bold yellow, \
-	hit bold black, \
-	movement-in bold yellow, movement-out bold yellow;
+	header green, exit none, \
+	movement-in none, movement-out none;
 }
 
 
