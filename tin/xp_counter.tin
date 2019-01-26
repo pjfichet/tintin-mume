@@ -49,7 +49,7 @@
 
 #alias {reporttnl} {
 	xpGet;
-	say I need $needed_xp xp.
+	showsend say I need $needed_xp xp.;
 }
 
 #alias {reportscore} {
