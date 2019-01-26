@@ -124,6 +124,13 @@ work.
 
 ## Aliases ##
 
+### Mode ###
+
+```
+Space: switch to _writing_ mode.
+Tab: switch to _quick_ mode.
+```
+
 ### Directions ###
 
 ```
@@ -133,12 +140,6 @@ k: north
 l: east
 u: up
 n: down
-H: escape west
-J: escape south
-K: escape north
-L: escape east
-U: escape up
-N: escape down
 ```
 
 ### Important ###
@@ -177,12 +178,12 @@ An: change alertness normal
 
 ```
 bb: bash assassin, brigand, bandit, smuggler, ruffian, thief
-b[a|d|h|p]: bash animal, dunlending, shadow, plant
+b[a|d|p]: bash animal, dunlending, shadow, plant
 b[m|o|t|w|z]: bash man*, orc*, troll*, woman*, zaugurz*
 bs: bash skeleton, spirit, soldier
 bv: bash $target
-vk: label k; bash k
-vl: label l; bash l
+bk[a-l]: bash target labelled k[a-l]
+bl: label target and bash it.
 bq: bash (when engaged)
 bi: bash next.target 
 br: bash 1.target
@@ -214,7 +215,7 @@ cw: create water
 ```
 ca: armour
 cc: cure critic
-cd: cure disease
+cd: shield
 ce: dispel evil
 ch: heal
 ci: blind
@@ -266,6 +267,7 @@ do[h|j|k|l|u|n]: open door $direction
 dp[h|j|k|l|u|n]: pick door $direction
 dr[h|j|k|l|u|n]: break door $direction
 du[h|j|k|l|u|n]: unlock door $direction
+d[abcgklnopru]d: bar|bash|close|knock|block|lock|unbar|open|pick|break|unlock $doorname
 
 dh: pick chest; open chest; look in chest
 ```
@@ -274,6 +276,7 @@ dh: pick chest; open chest; look in chest
 
 ```
 dw: drink water; pour water $recipient
+df: drink $recipient (flagon, flask...);
 ```
 
 ### Emotes ###
@@ -340,12 +343,17 @@ Clerics also have the following aliases:
 
 ```
 Lcc: cure critic $leader
-Lcd: cure disease $leader
 Lch: heal $leader
 Lcn: cure blindness $leader
 Lcp: remove poison $leader
 Lcs: cure serious $leader
 Lcy: sanctuary $leader
+```
+
+### Look ###
+
+```
+LL: look; exit
 ```
 
 ### Order to follower ###
@@ -369,19 +377,12 @@ Clerics also have the following aliases:
 
 ```
 occ: cure critic $follower
-ocd: cure disease $follower
 och: heal $follower
 ocl: cure light $follower
 ocn: cure blindness $follower
 ocp: remove poison $follower
 ocs: cure serious $follower
 ocy: sanctuary $follower
-```
-
-### Look ###
-
-```
-LL: look; exit
 ```
 
 ### Path ###
@@ -404,14 +405,15 @@ the path to that room, and set it as your default destination  with
 `pd`.
 
 ```
-ps: set and show the path to %1
 pd: show the path to death mark
 pf: search for label %1
-pl: get the label of the current room
-pk: mark the current room
-pm: show the path to the last marked room
-pr: run to recorded destination
 pg: go one step toward recorded destination
+pk: mark the current room
+pl: get the label of the current room
+pm: show the path to the last marked room
+pp: set and show the path to %1
+pr: run to recorded destination
+ps: stop running
 ```
 
 ### Ride ###
@@ -486,31 +488,30 @@ with `vi` or reset it to 1 with `vr`.
 
 ```
 vv: target %1
-vb: target assassin, brigand, bandit, smuggler, thief
-v[a|d|h|p]: target animal, dunlending, shadow, plant
-v[m|o|t|w|z]: target man*, orc*, troll*, woman*, zaugurz*
-vs: target skeleton, spirit, soldier
+vb: target assassin, brigand, bandit, smuggler, ruffian, thief
+v[a|d|h|p]: target animal, dunlending, plant
+v[m|o|t|w|z]: target man, orc, troll, woman, zaugurz
+vv[m|o|t|w|z]: target man*, orc*, troll*, woman*, zaugurz*
+v[g|h|j]: set target [g|h|j]
+vf: target $found
+vs: target wraith, shadow, spirit, soldier, skeleton
 vk: label the target `k`, target `k`.
 vl: label the target `l`, target `l`.
 vx: exam $target, cons $target
 vi: increase the target number
 vr: reset the target number to 1
 v[1-9]: set the target number 
+vl: label current target
+vk[a-i]: target label k[a-i]
 ```
 
-### Mode ###
-
-```
-Space: switch to _writing_ mode.
-Tab: switch to _quick_ mode.
-```
 
 #### Xp, exam ###
 
 ```
 xa: report xp and tp
 xp: show xp
-xn: report xp till next level
+xr: report xp till next level
 xs: report score
 xt: show tp
 
