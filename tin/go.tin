@@ -26,7 +26,7 @@
 #alias {goback} {
 	#if {("$last_fled" != "none") && (&reverse_direction[$last_fled])} {
 		#send {$reverse_direction[$last_fled]};
-		#echo {<139>$reverse_direction[$last_fled]<079>};
+		#echo {$reverse_direction[$last_fled]};
 		#var last_fled {none};
 		#if {"$flee_back" == "kill"} {#delay {.3} {kill}};
 		#if {"$flee_back" == "assist"} {#delay {.3} {assist}};
@@ -53,7 +53,7 @@
 	#var {go_by} {track};
 };
 
-#action {^*%+{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* leaves {north|south|east|west|up|down|above|below}{(?: riding .+)?}.$} {
+#action {^*%+{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* leaves {north|south|east|west|up|down|above|below}{(?: riding .+)?}{(?: sneaking)?}.$} {
 	#var {go_follow} {%4};
 	#var {go_by} {follow};
 };
@@ -62,9 +62,7 @@
 	#var last_fled {%1};
 	#var go_by {back};
 	#delay {7} {#var {go_by} {path}};
-	#echo {<139>You flee %1!<079>};
 	#if {"$flee_back" == "run"} {#var {flee_back} {none}; pr};
 	#elseif {"$flee_back" != "none"} {#delay {.3} {go}};
-	#line gag;
 };
 
