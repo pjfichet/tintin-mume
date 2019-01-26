@@ -8,12 +8,12 @@
 #alias {u} {showsend u};
 #alias {n} {showsend d};
 
-#alias {H} {showsend escape w};
-#alias {J} {showsend escape s};
-#alias {K} {showsend esacpe n};
-#alias {L} {showsend escape e};
-#alias {U} {showsend escape u};
-#alias {N} {showsend escape d};
+#nop alias {H} {showsend escape w};
+#nop alias {J} {showsend escape s};
+#nop alias {K} {showsend esacpe n};
+#nop alias {L} {showsend escape e};
+#nop alias {U} {showsend escape u};
+#nop alias {N} {showsend escape d};
 
 #nop quick
 #alias {a} {showsend assist}
@@ -100,6 +100,7 @@
 #alias {=} {showsend close $door_name}
 #alias {dh} {#showme {pick chest\; open chest\; look in chest}; pick chest; open chest; look in chest};
 #alias {dw} {drink water; pour water $recipient};
+#alias {df} {drink $recipient};
 
 
 #nop emotes
@@ -141,8 +142,8 @@
 
 #nop leader, look
 #alias {Lb} {backride on; modalon};
-#alias {Lcl} {showsend cast n 'cure light' $leader};
 #alias {Lcb} {showsend cast n 'bless' $leader};
+#alias {Lcl} {showsend cast n 'cure light' $leader};
 #alias {Lf} {showsend follow %1};
 #alias {Ln} {leader none; modalon};
 #alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
@@ -152,17 +153,6 @@
 #alias {Lw} {showsend wake $leader};
 #alias {Lx} {lightor_sneak; showsend examine $leader; lightoff_sneak};
 #alias {LL} {lightor_sneak; look; exit; lightoff_sneak};
-
-#nop path and go
-#alias {pd} {pathdeathshow; modalon};
-#alias {pf} {rlabel search %1; modalon};
-#alias {pg} {pathstep};
-#alias {pk} {pathmark};
-#alias {pl} {getlabel};
-#alias {pm} {pathmarkshow; modalon};
-#alias {pr} {pathrun %0};
-#alias {pp} {pathshow %0};
-#alias {ps} {stop};
 
 #nop order charmies and mercs
 #alias {oa} {ask $follower assist};
@@ -174,6 +164,17 @@
 #alias {or} {ask $follower ride %1};
 #alias {ot} {ask $follower time};
 #alias {ox} {showsend examine $follower};
+
+#nop path and go
+#alias {pd} {pathdeathshow; modalon};
+#alias {pf} {rlabel search %1; modalon};
+#alias {pg} {pathstep};
+#alias {pk} {pathmark};
+#alias {pl} {getlabel};
+#alias {pm} {pathmarkshow; modalon};
+#alias {pp} {pathshow %0};
+#alias {pr} {pathrun %0};
+#alias {ps} {stop};
 
 #nop ride rest management
 #alias {ra} {aba};
