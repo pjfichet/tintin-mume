@@ -298,23 +298,14 @@ ey: eyes (eemote nods softly; say yes)
 ### Get ###
 
 ```
-ga: get all corpse
-gc: get all.coins all.corpse
-gm: gc; get all.metal all.corpse
-gf: get all (from floor)
-gl: look in corpse
-gL: look in 1 through 9 corpse.
-g[1-9]: look in number.corpse
+gaa: get all
+gac: get all corpse
+gap: get all.coins (pennies) all.corpse
+gam: gap; get all.metal all.corpse; get all.sword all.corpse
+gal: look in corpse
 ```
 
-### Hide ###
-
-```
-Hq: hide quick
-Ht: hide thorough
-```
-
-### Leader ###
+### Group ###
 
 The long alias `leader leader_name` can be used to set up your
 leader. The leader name is also automatically set when someone
@@ -326,28 +317,37 @@ Similarly to `autoride`, you can use `backride` to automatically ride
 behind your leader.
 
 ```
-Lb: toggle backride on or off
-Lcb: cast 'bless' $leader
-Lcl: cast 'cure light' $leader
-Lf: follow $leader
-Ln: set leader to none
-Lp: protect $leader
-Lr: rescue $leader
-Ls: follow self
-Lt: tell $leader
-Lw: wake $leader
-Lx: examine $leader
+gb: toggle backride on or off
+gcb: cast 'bless' $leader
+gcl: cast 'cure light' $leader
+gf: follow %1
+gl: label %1
+gn: set leader to none
+gp: protect $leader
+gr: rescue $leader
+gs: follow self
+gt: tell group %0
+gw: wake $leader
+gx: examine $leader
 ```
 
 Clerics also have the following aliases:
 
 ```
-Lcc: cure critic $leader
-Lch: heal $leader
-Lcn: cure blindness $leader
-Lcp: remove poison $leader
-Lcs: cure serious $leader
-Lcy: sanctuary $leader
+gcc: cure critic $leader
+gch: heal $leader
+gcn: cure blindness $leader
+gcp: remove poison $leader
+gcs: cure serious $leader
+gct: strength $leader
+gcy: sanctuary $leader
+```
+
+### Hide ###
+
+```
+Hq: hide quick
+Ht: hide thorough
 ```
 
 ### Look ###

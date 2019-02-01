@@ -117,41 +117,31 @@
 #alias {eq} {showsend eq};
 
 #nop get
-#alias {ga} {showsend get all corpse};
-#alias {gc} {showsend get all.coins all.corpse};
-#alias {gf} {lightor_sneak; showsend get all; lightoff_sneak};
-#alias {gl} {lightor_sneak; showsend look in corpse; lightoff_sneak};
-#alias {gm} {gc; showsend get all.metal all.corpse};
-#alias {gL} {
-	lightor_sneak;
-	showsend look in 1.corpse;
-	showsend look in 2.corpse;
-	showsend look in 3.corpse;
-	showsend look in 4.corpse;
-	showsend look in 5.corpse;
-	showsend look in 6.corpse;
-	showsend look in 7.corpse;
-	showsend look in 8.corpse;
-	showsend look in 9.corpse;
-	lightoff_sneak
-};
+#alias {gaa} {showsend get all};
+#alias {gac} {showsend get all corpse};
+#alias {gap} {showsend get all.coins all.corpse};
+#alias {gam} {showsend get all.metal all.corpse; showsend get all.sword all.corpse}
+#alias {gal} {lightor_sneak; showsend look in corpse; lightoff_sneak};
+
+#nop group
+#alias {gb} {backride on; modalon};
+#alias {gcb} {showsend cast n 'bless' $leader};
+#alias {gcl} {showsend cast n 'cure light' $leader};
+#alias {gf} {showsend follow %1};
+#alias {gl} {labelize g %1};
+#alias {gn} {leader none; modalon};
+#alias {gp} {#echo {protect $leader}; #send {protect $leader}};
+#alias {gr} {#echo {rescue $leader}; #send {rescue $leader}};
+#alias {gs} {showsend follow self};
+#alias {gt} {tell group %0};
+#alias {gw} {showsend wake $leader};
+#alias {gx} {lightor_sneak; showsend examine $leader; lightoff_sneak};
 
 #nop hide
 #alias {Hq} {lightor_sneak; hide quick};
 #alias {Ht} {lightor_sneak; hide thorough};
 
-#nop leader, look
-#alias {Lb} {backride on; modalon};
-#alias {Lcb} {showsend cast n 'bless' $leader};
-#alias {Lcl} {showsend cast n 'cure light' $leader};
-#alias {Lf} {showsend follow %1};
-#alias {Ln} {leader none; modalon};
-#alias {Lp} {#echo {protect $leader}; #send {protect $leader}};
-#alias {Lr} {#echo {rescue $leader}; #send {rescue $leader}};
-#alias {Ls} {showsend follow self};
-#alias {Lt} {showsend tell $leader %0};
-#alias {Lw} {showsend wake $leader};
-#alias {Lx} {lightor_sneak; showsend examine $leader; lightoff_sneak};
+#nop look
 #alias {LL} {lightor_sneak; look; exit; lightoff_sneak};
 
 #nop order charmies and mercs

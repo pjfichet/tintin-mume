@@ -43,15 +43,15 @@
 #alias {_} {showsend cast 'blind' 8.$target[$tkey][tname]};
 #alias {ç} {showsend cast 'blind' 9.$target[$tkey][tname]};
 
-#alias {Lcb} {showsend cast n 'bless' $leader};
-#alias {Lcc} {showsend cast n 'cure critic' $leader};
-#alias {Lch} {showsend cast n 'heal' $leader};
-#alias {Lcl} {showsend cast n 'cure light' $leader};
-#alias {Lcn} {showsend cast n 'cure blindness' $leader};
-#alias {Lcp} {showsend cast n 'remove poison' $leader};
-#alias {Lcs} {showsend cast n 'cure serious' $leader};
-#alias {Lct} {showsend cast n 'strength' $leader};
-#alias {Lcy} {showsend cast n 'sanctuary' $leader};
+#alias {gcb} {showsend cast n 'bless' $leader};
+#alias {gcc} {showsend cast n 'cure critic' $leader};
+#alias {gch} {showsend cast n 'heal' $leader};
+#alias {gcl} {showsend cast n 'cure light' $leader};
+#alias {gcn} {showsend cast n 'cure blindness' $leader};
+#alias {gcp} {showsend cast n 'remove poison' $leader};
+#alias {gcs} {showsend cast n 'cure serious' $leader};
+#alias {gct} {showsend cast n 'strength' $leader};
+#alias {gcy} {showsend cast n 'sanctuary' $leader};
 
 #alias {ocb} {showsend cast n 'bless' $follower};
 #alias {occ} {showsend cast n 'cure critic' $follower};
