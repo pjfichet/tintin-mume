@@ -126,6 +126,9 @@
 #nop highlight {^You flee %*.} {bold yellow}
 #nop highlight {^You failed to escape the fight!$} {light red}
 
+#nop group
+#highlight {\(g%.\)} {yellow};
+
 
 #nop combat various
 #sub {fighting YOU.$} {fighting <019>YOU<099>.}
