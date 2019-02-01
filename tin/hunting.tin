@@ -8,15 +8,11 @@
 #alias {chaweapon} {
 	#if { "$weapon" == "$weapona"} {
 		#var {weapon} {$weaponb};
-		#send {get $weaponb pack};
-		#send {wield $weaponb};
-		#send {put $weapona pack};
+		#send {draw $weaponb};
 	};
 	#else {
 		#var {weapon} {$weapona};
-		#send {get $weapona pack};
-		#send {wield $weapona};
-		#send {put $weaponb pack};
+		#send {draw $weapona};
 	};
 }
 
