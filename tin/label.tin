@@ -18,12 +18,18 @@
 		#unaction {Ok.};
 		#showme $labelled;
 	};
-	#action {^Exactly whom did you wish to give a label?} {
-		#unaction {^Exactly whom did you wish to give a label?};
-		lab $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]];
-		#var {labelled} {Labelled $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]]};
+	#if {"%2" != ""} {
+		lab %2 $label_letter$letter[$label[$label_letter]];
+		#var {labelled} {Labelled %2 $label_letter$label_letter$letter[$label[$label_letter]]};
 	};
-	lab k$letter[$label[$label_letter]];
-	#var {labelled} {Labelled $label_letter$letter[$label[$label_letter]]};
+	#else {
+		#action {^Exactly whom did you wish to give a label?} {
+			#unaction {^Exactly whom did you wish to give a label?};
+			lab $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]];
+			#var {labelled} {Labelled $target[$tkey][tnum]\.$target[$tkey][tname] $label_letter$letter[$label[$label_letter]]};
+		};
+		lab $label_letter$letter[$label[$label_letter]];
+		#var {labelled} {Labelled $label_letter$letter[$label[$label_letter]]};
+	};
 };
 
