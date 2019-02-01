@@ -15,7 +15,7 @@
 }
 
 
-#action {^%w {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
+#action {^%w{ \(.*\)|} {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
 	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
 		#if { "$ride_back" == "on"} {
 			#if {"%2" == "dismounts from"} {#send {dismount}};
@@ -44,21 +44,21 @@
 	}
 }
 
-#action {^%w reaches up and tries to climb the ladder.$} {
+#action {^%w{ \(.*\)|} reaches up and tries to climb the ladder.$} {
 	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
 		#send {climb ladder};
 	};
 }
-#action {^%w panics, and attempts to flee.$} {
+#action {^%w{ \(.*\)|} panics, and attempts to flee.$} {
 	#if {"%1" == "$leader"} {#bell}
 }
-#action {^{\w+ transfers group leadership to you\.|You leave the group\.|Group disbanded\.|What group\?\!|You are no longer a member of the group\!|You can\'t group with yourself\.}$} {leader none}
-#action {^%w disbands {his|her} group.$} {
+#action {^{\w+{ \(.*\)|} transfers group leadership to you\.|You leave the group\.|Group disbanded\.|What group\?\!|You are no longer a member of the group\!|You can\'t group with yourself\.}$} {leader none}
+#action {^%w{ \(.*\)|} disbands {his|her} group.$} {
 	#if {"%1" == "$leader"} {leader none}
 }
 #action {^You now follow %*.$} {leader %1}
-#action {^You are now a member of %w's group.$} {leader %1}
-#action {^You transfer group leadership to %w.$} {leader %1}
+#action {^You are now a member of %*'s group.$} {leader %1}
+#action {^You transfer group leadership to %*.$} {leader %1}
 #action {^     %w (Head of group)$} {#var {leader} {%1}}
 #action {^%w {(\(\w+\) )?}raises {his|her} {hand|paw}.$} {
 	#if {"$auto_group" == "on"} {#send {group %1}}
@@ -71,13 +71,12 @@
 	#if {"%0" == "none"} {
 		#var {leader} {none};
 		#echo {Leader cleared.};
-		#class {class_leader} {kill};
 		autoride off;
 	};
 	#elseif {"%0" != ""} {
 		#var {leader} {%0};
 		#echo {Leader set to $leader\.};
-		showsend lab $leader gl;
+		#showsend lab $leader gl;
 		autoride on;
 	};
 	#else {
