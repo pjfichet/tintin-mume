@@ -37,7 +37,7 @@
 }
 
 #action {^You feel protected.$} {spellTimerSet shield}
-#action {^Your protection is revitalized.$} {spellTimerSet shield}
+#action {^Your protection is revitalised.$} {spellTimerSet shield}
 #action {^Your magical shield wears off.$} {spellTimerUnset shield}
 #action {^- shield$} {
 	spellTimerStatus shield;
