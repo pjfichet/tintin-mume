@@ -80,14 +80,14 @@
 #sub {(k%.) leaves west} {<179>(k%1)<099> leaves <169><< west <<<099>}
 #sub {(k%.) leaves east} {<179>(k%1)<099> leaves <169>>> east >><099>}
 #sub {(k%.) leaves {up|above}} {<179>(k%1)<099> leaves <169>// up \\\\<099>}
-#sub {(k%.) leaves {down|below}} {<179>(k%1<099> leaves <169>\\\\ down //<099>}
+#sub {(k%.) leaves {down|below}} {<179>(k%1)<099> leaves <169>\\\\ down //<099>}
 
 #sub {(g%.) leaves north} {<139>(g%1)<099> leaves <139>^^ north ^^<099>}
 #sub {(g%.) leaves south} {<139>(g%1)<099> leaves <139>vv south vv<099>}
 #sub {(g%.) leaves west} {<139>(g%1)<099> leaves <139><< west <<<099>}
 #sub {(g%.) leaves east} {<139>(g%1)<099> leaves <139>>> east >><099>}
 #sub {(g%.) leaves {up|above}} {<139>(g%1)<099> leaves <139>// up \\\\<099>}
-#sub {(g%.) leaves {down|below}} {<139>(g%1<099> leaves <139>\\\\ down //<099>}
+#sub {(g%.) leaves {down|below}} {<139>(g%1)<099> leaves <139>\\\\ down //<099>}
 
 #sub {{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* leaves north}
 {%1*<099> leaves <169>^^ north ^^<099>}
