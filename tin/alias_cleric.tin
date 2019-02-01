@@ -4,24 +4,24 @@
 #alias {EE} {castq {dispel evil} {%0}};
 #alias {i} {castn {blind} {%0}};
 #alias {I} {castq {blind} {%0}};
-#alias {z} {castn {lightning bolt} {%0}};
+#alias {z} {castn {dispel evil} {%0}};
 
 #nop cast
 #alias {ca} {showsend cast n 'armour' %0};
 #alias {cc} {showsend cast n 'cure critic' %0};
-#alias {cd} {showsend cast n 'shield' %0};
-#alias {ce} {showsend cast 'dispel evil' %0};
+#alias {ce} {castt {dispel evil} {%0}};
+#alias {cg} {showsend cast n 'shield' %0};
 #alias {ch} {showsend cast n 'heal' %0};
-#alias {ci} {showsend cast 'blind' %0};
+#alias {ci} {castt {blind} %0};
 #alias {cm} {showsend cast n 'summon' %0};
-#alias {cd} {showsend cast n 'cure blindness' %0};
 #alias {co} {showsend cast 'word of recall'};
 #alias {cp} {showsend cast 'remove poison'};
 #alias {cr} {showsend cast 'breath of briskness'};
 #alias {cs} {showsend cast n 'cure serious' %0};
 #alias {ct} {showsend cast n 'strength' %0};
+#alias {cu} {showsend cast n 'cure blindness' %0};
 #alias {cy} {showsend cast n 'sanctuary' %0};
-#alias {cz} {showsend cast 'lightning bolt' {%0}};
+#alias {cz} {castt {lightning bolt} {%0}};
 
 #alias {c1} {showsend cast 'blind' 1.$target[$tkey][tname]};
 #alias {c2} {showsend cast 'blind' 2.$target[$tkey][tname]};
@@ -50,6 +50,7 @@
 #alias {Lcn} {showsend cast n 'cure blindness' $leader};
 #alias {Lcp} {showsend cast n 'remove poison' $leader};
 #alias {Lcs} {showsend cast n 'cure serious' $leader};
+#alias {Lct} {showsend cast n 'strength' $leader};
 #alias {Lcy} {showsend cast n 'sanctuary' $leader};
 
 #alias {ocb} {showsend cast n 'bless' $follower};
@@ -59,5 +60,6 @@
 #alias {ocd} {showsend cast n 'cure blindness' $follower};
 #alias {ocp} {showsend cast n 'remove poison' $follower};
 #alias {ocs} {showsend cast n 'cure serious' $follower};
+#alias {oct} {showsend cast n 'strength' $follower};
 #alias {ocy} {showsend cast n 'sanctuary' $follower};
 
