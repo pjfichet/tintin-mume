@@ -3,13 +3,12 @@ MODAL=tin/modal_common.tin \
 	  tin/modal_cleric.tin \
 	  tin/modal_mage.tin
 
-all: mapperproxy
+all: mapper
 
-mapperproxy-mume:
-	git clone https://github.com/nstockton/mapperproxy-mume.git
-
-mapperproxy: mapperproxy-mume
-	ln -s mapperproxy-mume mapperproxy
+mapper: 
+	git clone https://github.com/nstockton/mapperproxy-mume.git $@
+	ln -sf $@/cacert.pem ./cacert.pem
+	ln -sf $@/data ./data
 
 modal: $(MODAL)
 

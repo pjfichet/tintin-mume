@@ -1,11 +1,3 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-
-# C extensions
-*.so
-
-# Logs
-most_recent.log
-# Mapper debug file
-debug.log
+mapper
+last.log
+log/*

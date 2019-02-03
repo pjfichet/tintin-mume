@@ -27,13 +27,14 @@ You will need tintin++: <http://tintin.sourceforge.net>.
 
 The scripts are supposed to be used with the Mume-mapperproxy by
 Nstockton: <https://github.com/nstockton/mapperproxy-mume>.
-The makefile can install it with the command `make mapperproxy`.
+The makefile can install it with the command `make mapper`.
 
 ### Usage ###
 
 This directory contains a sample character file that you should edit
 to add your character name, password, default wimpy, and to configure
-the scripts to load. Once done, you can play with:
+the scripts to load. Once done, if you have correctly set up the
+mapper, you can play with:
 
 ```sh
     tt++ my_char.tin
