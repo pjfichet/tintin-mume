@@ -15,15 +15,15 @@
 }
 
 
-#action {^%w{ \(.*\)|} {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
+#action {^{[^(]*}{ \(.*\)|} {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
 	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
 		#if { "$ride_back" == "on"} {
-			#if {"%2" == "dismounts from"} {#send {dismount}};
-			#elseif {"%2" == "picks up"} {#send {ride behind $leader}};
+			#if {"%3" == "dismounts from"} {#send {dismount}};
+			#elseif {"%3" == "picks up"} {#send {ride behind $leader}};
 		};
 		#else {
-			#if {"%2" == "dismounts from"} {#send {lead}};
-			#elseif {"%2" == "picks up"} {#send {ride}};
+			#if {"%3" == "dismounts from"} {#send {lead}};
+			#elseif {"%3" == "picks up"} {#send {ride}};
 		};
 	};
 }
@@ -44,21 +44,21 @@
 	}
 }
 
-#action {^%w{ \(.*\)|} reaches up and tries to climb the ladder.$} {
+#action {^%w reaches up and tries to climb the ladder.$} {
 	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
 		#send {climb ladder};
 	};
 }
-#action {^%w{ \(.*\)|} panics, and attempts to flee.$} {
+#action {^%w panics, and attempts to flee.$} {
 	#if {"%1" == "$leader"} {#bell}
 }
-#action {^{\w+{ \(.*\)|} transfers group leadership to you\.|You leave the group\.|Group disbanded\.|What group\?\!|You are no longer a member of the group\!|You can\'t group with yourself\.}$} {leader none}
-#action {^%w{ \(.*\)|} disbands {his|her} group.$} {
+#action {^{\w+ transfers group leadership to you\.|You leave the group\.|Group disbanded\.|What group\?\!|You are no longer a member of the group\!|You can\'t group with yourself\.}$} {leader none}
+#action {^%w disbands {his|her} group.$} {
 	#if {"%1" == "$leader"} {leader none}
 }
 #action {^You now follow %*.$} {leader %1}
-#action {^You are now a member of %*'s group.$} {leader %1}
-#action {^You transfer group leadership to %*.$} {leader %1}
+#action {^You are now a member of %w's group.$} {leader %1}
+#action {^You transfer group leadership to %w.$} {leader %1}
 #action {^     %w (Head of group)$} {#var {leader} {%1}}
 #action {^%w {(\(\w+\) )?}raises {his|her} {hand|paw}.$} {
 	#if {"$auto_group" == "on"} {#send {group %1}}
@@ -71,13 +71,24 @@
 	#if {"%0" == "none"} {
 		#var {leader} {none};
 		#echo {Leader cleared.};
+		#class {class_leader} {kill};
 		autoride off;
 	};
 	#elseif {"%0" != ""} {
 		#var {leader} {%0};
 		#echo {Leader set to $leader\.};
-		labelize g $leader;
+		labelize g $leader
 		autoride on;
+		#class {class_leader} {open};
+			#sub {^$leader leaves north} {$leader leaves <139>^^ north ^^<099>}
+			#sub {^$leader leaves south} {$leader leaves <139>vv south vv<099>}
+			#sub {^$leader leaves west} {$leader leaves <139><< west <<<099>}
+			#sub {^$leader leaves east} {$leader leaves <139>>> east >><099>}
+			#sub {^$leader leaves {up|above}} {$leader leaves <139>// up \\\\<099>}
+			#sub {^$leader leaves {down|below}} {$leader leaves <139>\\\\ down //<099>}
+			#highlight {^$leader dismounts} {bold green};
+			#highlight {^$leader picks up} {bold green};
+		#class {class_leader} {close};
 	};
 	#else {
 		#if {"$leader" == "none"} {#echo Leader undefined.};
