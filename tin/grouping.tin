@@ -16,6 +16,7 @@
 
 
 #action {^{[^(]*}{ \(.*\)|} {picks up|dismounts from} a {pony|dales-pony|horse|warhorse|pack horse|trained horse|horse of the Rohirrim|brown donkey|mountain mule|hungry warg|brown wolf}{( \(\w\))?}{\'s reins and starts|\, and stops} riding {him|her|it}.$} {
+	#showme %1 - %2 - %3;
 	#if {("%1" == "$leader") && ("$auto_ride" == "on")} {
 		#if { "$ride_back" == "on"} {
 			#if {"%3" == "dismounts from"} {#send {dismount}};
@@ -77,17 +78,18 @@
 	#elseif {"%0" != ""} {
 		#var {leader} {%0};
 		#echo {Leader set to $leader\.};
-		labelize g $leader
+		#nop labelize g $leader;
 		autoride on;
 		#class {class_leader} {open};
-			#sub {^$leader leaves north} {$leader leaves <139>^^ north ^^<099>}
-			#sub {^$leader leaves south} {$leader leaves <139>vv south vv<099>}
-			#sub {^$leader leaves west} {$leader leaves <139><< west <<<099>}
-			#sub {^$leader leaves east} {$leader leaves <139>>> east >><099>}
-			#sub {^$leader leaves {up|above}} {$leader leaves <139>// up \\\\<099>}
-			#sub {^$leader leaves {down|below}} {$leader leaves <139>\\\\ down //<099>}
+			#sub {^$leader leaves north} {$leader leaves <139>^^ north ^^<099>};
+			#sub {^$leader leaves south} {$leader leaves <139>vv south vv<099>};
+			#sub {^$leader leaves west} {$leader leaves <139><< west <<<099>};
+			#sub {^$leader leaves east} {$leader leaves <139>>> east >><099>};
+			#sub {^$leader leaves {up|above}} {$leader leaves <139>// up \\\\<099>};
+			#sub {^$leader leaves {down|below}} {$leader leaves <139>\\\\ down //<099>};
 			#highlight {^$leader dismounts} {bold green};
 			#highlight {^$leader picks up} {bold green};
+			#highlight {fighting $leader.} {red};
 		#class {class_leader} {close};
 	};
 	#else {
