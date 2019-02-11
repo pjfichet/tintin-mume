@@ -15,25 +15,26 @@
 #substitute {^NAME:%1:NAME$} {<029>%1<099>}
 
 #nop Map
-#highlight {^A feeling of peace envelops you as you enter the enchanted forest.$} {green}
-#highlight {^The white ship docks at the pier and a gangway is lowered.$} {green}
-#highlight {^The ship is now docked at a pier in Avallone.$} {green}
-#highlight {^The ferry is docked here, ready to be boarded.$} {green}
-#highlight {^The ferry has arrived at the quay and you can now board.$} {green}
-#highlight {^The trees confuse you, making you wander around in circles.$} {red}
-#nop highlight {^Exits:} {bold yellow}
+#highlight {^A feeling of peace envelops you as you enter the enchanted forest.$} {bold green}
+#highlight {^The white ship docks at the pier and a gangway is lowered.$} {bold green}
+#highlight {^The ship is now docked at a pier in Avallone.$} {bold green}
+#highlight {^The ferry is docked here, ready to be boarded.$} {bold green}
+#highlight {^The ferry has arrived at the quay and you can now board.$} {bold green}
+#highlight {^The trees confuse you, making you wander around in circles.$} {bold red}
+#sub {^Exits: %*} {Exits: %1\n}
 
 #nop door
-#sub {^The %1 closes quietly.$} {The <029>%1<099> closes quietly.}
-#sub {^The %w {is|are} {open|closed}.$} {The <029>%1<099> %2 %3.}
-#sub {^You skillfully discover a hidden %w.$} {You skillfully discover a hidden <029>%1<099>.}
-#sub {The %w {is|are} opened from the other side.$} {The <029>%1<099> %2 from the other side.}
-#sub {^The %w {seem|seems} to be closed.$} {The <029>%1<099> %2 to be closed.}
-#sub {opens the %*.$} {opens the <029>%1<099>.}
-#sub {closes the %*.$} {closes the <029>%1<099>.}
-#sub {^The %* {seem|seems} to blur for a while.$} {The <029>%1<099> %2 to <119>blur<099> for a while.}
-#sub {^The %* {blur|blurs} for a while.$} {The <029>%1<099> <129>%2<099> for a while.}
-#sub {^The %* is filled with a bright light.$} {The <029>%1<099> is filled with a <059>bright light<099>.}
+#sub {^The %1 closes quietly.$} {The <129>%1<099> closes quietly.}
+#sub {^The %w {is|are} {open|closed}.$} {The <129>%1<099> %2 %3.}
+#sub {^You skillfully discover a hidden %w.$} {You skillfully discover a hidden <129>%1<099>.}
+#sub {The %w {is|are} opened from the other side.$} {The <129>%1<099> %2 opened from the other side.}
+#sub {^The %w {seem|seems} to be closed.$} {The <129>%1<099> %2 to be closed.}
+#sub {^The %w {close|closes} quietly.$} {The <129>%1<099> %2 quietly.}
+#sub {opens the %*.$} {opens the <129>%1<099>.}
+#sub {closes the %*.$} {closes the <129>%1<099>.}
+#sub {^The %* {seem|seems} to blur for a while.$} {The <129>%1<099> %2 to <059>blur<099> for a while.}
+#sub {^The %* {blur|blurs} for a while.$} {The <129>%1<099> <059>%2<099> for a while.}
+#sub {^The %* is filled with a bright light.$} {The <129>%1<099> is filled with a <059>bright light<099>.}
 
 
 #nop ride
@@ -101,9 +102,11 @@
 {%1*<099> leaves <169>// up \\\\<099>}
 #sub {{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* leaves {down|below}}
 {%1*<099> leaves <169>\\\\ down //<099>}
-#nop sub {^%* has arrived from {(the )?}{north|south|west|east|above}{( riding %*)?}.$} {<109>%1 <149>comes<109> from %2<099>%3<099>%4<099>}
-#nop sub {^%* leaves {north|south|west|east|up|down}{( riding %*)?}.$} {<109>%1 <149>leaves<109> %2<099>%3<099>}
-#nop highlight {^%* has suddenly arrived.} {light blue}
+
+#sub {^%* has arrived from {the north|the south|the west|the east|above|below}{ riding %*| sneaking|}.$} {%1 has <149>arrived<099> from <099>%2<099>%3<099>.}
+#sub {^%* leaves {north|south|west|east|up|down}{ riding %*| sneaking|}.$} {%1 <149>leaves<099> <099>%2<099>%3<099>.}
+#sub {^%* has suddenly arrived.} {%1 has suddenly <149>arrived<099>.}
+
 
 #sub {^You hear a death cry from the north.$} {You hear a <019>death cry<099> from the <169>^^ north ^^<099>.}
 #sub {^You hear a death cry from the south.$} {You hear a <019>death cry<099> from the <169>vv south vv<099>.}
@@ -156,10 +159,7 @@
 #sub {^You {barely |lightly |strongly |}{charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} {.+?} {right |left |}{.+?}{ hard| very hard|extremely hard|}{ and tickle it| and shatter it|}.$}
 {<029>$shortprompt<099> You %1<029>%2<099> %3 %4<099>%5<099>%6<099>%7<099>.};
 #sub {^{[^/]+?} {barely |lightly |strongly |}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} your {right |left |}{.+?}{ hard| very hard|extremely hard|}{ and tickles it| and shatters it|}.$} {<019>$shortprompt<099> %1 %2<019>%3<099> your %4<099>%5<099>%6<099>%7<099>.};
-#sub {^{[^/]+} {barely |lightly |strongly
-|}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips}
-{.+?} {right |left |}{.+?}{ hard| very hard|extremely hard|}{ and
-tickles it| and shatters it|}.$} {$shortprompt<099> %1 %2<099>%3<099> %4<099>%5<099>%6<099>%7<099>%8<099>.};
+#sub {^{[^/]+} {barely |lightly |strongly |}{charges|crushes|slashes|pounds|cleaves|pierces|stabs|shoots|smites|strikes|hits|whips} {.+?}{ right| left| }{.+?}{ hard| very hard|extremely hard|}{ and tickles it| and shatters it|}.$} {$shortprompt<099> %1 %2<099>%3<099> %4<099>%5<099>%6<099>%7<099>%8<099>.};
 
 
 #nop combat warrior
@@ -175,7 +175,7 @@ tickles it| and shatters it|}.$} {$shortprompt<099> %1 %2<099>%3<099> %4<099>%5<
 #sub {^%* heroically rescue %*.$} {$shortprompt %1 heroically <049>rescue<099> %2.}
 
 #nop missiles
-#sub {^%* nocks a missile in %*.$} {<119>$shortprompt<099> %1 nocks a <119>missile<099> in %2.}
+#sub {^%* nocks a missile in %*.$} {<119>$shortprompt<099> %1 nocks a <099>missile<099> in %2.}
 #sub {^Argh!} {<119>$shortprompt Argh!<099>}
 #sub {^SNAP!} {<119>$shortprompt SNAP!<099>}
 #sub {You try to shoot %* but {he|she|it} parries successfully.} {<019>$shortprompt<099> You try to shoot %1 but %2 <019>parries<099> successfully.}
@@ -206,8 +206,8 @@ tickles it| and shatters it|}.$} {$shortprompt<099> %1 %2<099>%3<099> %4<099>%5<
 #sub {^{(You mispronounced the magical words... )?}{(You have a sudden lapse of memory... )?}Your spell backfired!{( You feel exhausted.| You feel your life draining away.| You feel drained.)?}$} {<119>$shortprompt<099> %1<099>%2<119>Your spell backfired!<099>%3}
 #sub {^You failed to control %*.$} {<119>$shortprompt<099> You failed to <119>control<099> %1.}
 #sub {^You fail to call upon the lightning from the sky!$} {<119>$shortprompt<099> You <119>fail<099> to call upon the lightning from the sky!}
-#highlight {Nobody here by that name.} {light red}
-#highlight {Nothing seems to happen.} {light red}
+#sub {^Nothing seems to happen.} {<119>$shortprompt Nothing seems to happen.<099>}
+#highlight {^Nobody here by that name.} {light red}
 
 
 #nop passive spells
@@ -226,6 +226,7 @@ tickles it| and shatters it|}.$} {$shortprompt<099> %1 %2<099>%3<099> %4<099>%5<
 
 
 #nop active spells
+#sub {^You start to concentrate...$} {$shortprompt You start to concentrate...}
 #highlight {^You heal %*.$} {magenta}
 
 #sub {^%* seems to be blinded!$} {<059>$shortprompt<099> %1 seems to be <059>blinded<099>!}
@@ -244,7 +245,8 @@ tickles it| and shatters it|}.$} {$shortprompt<099> %1 %2<099>%3<099> %4<099>%5<
 
 #nop third person spells
 #highlight {^%* lies down and falls asleep.$} {magenta}
-#sub {^%* casts 'Elbereth Gilthoniel' and makes %* shiver in pain.} {$shortprompt %1 casts '<099>Elberreth Gilthoniel<099>' and makes %2 shiver in pain.}
+#sub {^%* cries 'Elbereth Gilthoniel' and makes %* shiver in pain.$} {$shortprompt %1 cries '<099>Elbereth Gilthoniel<099>' and makes %2 shiver in pain.}
+#sub {^%* throws a fireball at %*, completely enveloping it in flames.$} {$shortprompt %A throws a fireball at %2, completely enveloping it in flames.}
 #nop highlight {^%* heals %*.$} {magenta}
 
 #nop white stag
