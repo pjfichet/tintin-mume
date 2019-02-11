@@ -37,7 +37,7 @@
 };
 
 #action {^%1 seems to be blinded!$} {
-	#delay {85} {#showme {<119>Blind will drop on %1.<079>}}
+	#delay {85} {#showme {<119>$shortprompt Blind will drop on %1.<099>}}
 }
 
 
