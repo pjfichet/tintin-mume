@@ -3,7 +3,7 @@
 #alias {em} {#send {emote %0}};
 #alias {eemote} {
 	#var {emote} {%0};
-	#showme {<169>$NAME $emote<079>};
+	#showme {<069>$NAME $emote<099>};
 	#send {emote $emote};
 };
 
