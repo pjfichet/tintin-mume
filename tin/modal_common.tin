@@ -82,7 +82,6 @@
 		#elseif {"$MODE" == "b"} {ba; mode};
 		#elseif {"$MODE" == "d"} {mode da};
 		#elseif {"$MODE" == "g"} {mode ga};
-		#elseif {"$MODE" == "ga"} {gaa; mode};
 		#elseif {"$MODE" == "o"} {oa; mode};
 		#elseif {"$MODE" == "r"} {ra; mode};
 		#elseif {"$MODE" == "s"} {sa; mode};
@@ -151,6 +150,7 @@
 		#elseif {"$MODE" == "d"} {df; mode};
 		#elseif {"$MODE" == "e"} {ef; mode};
 		#elseif {"$MODE" == "g"} {gf; mode};
+		#elseif {"$MODE" == "ga"} {gaf; mode};
 		#elseif {"$MODE" == "p"} {pf; mode};
 		#elseif {"$MODE" == "s"} {sf; mode};
 		#elseif {"$MODE" == "v"} {vf; mode};
@@ -161,6 +161,8 @@
 	#macro {g} {
 		#if {"$MODE" == ""} {mode g};
 		#elseif {"$MODE" == "d"} {mode dg};
+		#elseif {"$MODE" == "g"} {gg; mode};
+		#elseif {"$MODE" == "ga"} {gag; mode};
 		#elseif {"$MODE" == "p"} {pg; mode};
 		#elseif {"$MODE" == "s"} {sg; mode};
 		#elseif {"$MODE" == "v"} {vg; mode};
@@ -185,6 +187,7 @@
 		#elseif {"$MODE" == "dr"} {drh; mode};
 		#elseif {"$MODE" == "du"} {duh; mode};
 		#elseif {"$MODE" == "e"} {eh; mode};
+		#elseif {"$MODE" == "ga"} {gah; mode};
 		#elseif {"$MODE" == "o"} {oh; mode};
 		#elseif {"$MODE" == "s"} {sh; mode};
 		#elseif {"$MODE" == "t"} {th; mode};
@@ -235,6 +238,7 @@
 		#elseif {"$MODE" == "dp"} {dpk; mode};
 		#elseif {"$MODE" == "dr"} {drk; mode};
 		#elseif {"$MODE" == "du"} {duk; mode};
+		#elseif {"$MODE" == "e"} {ek; mode};
 		#elseif {"$MODE" == "p"} {pk; mode};
 		#elseif {"$MODE" == "r"} {rk; mode};
 		#elseif {"$MODE" == "s"} {sk; mode};
@@ -316,7 +320,6 @@
 		#elseif {"$MODE" == "b"} {bp; mode};
 		#elseif {"$MODE" == "d"} {mode dp};
 		#elseif {"$MODE" == "g"} {gp; mode};
-		#elseif {"$MODE" == "ga"} {gap; mode};
 		#elseif {"$MODE" == "p"} {pp; mode};
 		#elseif {"$MODE" == "v"} {vp; mode};
 		#elseif {"$MODE" == "x"} {xp; mode};
@@ -336,6 +339,7 @@
 		#if {"$MODE" == ""} {mode r};
 		#elseif {"$MODE" == "b"} {br; mode};
 		#elseif {"$MODE" == "d"} {mode dr};
+		#elseif {"$MODE" == "e"} {er; mode};
 		#elseif {"$MODE" == "g"} {gr; mode};
 		#elseif {"$MODE" == "o"} {or; mode};
 		#elseif {"$MODE" == "p"} {pr; mode};
@@ -362,6 +366,7 @@
 		#if {"$MODE" == ""} {mode t};
 		#elseif {"$MODE" == "H"} {Ht; mode};
 		#elseif {"$MODE" == "b"} {bt; mode};
+		#elseif {"$MODE" == "e"} {et; mode};
 		#elseif {"$MODE" == "g"} {gt; mode};
 		#elseif {"$MODE" == "o"} {ot; mode};
 		#elseif {"$MODE" == "r"} {rt; mode};

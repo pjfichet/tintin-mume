@@ -125,7 +125,6 @@
 		#elseif {"$MODE" == "c"} {ca; mode};
 		#elseif {"$MODE" == "d"} {mode da};
 		#elseif {"$MODE" == "g"} {mode ga};
-		#elseif {"$MODE" == "ga"} {gaa; mode};
 		#elseif {"$MODE" == "o"} {oa; mode};
 		#elseif {"$MODE" == "r"} {ra; mode};
 		#elseif {"$MODE" == "s"} {sa; mode};
@@ -139,6 +138,7 @@
 		#if {"$MODE" == ""} {mode b};
 		#elseif {"$MODE" == "b"} {bb; mode};
 		#elseif {"$MODE" == "c"} {cb; mode};
+		#elseif {"$MODE" == "cc"} {ccb; mode};
 		#elseif {"$MODE" == "d"} {mode db};
 		#elseif {"$MODE" == "e"} {eb; mode};
 		#elseif {"$MODE" == "g"} {gb; mode};
@@ -167,6 +167,7 @@
 	#macro {d} {
 		#if {"$MODE" == ""} {mode d};
 		#elseif {"$MODE" == "b"} {bd; mode};
+		#elseif {"$MODE" == "c"} {cd; mode};
 		#elseif {"$MODE" == "da"} {dad; mode};
 		#elseif {"$MODE" == "db"} {dbd; mode};
 		#elseif {"$MODE" == "dc"} {dcd; mode};
@@ -200,6 +201,7 @@
 		#elseif {"$MODE" == "d"} {df; mode};
 		#elseif {"$MODE" == "e"} {ef; mode};
 		#elseif {"$MODE" == "g"} {gf; mode};
+		#elseif {"$MODE" == "ga"} {gaf; mode};
 		#elseif {"$MODE" == "p"} {pf; mode};
 		#elseif {"$MODE" == "s"} {sf; mode};
 		#elseif {"$MODE" == "v"} {vf; mode};
@@ -211,6 +213,8 @@
 		#if {"$MODE" == ""} {mode g};
 		#elseif {"$MODE" == "c"} {cg; mode};
 		#elseif {"$MODE" == "d"} {mode dg};
+		#elseif {"$MODE" == "g"} {gg; mode};
+		#elseif {"$MODE" == "ga"} {gag; mode};
 		#elseif {"$MODE" == "p"} {pg; mode};
 		#elseif {"$MODE" == "s"} {sg; mode};
 		#elseif {"$MODE" == "v"} {vg; mode};
@@ -236,6 +240,7 @@
 		#elseif {"$MODE" == "dr"} {drh; mode};
 		#elseif {"$MODE" == "du"} {duh; mode};
 		#elseif {"$MODE" == "e"} {eh; mode};
+		#elseif {"$MODE" == "ga"} {gah; mode};
 		#elseif {"$MODE" == "gc"} {gch; mode};
 		#elseif {"$MODE" == "o"} {oh; mode};
 		#elseif {"$MODE" == "oc"} {och; mode};
@@ -290,6 +295,7 @@
 		#elseif {"$MODE" == "dp"} {dpk; mode};
 		#elseif {"$MODE" == "dr"} {drk; mode};
 		#elseif {"$MODE" == "du"} {duk; mode};
+		#elseif {"$MODE" == "e"} {ek; mode};
 		#elseif {"$MODE" == "p"} {pk; mode};
 		#elseif {"$MODE" == "r"} {rk; mode};
 		#elseif {"$MODE" == "s"} {sk; mode};
@@ -375,7 +381,6 @@
 		#elseif {"$MODE" == "c"} {cp; mode};
 		#elseif {"$MODE" == "d"} {mode dp};
 		#elseif {"$MODE" == "g"} {gp; mode};
-		#elseif {"$MODE" == "ga"} {gap; mode};
 		#elseif {"$MODE" == "gc"} {gcp; mode};
 		#elseif {"$MODE" == "oc"} {ocp; mode};
 		#elseif {"$MODE" == "p"} {pp; mode};
@@ -398,6 +403,7 @@
 		#elseif {"$MODE" == "b"} {br; mode};
 		#elseif {"$MODE" == "c"} {cr; mode};
 		#elseif {"$MODE" == "d"} {mode dr};
+		#elseif {"$MODE" == "e"} {er; mode};
 		#elseif {"$MODE" == "g"} {gr; mode};
 		#elseif {"$MODE" == "o"} {or; mode};
 		#elseif {"$MODE" == "p"} {pr; mode};
@@ -428,6 +434,7 @@
 		#elseif {"$MODE" == "H"} {Ht; mode};
 		#elseif {"$MODE" == "b"} {bt; mode};
 		#elseif {"$MODE" == "c"} {ct; mode};
+		#elseif {"$MODE" == "e"} {et; mode};
 		#elseif {"$MODE" == "g"} {gt; mode};
 		#elseif {"$MODE" == "gc"} {gct; mode};
 		#elseif {"$MODE" == "o"} {ot; mode};
