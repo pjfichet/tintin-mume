@@ -21,20 +21,20 @@
 #highlight {^The ferry is docked here, ready to be boarded.$} {bold green}
 #highlight {^The ferry has arrived at the quay and you can now board.$} {bold green}
 #highlight {^The trees confuse you, making you wander around in circles.$} {bold red}
-#sub {^Exits: %*} {Exits: %1\n}
+#sub {^Exits: %*} {Exits: %1}
 
 #nop door
-#sub {^The %1 closes quietly.$} {The <029>%1<099> closes quietly.}
-#sub {^The %w {is|are} {open|closed}.$} {The <029>%1<099> %2 %3.}
-#sub {^You skillfully discover a hidden %w.$} {You skillfully discover a hidden <029>%1<099>.}
-#sub {The %w {is|are} opened from the other side.$} {The <029>%1<099> %2 opened from the other side.}
-#sub {^The %w {seem|seems} to be closed.$} {The <029>%1<099> %2 to be closed.}
-#sub {^The %w {close|closes} quietly.$} {The <029>%1<099> %2 quietly.}
-#sub {opens the %*.$} {opens the <029>%1<099>.}
-#sub {closes the %*.$} {closes the <029>%1<099>.}
-#sub {^The %* {seem|seems} to blur for a while.$} {The <029>%1<099> %2 to <059>blur<099> for a while.}
-#sub {^The %* {blur|blurs} for a while.$} {The <029>%1<099> <059>%2<099> for a while.}
-#sub {^The %* is filled with a bright light.$} {The <029>%1<099> is filled with a <059>bright light<099>.}
+#sub {^The %1 closes quietly.$} {The <139>%1<099> closes quietly.}
+#sub {^The %w {is|are} {open|closed}.$} {The <139>%1<099> %2 %3.}
+#sub {^You skillfully discover a hidden %w.$} {You skillfully discover a hidden <139>%1<099>.}
+#sub {The %w {is|are} opened from the other side.$} {The <139>%1<099> %2 opened from the other side.}
+#sub {^The %w {seem|seems} to be closed.$} {The <139>%1<099> %2 to be closed.}
+#sub {^The %w {close|closes} quietly.$} {The <139>%1<099> %2 quietly.}
+#sub {opens the %*.$} {opens the <139>%1<099>.}
+#sub {closes the %*.$} {closes the <139>%1<099>.}
+#sub {^The %* {seem|seems} to blur for a while.$} {The <139>%1<099> %2 to <059>blur<099> for a while.}
+#sub {^The %* {blur|blurs} for a while.$} {The <139>%1<099> <059>%2<099> for a while.}
+#sub {^The %* is filled with a bright light.$} {The <139>%1<099> is filled with a <059>bright light<099>.}
 
 
 #nop ride
@@ -83,12 +83,12 @@
 #sub {(k%.) leaves {up|above}} {<179>(k%1)<099> leaves <169>// up \\\\<099>}
 #sub {(k%.) leaves {down|below}} {<179>(k%1)<099> leaves <169>\\\\ down //<099>}
 
-#sub {(g%.) leaves north} {<139>(g%1)<099> leaves <139>^^ north ^^<099>}
-#sub {(g%.) leaves south} {<139>(g%1)<099> leaves <139>vv south vv<099>}
-#sub {(g%.) leaves west} {<139>(g%1)<099> leaves <139><< west <<<099>}
-#sub {(g%.) leaves east} {<139>(g%1)<099> leaves <139>>> east >><099>}
-#sub {(g%.) leaves {up|above}} {<139>(g%1)<099> leaves <139>// up \\\\<099>}
-#sub {(g%.) leaves {down|below}} {<139>(g%1)<099> leaves <139>\\\\ down //<099>}
+#sub {(g%.) leaves north} {<149>(g%1)<099> leaves <149>^^ north ^^<099>}
+#sub {(g%.) leaves south} {<149>(g%1)<099> leaves <149>vv south vv<099>}
+#sub {(g%.) leaves west} {<149>(g%1)<099> leaves <149><< west <<<099>}
+#sub {(g%.) leaves east} {<149>(g%1)<099> leaves <149>>> east >><099>}
+#sub {(g%.) leaves {up|above}} {<149>(g%1)<099> leaves <149>// up \\\\<099>}
+#sub {(g%.) leaves {down|below}} {<149>(g%1)<099> leaves <149>\\\\ down //<099>}
 
 #sub {{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* leaves north}
 {%1*<099> leaves <169>^^ north ^^<099>}
@@ -108,25 +108,26 @@
 #sub {^%* has suddenly arrived.} {%1 has suddenly <149>arrived<099>.}
 
 
-#sub {^You hear a death cry from the north.$} {You hear a <019>death cry<099> from the <169>^^ north ^^<099>.}
-#sub {^You hear a death cry from the south.$} {You hear a <019>death cry<099> from the <169>vv south vv<099>.}
-#sub {^You hear a death cry from the west.$} {You hear a <019>death cry<099> from the <169><< west <<<099>.}
-#sub {^You hear a death cry from the east.$} {You hear a <019>death cry<099> from the <169>>> east >><099>.}
-#sub {^You hear a death cry from above.$} {You hear a <019>death cry<099> from <169>// above \\\\<099>.}
-#sub {^You hear a death cry from below.$} {You hear a <019>death cry<099> from <169>\\\\ below //<099>.}
+#sub {^You hear a death cry from the north.$} {You hear a <139>death cry<099> from the <169>^^ north ^^<099>.}
+#sub {^You hear a death cry from the south.$} {You hear a <139>death cry<099> from the <169>vv south vv<099>.}
+#sub {^You hear a death cry from the west.$} {You hear a <139>death cry<099> from the <169><< west <<<099>.}
+#sub {^You hear a death cry from the east.$} {You hear a <139>death cry<099> from the <169>>> east >><099>.}
+#sub {^You hear a death cry from above.$} {You hear a <139>death cry<099> from <169>// above \\\\<099>.}
+#sub {^You hear a death cry from below.$} {You hear a <139>death cry<099> from <169>\\\\ below //<099>.}
 
 
 #nop flee
 #gag {^You flee head over heels.$}
 #gag {^You seek to escape...$}
 #sub {^PANIC! You {couldn't escape|can't quit the fight}!$} {<119>Panic!<099>}
-#sub {^You flee north.$} {<119>$shortprompt<099> You flee <119>^^ north ^^<099>.}
-#sub {^You flee south.$} {<119>$shortprompt<099> You flee <119>vv south vv<099>.}
-#sub {^You flee west.$} {<119>$shortprompt<099> You flee <119><< west <<<099>.}
-#sub {^You flee east.$} {<119>$shortprompt<099> You flee <119>>> east >><099>.}
-#sub {^You flee up.$} {<119>$shortprompt<099> You flee <119>// up \\\\<099>.}
-#sub {^You flee down.$} {<119>$shortprompt<099> You flee <119>\\\\ down //<099>.}
+#sub {^You flee north.$} {<099>$shortprompt<099> You flee <139>^^ north ^^<099>.}
+#sub {^You flee south.$} {<099>$shortprompt<099> You flee <139>vv south vv<099>.}
+#sub {^You flee west.$} {<099>$shortprompt<099> You flee <139><< west <<<099>.}
+#sub {^You flee east.$} {<099>$shortprompt<099> You flee <139>>> east >><099>.}
+#sub {^You flee up.$} {<099>$shortprompt<099> You flee <139>// up \\\\<099>.}
+#sub {^You flee down.$} {<099>$shortprompt<099> You flee <139>\\\\ down //<099>.}
 #sub {^You failed to escape the fight!$} {<119>$shortprompt You failed to escape the fight!<099>}
+#sub {%* panics and attempts to flee.} {<139>$shortprompt<099> %1 <139>panics<099> and attempts to flee.}
 
 #nop group
 #highlight {\(g%.\)} {yellow};
@@ -135,28 +136,32 @@
 #nop combat various
 #sub {fighting YOU.$} {fighting <019>YOU<099>.}
 #highlight {\(k%.\)} {bold white};
+#sub {^Ooops! You fumble... and hit yourself HARD!$} {<019>$shortprompt<099> Ooops! You fumble... and <019>hit yourself<099> HARD!}
 #sub {^Your victim is shocked by your hit!$} {<029>$shortprompt<099> Your victim is <029>shocked<099> by your hit!}
 #sub {^You feel a sharp pain there!$} {<019>$shortprompt<099> You feel a sharp <019>pain<099> there!}
-#sub {^%* quickly approaches} {<019>$shortprompt<099> %1 quickly <019>approaches<099>}
+#sub {^%* quickly approaches} {<139>$shortprompt<099> %1 quickly <139>approaches<099>}
 #sub {^{[^/]+} tries to {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} you, but your parry is successful.$} {<029>$shortprompt<099> %1 tries to %2 you, but your <029>parry<099> is successful.}
-#sub {^%* joins your fight.$} {<029>$shortprompt<099> %1 <029>joins<099> your fight.}
+#sub {^%* joins your fight.$} {<049>$shortprompt<099> %1 <049>joins<099> your fight.}
 #sub {^%* joins %*'s fight.$} {$shortprompt %1 <049>joins<099> %2's fight.}
 #sub {You swiftly dodge} {<029>$shortprompt<099> You swiftly <029>dodge<099>}
 #sub {^%* swiftly dodges your attempt to {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} it.} {<019>$shortprompt<099> %1 swiftly <019>dodges<099> your attempt to %2 it.}
 #sub {^%* is mortally wounded and will die soon if not aided.$} {<029>$shortprompt<099> %1 is mortally wounded and will <029>die<099> soon if not aided.}
-#sub {^%* is incapacitated and will slowly die, if not aided.$} {<029>$shortprompt<099> %1 is incapacitated and will slowyly <029>die<099>, if not aided.}
+#sub {^%* is incapacitated and will slowly die, if not aided.$} {<029>$shortprompt<099> %1 is incapacitated and will slowly <129>die<099>, if not aided.}
 #sub {^%* is stunned and will probably die soon.$} {<029>$shortprompt<099> %1 is stunned and will probably <029>die<099> soon.}
 #gag {You hear %*'s death cry as {he|she|it} collapses.}
-#highlight {%* is dead! R.I.P.} {green}
-#highlight {^%* disappears into nothing.$} {green}
+#highlight {%* is dead! R.I.P.} {light green}
+#highlight {^%* disappears into nothing.$} {light green}
 #sub {^%* bleeds from open wounds.} {<029>$shortprompt<099> %1 <029>bleeds<099> from open wounds.}
 #sub {You bleed from open wounds.} {<019>$shortprompt<099> You <019>bleed<099> from open wounds.}
 #highlight {^They aren't here.} {light red}
+#sub {^A shadow slowly rises above the corpse of %*.$} {A <139>shadow<099> slowly rises above the corpse of %1.}
+#sub {^No way! You are fighting for your life!$} {<119>$shortprompt No way! You are fighting for your life!<099>}
 
 
 #nop combat fighting
 #sub {You try to {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} %* but {he|she|it} parries successfully.} {<019>$shortprompt<099> You try to %1 %2 but %3 <019>parries<099> successfully.}
 #sub {%* dodges your attempt to {charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} it.} {<019>$shortprompt<099> %1 <019>dodges<099> your attempt to %2 it.}
+#sub {Your head stops stinging.} {<139>$shortprompt Your head stops stinging.<099>}
 
 #sub {^You {barely |lightly |strongly |}{charge|crush|slash|pound|cleave|pierce|stab|shoot|smite|strike|hit|whip} {.+?} {right |left |}{.+?}{ hard| very hard|extremely hard|}{ and tickle it| and shatter it|}.$}
 {<029>$shortprompt<099> You %1<029>%2<099> %3 %4<099>%5<099>%6<099>%7<099>.};
@@ -165,20 +170,20 @@
 
 #nop combat warrior
 #sub {^Your bash at %* sends {him|her|it} sprawling.$} {<129>$shortprompt<099> Your <129>bash<099> at %1 sends %2 sprawling.}
-#sub {^As %* avoids your bash, you topple over and lose your balance.$} {<019>$shortprompt<099> As %1 <019>avoids<099> your bash, you topple over and lose your balance.}
-#sub {^%* seems to have recovered {his|her|its} senses.$} {<019>$shortprompt<099> %1 seems to have <019>recovered<099> %2 senses.}
-#sub {^%* sends you sprawling with a powerful bash.$} {<119>$shortprompt<099> %1 sends you <119>sprawling<099> with a powerful <119>bash<099>.}
+#sub {^As %* avoids your bash, you topple over and lose your balance.$} {<139>$shortprompt<099> As %1 <139>avoids<099> your bash, you topple over and lose your balance.}
+#sub {^%* seems to have recovered {his|her|its} senses.$} {<139>$shortprompt<099> %1 seems to have <139>recovered<099> %2 senses.}
+#sub {^%* sends you sprawling with a powerful bash.$} {<119>$shortprompt %1 sends you sprawling with a powerful bash<099>.}
 #sub{^{[^/]*} send %* \(g%.\) sprawling with a powerful bash.$} {<019>$shortprompt<099> %1 sends %2 \(g%.\) <119>sprawling<099> with a powerful bash.}
-#sub {^{[^/]*} sends %* sprawling with a powerful bash.$} {<049>$shortprompt<099> %1 sends %2 sprawling with a powerful <099>bash<099>.}
+#sub {^{[^/]*} sends %* sprawling with a powerful bash.$} {<139>$shortprompt<099> %1 sends %2 <139>sprawling<099> with a powerful <139>bash<099>.}
 #sub {^You dodge a bash from %* who loses {his|her|its} balance.$} {<029>$shortprompt<099> You dodge a <029>bash<099> from %1 who loses %2 balance.}
 #sub {^Heroically you come to %*'s rescue!$} {<029>$shortprompt<099> Heroically you come to %1's <029>rescue<099>!}
-#sub {^You are rescued by %*, you are confused!$} {<029>$shortprompt<099> You are <029>rescued<099> by %1, you are confused!$}
+#sub {^You are rescued by %*, you are confused!$} {<129>$shortprompt<099> You are <129>rescued<099> by <129>%1<099>, you are confused!}
 #sub {^%* heroically rescue %*.$} {$shortprompt %1 heroically <049>rescue<099> %2.}
 
 #nop missiles
-#sub {^%* nocks a missile in %*.$} {<119>$shortprompt<099> %1 nocks a <099>missile<099> in %2.}
-#sub {^Argh!} {<119>$shortprompt Argh!<099>}
-#sub {^SNAP!} {<119>$shortprompt SNAP!<099>}
+#sub {^%* nocks a missile in %*.$} {$shortprompt %1 <139>nocks<099> a missile in %2.}
+#sub {^Argh! %*} {<119>$shortprompt Argh! %1<099>}
+#sub {^SNAP! %*} {<119>$shortprompt SNAP! %1<099>}
 
 #nop stab
 #highlight {^For a successful backstab you need to be wielding a suitable weapon.$} {light red}
@@ -199,18 +204,24 @@
 #nop failed spells
 #nop sub {^Aye!} {<119>$shortprompt Aye!<099>}
 #nop sub {^Alas} {<119>$shortprompt Alas<099>}
-#sub {^Argh! You cannot concentrate any more...$} {<119>$shortprompt<099> Aye! You cannot <119>contentrate<099> any more...}
-#sub {^Aye! You cannot concentrate any more...$} {<119>$shortprompt<099> Aye! You cannot <119>contentrate<099> any more...}
-#sub {^Alas, not enough mana flows through you...$} {<119>$shortprompt<099> Alas, not enough <119>mana<099> flows through you...}
-#sub {^{(You mispronounced the magical words... )?}{(You have a sudden lapse of memory... )?}Your spell backfired!{( You feel exhausted.| You feel your life draining away.| You feel drained.)?}$} {<119>$shortprompt<099> %1<099>%2<119>Your spell backfired!<099>%3}
-#sub {^You failed to control %*.$} {<119>$shortprompt<099> You failed to <119>control<099> %1.}
-#sub {^You fail to call upon the lightning from the sky!$} {<119>$shortprompt<099> You <119>fail<099> to call upon the lightning from the sky!}
-#sub {^Nothing seems to happen.} {<119>$shortprompt Nothing seems to happen.<099>}
-#highlight {^Nobody here by that name.} {light red}
+#sub {^Your victim has disappeared!$} {<119>$shortprompt<099> Your victim has <119>disappeared<099>!}
+#sub {^Argh! You cannot concentrate any more...$} {<139>$shortprompt<099> Aye! You cannot <139>contentrate<099> any more...}
+#sub {^Aye! You cannot concentrate any more...$} {<139>$shortprompt<099> Aye! You cannot <139>contentrate<099> any more...}
+#sub {^Alas, not enough mana flows through you...$} {<139>$shortprompt<099> Alas, not enough <139>mana<099> flows through you...}
+#sub {^{(You mispronounced the magical words... )?}{(You have a sudden lapse of memory... )?}Your spell backfired!{( You feel exhausted.| You feel your life draining away.| You feel drained.)?}$} {<139>$shortprompt<099> %1<099>%2<139>Your spell backfired!<099>%3}
+#sub {^Alas! There was no clear line of sight to {him|her|it}!$} {<139>$shortprompt Alas! There was no clear line of sight to %1!<099>}
+#sub {^Alas! The melee is to dense to target {him|her|it} safely!$} {<139>$shortprompt Alas! The melee is to dense to target %1 safely!<099>}
+#sub {^You failed to control %*.$} {<139>$shortprompt<099> You failed to <139>control<099> %1.}
+#sub {^You fail to call upon the lightning from the sky!$} {<139>$shortprompt<099> You <139>fail<099> to call upon the lightning from the sky!}
+#sub {^Nothing seems to happen.} {<139>$shortprompt Nothing seems to happen.<099>}
+#highlight {^Nobody here by that name.} {light yellow}
+#highlight {^What should the spell be cast upon?} {light yellow}
+#highlight {^You were unable to keep your concentration while moving} {light yellow}
 
 
 #nop passive spells
-#sub {%* begins some strange incantations...$} {<119>$shortprompt %0<099>}
+#sub {^*%+{Orc|Troll|Man|Woman|Elf|Half-Elf|Dwarf|Hobbit|Bear|Numenorean|N\xFAmen\xF3rean}* begins some strange incantations...$} {<139>$shortprompt %0<099>}
+#sub {^%* begins some strange incantations...$} {<139>$shortprompt<099> %1 begins some strange <139>incantations<099>...}
 #sub {%* burns you.$} {<119>$shortprompt<099> %1 <119>burns<099> you.}
 #sub {%* sends a powerful lightning bolt at you, you stagger from the impact.} {<119>$shortprompt<099> %1 sends a powerful lightning <019>bolt<099> at you, you stagger from the impact.};
 #highlight {^You shiver and feel a watchful eye on you... Someone is searching you!$} {light red}
@@ -229,6 +240,7 @@
 #highlight {^You heal %*.$} {magenta}
 
 #sub {^%* seems to be blinded!$} {<059>$shortprompt<099> %1 seems to be <059>blinded<099>!}
+#sub {^Your victim is already blind.$} {<139>$shortprompt<099> <139>Your victim is already blind.<099>}
 #sub {^As you call upon Elbereth, %* shivers in pain.$} {<059>$shortprompt<099> As you call upon <059>Elbereth<099>, %1 shivers in pain.}
 #sub {^%* is dissolved by your goodness.$} {<059>$shortprompt<099> %1 is <059>dissolved<099> by your goodness.}
 #sub {^As you call on ancient powers, %* twists in great pain.$} {<059>$shortprompt<099> As you call on <059>ancient powers<099>, %1 twists in great pain.}
@@ -244,9 +256,10 @@
 
 #nop third person spells
 #highlight {^%* lies down and falls asleep.$} {magenta}
-#sub {^%* cries 'Elbereth Gilthoniel' and makes %* shiver in pain.$} {$shortprompt %1 cries '<099>Elbereth Gilthoniel<099>' and makes %2 shiver in pain.}
+#sub {^%* cries 'Elbereth Gilthoniel' and makes %* shiver in pain.$} {$shortprompt %1 cries 'Elbereth Gilthoniel' and makes %2 shiver in pain.}
 #sub {^%* throws a fireball at %*, completely enveloping it in flames.$} {$shortprompt %A throws a fireball at %2, completely enveloping it in flames.}
 #nop highlight {^%* heals %*.$} {magenta}
+#sub {^%* staggers back as the lightning bolt sent by %* hits {him|her|it}.} {$shortprompt %1 staggers back as the lightning bolt sent by %2 hits %3.}
 
 #nop white stag
 #sub {^{The white stag appears from the trees to the} {north|east|south|west}.$}
@@ -266,4 +279,9 @@
 #sub {^{The white stag makes a great leap} {north|east|south|west}ward.$}
 	{%1 <179>%2ward<099>.}
 
-
+#nop glowing sword
+#sub {%*'s {sword|shortsword} starts to glow very brightly!$} {%1's %2 starts to <059>glow<099> very brightly!}
+#sub {%*'s {sword|shortsword} now glows with a pale blue light.$} {%1's %2 now <059>glows<099> with a pale blue light.}
+#sub {%*'s {sword|shortsword} glows less brightly.$} {%1's %2 <059>glows<099> less brightly.}
+#sub {The glow on %*'s {sword|shortsword} is now just a faint glimmer.} {The <059>glow<099> on %1's %2 is now just a faint glimmer.}
+#sub {The bluish glow on %*'s {sword|shortsword} fades entirely.$} {The bluish <059>glow<099> on %1's %2 fades entirely.}
