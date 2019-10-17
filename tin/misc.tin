@@ -61,4 +61,16 @@
 	movement-in none, movement-out none;
 }
 
-
+#alias {pipe} {
+	get pipe pack;
+	get pipe-weed pack;
+	put pipe-weed pipe;
+	rem sword;
+	hold pipe;
+	rest;
+	smoke pipe;
+	stand;
+	rem pipe;
+	wield sword;
+	put pipe pack;
+}
