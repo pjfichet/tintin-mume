@@ -34,16 +34,35 @@
 #var {door_name} {}
 
 #alias {door} {
-	#nop {%1: action, %2 direction};
+	#nop {%1: action, %2 door name, %3: direction};
 	#var {dooraction} {%1};
-	#var {doordir} {%2};
 	#if {"$dooraction" == "block"} {
 		#var {dooraction} {cast 'block door'};
 	};
 	#elseif {"$dooraction" == "break"} {
 		#var {dooraction} {cast 'break door'};
 	};
-	#showme {$dooraction exit $doordir};
-	#send {secretaction $dooraction $doordir};
+	#if {"%3" == ""} {
+		#if {"%2" != ""} {#var {door_name} {%2}};
+		#showme $dooraction $door_name;
+		#send {$dooraction $door_name};
+	};
+	#else {
+		#showme {$dooraction exit %3};
+		#send {secretaction $dooraction %3};
+	};
 };
+
+#alias {da} {door bar %0};
+#alias {db} {door bash %0};
+#alias {dc} {door close %0};
+#alias {dg} {door knock %0};
+#alias {dk} {door block %0};
+#alias {dl} {door lock %0};
+#alias {dn} {door unbar %0};
+#alias {do} {door open %0};
+#alias {dp} {door pick %0};
+#alias {dr} {door break %0};
+#alias {ds} {#showme Door name: $door_name};
+#alias {du} {door unlock %0};
 

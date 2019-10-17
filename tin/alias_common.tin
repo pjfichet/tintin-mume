@@ -17,7 +17,7 @@
 
 #nop quick
 #alias {a} {showsend assist}
-#alias {f} {showsend flee};
+#alias {f} {#cr; showsend flee};
 #alias {m} {mood %0; modalon};
 #alias {M} {chaweapon; modalon};
 #alias {q} {kill %0};
@@ -44,15 +44,17 @@
 #alias {bv} {showsend bash $target[$tkey][tnum]\.$target[$tkey][tname]};
 #alias {bw} {vw; bv};
 #alias {bz} {vz; bv};
-#alias {b1} {v1; bv};
-#alias {b2} {v2; bv};
-#alias {b3} {v3; bv};
-#alias {b4} {v4; bv};
-#alias {b5} {v5; bv};
-#alias {b6} {v6; bv};
-#alias {b7} {v7; bv};
-#alias {b8} {v8; bv};
-#alias {b9} {v9; bv};
+
+#alias {b1} {showsend bash 1.$target[$tkey][tname]};
+#alias {b2} {showsend bash 2.$target[$tkey][tname]};
+#alias {b3} {showsend bash 3.$target[$tkey][tname]};
+#alias {b4} {showsend bash 4.$target[$tkey][tname]};
+#alias {b5} {showsend bash 5.$target[$tkey][tname]};
+#alias {b6} {showsend bash 6.$target[$tkey][tname]};
+#alias {b7} {showsend bash 7.$target[$tkey][tname]};
+#alias {b8} {showsend bash 8.$target[$tkey][tname]};
+#alias {b9} {showsend bash 9.$target[$tkey][tname]};
+
 
 #nop cast
 #alias {cb} {showsend cast n 'bless' %0};
@@ -63,38 +65,38 @@
 #alias {cw} {showsend cast n 'create water' %0};
 
 #nop door drink
-#alias {dah} {door bar w}; #alias {daj} {door bar s}; #alias {dak} {door bar n};
-#alias {dal} {door bar e}; #alias {dau} {door bar u}; #alias {dan} {door bar d};
+#alias {dah} {door bar exit w}; #alias {daj} {door bar exit s}; #alias {dak} {door bar exit n};
+#alias {dal} {door bar exit e}; #alias {dau} {door bar exit u}; #alias {dan} {door bar exit d};
 #alias {dad} {showsend bar $door_name}
-#alias {dbh} {door bash w}; #alias {dbj} {door bash s}; #alias {dbk} {door bash n};
-#alias {dbl} {door bash e}; #alias {dbu} {door bash u}; #alias {dbn} {door bash d};
+#alias {dbh} {door bash exit w}; #alias {dbj} {door bash exit s}; #alias {dbk} {door bash exit n};
+#alias {dbl} {door bash exit e}; #alias {dbu} {door bash exit u}; #alias {dbn} {door bash exit d};
 #alias {dbd} {showsend bash $door_name}
-#alias {dch} {door close w}; #alias {dcj} {door close s}; #alias {dck} {door close n};
-#alias {dcl} {door close e}; #alias {dcu} {door close u}; #alias {dcn} {door close d};
+#alias {dch} {door close exit w}; #alias {dcj} {door close exit s}; #alias {dck} {door close exit n};
+#alias {dcl} {door close exit e}; #alias {dcu} {door close exit u}; #alias {dcn} {door close exit d};
 #alias {dcd} {showsend close $door_name}
-#alias {dgh} {door knock w}; #alias {dgj} {door knock s}; #alias {dgk} {door knock n};
-#alias {dgl} {door knock e}; #alias {dgu} {door knock u}; #alias {dgn} {door knock d};
+#alias {dgh} {door knock exit w}; #alias {dgj} {door knock exit s}; #alias {dgk} {door knock exit n};
+#alias {dgl} {door knock exit e}; #alias {dgu} {door knock exit u}; #alias {dgn} {door knock exit d};
 #alias {dgd} {showsend knock $door_name}
-#alias {dkh} {door block w}; #alias {dkj} {door block s}; #alias {dkk} {door block n};
-#alias {dkl} {door block e}; #alias {dku} {door block u}; #alias {dkn} {door block d};
+#alias {dkh} {door block exit w}; #alias {dkj} {door block exit s}; #alias {dkk} {door block exit n};
+#alias {dkl} {door block exit e}; #alias {dku} {door block exit u}; #alias {dkn} {door block exit d};
 #alias {dkd} {showsend cast 'block' $door_name}
-#alias {dlh} {door close w; door lock w}; #alias {dlj} {door close s; door lock s}; #alias {dlk} {door close n; door lock n};
-#alias {dll} {door close e; door lock e}; #alias {dlu} {door close u; door lock u}; #alias {dln} {door close d; door lock d};
+#alias {dlh} {door close exit w; door lock exit w}; #alias {dlj} {door close exit s; door lock exit s}; #alias {dlk} {door close exit n; door lock exit n};
+#alias {dll} {door close exit e; door lock exit e}; #alias {dlu} {door close exit u; door lock exit u}; #alias {dln} {door close exit d; door lock exit d};
 #alias {dld} {showsend lock $door_name}
-#alias {dnh} {door unbar w}; #alias {dnj} {door unbar s}; #alias {dnk} {door unbar n};
-#alias {dnl} {door unbar e}; #alias {dnu} {door unbar u}; #alias {dnn} {door unbar d};
+#alias {dnh} {door unbar exit w}; #alias {dnj} {door unbar exit s}; #alias {dnk} {door unbar exit n};
+#alias {dnl} {door unbar exit e}; #alias {dnu} {door unbar exit u}; #alias {dnn} {door unbar exit d};
 #alias {dnd} {showsend unbar $door_name}
-#alias {doh} {door open w}; #alias {doj} {door open s}; #alias {dok} {door open n};
-#alias {dol} {door open e}; #alias {dou} {door open u}; #alias {don} {door open d};
+#alias {doh} {door open exit w}; #alias {doj} {door open exit s}; #alias {dok} {door open exit n};
+#alias {dol} {door open exit e}; #alias {dou} {door open exit u}; #alias {don} {door open exit d};
 #alias {dod} {showsend open $door_name}
-#alias {dph} {door pick w}; #alias {dpj} {door pick s}; #alias {dpk} {door pick n};
-#alias {dpl} {door pick e}; #alias {dpu} {door pick u}; #alias {dpn} {door pick d};
+#alias {dph} {door pick exit w}; #alias {dpj} {door pick exit s}; #alias {dpk} {door pick exit n};
+#alias {dpl} {door pick exit e}; #alias {dpu} {door pick exit u}; #alias {dpn} {door pick exit d};
 #alias {dpd} {showsend pick $door_name}
-#alias {drh} {door break w}; #alias {drj} {door break s}; #alias {drk} {door break n};
-#alias {drl} {door break e}; #alias {dru} {door break u}; #alias {drn} {door break d};
+#alias {drh} {door break exit w}; #alias {drj} {door break exit s}; #alias {drk} {door break exit n};
+#alias {drl} {door break exit e}; #alias {dru} {door break exit u}; #alias {drn} {door break exit d};
 #alias {drd} {showsend cast 'break door' $door_name}
-#alias {duh} {door unlock w; door open w}; #alias {duj} {door unlock s; door open s}; #alias {duk} {door unlock n; door open n};
-#alias {dul} {door unlock e; door open e}; #alias {duu} {door unlock u; door open u}; #alias {dun} {door unlock d; door open d};
+#alias {duh} {door unlock exit w; door open exit w}; #alias {duj} {door unlock exit s; door open exit s}; #alias {duk} {door unlock exit n; door open exit n};
+#alias {dul} {door unlock exit e; door open exit e}; #alias {duu} {door unlock exit u; door open exit u}; #alias {dun} {door unlock exit d; door open exit d};
 #alias {dud} {showsend unlock $door_name}
 #alias {)} {showsend open $door_name}
 #alias {=} {showsend close $door_name}
@@ -111,6 +113,7 @@
 #alias {ei} {eintriguing};
 #alias {er} {eroar};
 #alias {et} {etear};
+#alias {ek} {eknow};
 #alias {el} {elaugh};
 #alias {es} {esmile};
 #alias {en} {eno};
@@ -119,16 +122,18 @@
 #alias {eq} {showsend eq};
 
 #nop get
-#alias {gaa} {showsend get all};
+#alias {gaf} {showsend get all};
 #alias {gac} {showsend get all corpse};
-#alias {gap} {showsend get all.coins all.corpse};
+#alias {gag} {showsend get all.coins all.corpse};
 #alias {gam} {showsend get all.metal all.corpse; showsend get all.sword all.corpse}
 #alias {gal} {lightor_sneak; showsend look in corpse; lightoff_sneak};
+#alias {gah} {showsend give all h};
 
 #nop group
 #alias {gb} {backride on; modalon};
 #alias {gcb} {showsend cast n 'bless' $leader};
 #alias {gcl} {showsend cast n 'cure light' $leader};
+#alias {gg} {group %1};
 #alias {gf} {showsend follow %1};
 #alias {gl} {labelize g %1};
 #alias {gn} {leader none; modalon};
@@ -279,7 +284,7 @@
 	shoot $target[$tkey][tnum]\.$target[$tkey][tname]; flee
 };
 #alias {yg} {go; yf;}
-#alias {yq} {showsend shoot};
+#alias {yq} {showsend shoot $target[$tkey][tnum]\.$target[$tkey][tname]};
+#alias {yy} {showsend shoot};
 #alias {yr} {showsend recover};
-#alias {yy} {showsend shoot $target[$tkey][tnum]\.$target[$tkey][tname]};
 
