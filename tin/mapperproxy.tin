@@ -6,4 +6,4 @@ from mapper.mapper.main import main
 
 #gts
 
-#mapper main(outputFormat="tintin", interface="sighted")
+#mapper main(outputFormat="tintin", interface="sighted", promptTerminator=None, gagPrompts=False, findFormat="{vnum}, {name}, {attribute}", localHost="127.0.0.1", localPort=4000, remoteHost="mume.org", remotePort=4242, noSsl=False)
