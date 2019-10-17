@@ -1,4 +1,4 @@
-#sub {^%1 begins some strange incantations...$} {<119>%1 is casting!<099>}
+#nop sub {^%1 begins some strange incantations...$} {<139>%1 is casting!<099>}
 
 #var spells[abrawajf] {armour}
 #var spells[bfzahp ay bfugtizgg] {breath of briskness}
