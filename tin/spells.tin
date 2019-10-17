@@ -27,17 +27,17 @@
 };
 
 #alias {castn} {
-	#if { "%2" != ""} {target %2};
+	#if { "%2" != ""} {target 2 %2};
 	showsend cast '%1' $target[$tkey][tnum]\.$target[$tkey][tname];
 };
 
 #alias {castq} {
-	#if { "%2" != ""} {target %2};
+	#if { "%2" != ""} {target 2 %2};
 	showsend cast quick '%1' $target[$tkey][tnum]\.$target[$tkey][tname];
 };
 
 #action {^%1 seems to be blinded!$} {
-	#delay {85} {#showme {<119>$shortprompt Blind will drop on %1.<099>}}
+	#delay {85} {#showme {<139>$shortprompt Blind will drop on %1.<099>}}
 }
 
 
