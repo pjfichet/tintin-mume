@@ -118,3 +118,6 @@
 #sub {^The queen bat is here, emitting piercing squeaks.$} {%0 [9?]}
 #sub {^The shadowy wight of a bodyguard stands here.$} {%0 [19]}
 #sub {^The wild ox seems ready to charge you.$} {%0 [8]}
+#sub {^A swift and agile forest cat moves silently through the vegetation.$} {%0 [3]}
+#sub {^A sharp-eyed hawk is here stalking some prey.$} {%0 [4]}
+#sub {^A black snake, with red markings, is lying here.$} {%0 [5]}
