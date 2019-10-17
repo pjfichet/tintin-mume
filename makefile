@@ -7,9 +7,9 @@ MODAL=tin/modal_common.tin \
 all: mapper
 
 mapper: 
+	test -d data || mkdir data
 	git clone https://github.com/nstockton/mapperproxy-mume.git $@
-	ln -sf $@/cacert.pem ./cacert.pem
-	ln -sf $@/data ./data
+	cp $@/data/*.sample data/
 
 modal: $(MODAL)
 
