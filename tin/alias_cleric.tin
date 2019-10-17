@@ -8,6 +8,8 @@
 
 #nop cast
 #alias {ca} {showsend cast n 'armour' %0};
+#alias {cd} {castt {divination} {%0}};
+#alias {ccb} {showsend cast n 'cure blindness' %0};
 #alias {cc} {showsend cast n 'cure critic' %0};
 #alias {ce} {castt {dispel evil} {%0}};
 #alias {cg} {showsend cast n 'shield' %0};
@@ -19,7 +21,7 @@
 #alias {cr} {showsend cast 'breath of briskness'};
 #alias {cs} {showsend cast n 'cure serious' %0};
 #alias {ct} {showsend cast n 'strength' %0};
-#alias {cu} {showsend cast n 'cure blindness' %0};
+#alias {cu} {castn {burning hands} {%0}};
 #alias {cy} {showsend cast n 'sanctuary' %0};
 #alias {cz} {castt {lightning bolt} {%0}};
 
